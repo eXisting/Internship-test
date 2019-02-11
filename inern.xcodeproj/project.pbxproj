@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		DB0660E921F793D5007F6989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0660E821F793D5007F6989 /* AppDelegate.swift */; };
-		DB0660EB21F793D5007F6989 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0660EA21F793D5007F6989 /* ViewController.swift */; };
-		DB0660EE21F793D5007F6989 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB0660EC21F793D5007F6989 /* Main.storyboard */; };
 		DB0660F021F793D9007F6989 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB0660EF21F793D9007F6989 /* Assets.xcassets */; };
 		DB0660F321F793DA007F6989 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB0660F121F793DA007F6989 /* LaunchScreen.storyboard */; };
-		DB0660FE21F793DA007F6989 /* inernTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0660FD21F793DA007F6989 /* inernTests.swift */; };
-		DB06610921F793DA007F6989 /* inernUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB06610821F793DA007F6989 /* inernUITests.swift */; };
+		DB3BFA52221194C80074EE25 /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BFA51221194C80074EE25 /* DataBaseManager.swift */; };
+		DB3BFA5C2211A7060074EE25 /* DepartmentBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB3BFA5A2211A7060074EE25 /* DepartmentBook.xcdatamodeld */; };
+		DB3BFA672211BFB00074EE25 /* EmployeeProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BFA662211BFB00074EE25 /* EmployeeProfile.swift */; };
+		DB3BFA692211C4930074EE25 /* EmployeeProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BFA682211C4930074EE25 /* EmployeeProfileController.swift */; };
+		DBA6F3E322118AC8003ABF10 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F3E222118AC8003ABF10 /* MainNavigationController.swift */; };
+		DBA6F3E522118B12003ABF10 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F3E422118B12003ABF10 /* MainTableViewController.swift */; };
+		DBA6F3E722118FD4003ABF10 /* EmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F3E622118FD4003ABF10 /* EmployeeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,18 +38,19 @@
 
 /* Begin PBXFileReference section */
 		DB0660E521F793D5007F6989 /* inern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = inern.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB0660E821F793D5007F6989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DB0660EA21F793D5007F6989 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DB0660ED21F793D5007F6989 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DB0660E821F793D5007F6989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = /Users/andreypopazov/Desktop/inern/inern/AppDelegate.swift; sourceTree = "<absolute>"; };
 		DB0660EF21F793D9007F6989 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB0660F221F793DA007F6989 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB0660F421F793DA007F6989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB0660F921F793DA007F6989 /* inernTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = inernTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB0660FD21F793DA007F6989 /* inernTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inernTests.swift; sourceTree = "<group>"; };
-		DB0660FF21F793DA007F6989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB06610421F793DA007F6989 /* inernUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = inernUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB06610821F793DA007F6989 /* inernUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inernUITests.swift; sourceTree = "<group>"; };
-		DB06610A21F793DA007F6989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB3BFA51221194C80074EE25 /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
+		DB3BFA5B2211A7060074EE25 /* DepartmentBook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DepartmentBook.xcdatamodel; sourceTree = "<group>"; };
+		DB3BFA662211BFB00074EE25 /* EmployeeProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfile.swift; sourceTree = "<group>"; };
+		DB3BFA682211C4930074EE25 /* EmployeeProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfileController.swift; sourceTree = "<group>"; };
+		DBA6F3E222118AC8003ABF10 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		DBA6F3E422118B12003ABF10 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		DBA6F3E622118FD4003ABF10 /* EmployeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +82,6 @@
 			isa = PBXGroup;
 			children = (
 				DB0660E721F793D5007F6989 /* inern */,
-				DB0660FC21F793DA007F6989 /* inernTests */,
-				DB06610721F793DA007F6989 /* inernUITests */,
 				DB0660E621F793D5007F6989 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -97,32 +99,75 @@
 		DB0660E721F793D5007F6989 /* inern */ = {
 			isa = PBXGroup;
 			children = (
-				DB0660E821F793D5007F6989 /* AppDelegate.swift */,
-				DB0660EA21F793D5007F6989 /* ViewController.swift */,
-				DB0660EC21F793D5007F6989 /* Main.storyboard */,
-				DB0660EF21F793D9007F6989 /* Assets.xcassets */,
-				DB0660F121F793DA007F6989 /* LaunchScreen.storyboard */,
-				DB0660F421F793DA007F6989 /* Info.plist */,
+				DB3BFA4F221193F70074EE25 /* Models */,
+				DBA6F3EC2211921F003ABF10 /* Assets */,
+				DBA6F3EA221191A5003ABF10 /* Application */,
+				DBA6F3E922119105003ABF10 /* UI */,
 			);
 			path = inern;
 			sourceTree = "<group>";
 		};
-		DB0660FC21F793DA007F6989 /* inernTests */ = {
+		DB3BFA4F221193F70074EE25 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DB0660FD21F793DA007F6989 /* inernTests.swift */,
-				DB0660FF21F793DA007F6989 /* Info.plist */,
 			);
-			path = inernTests;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		DB06610721F793DA007F6989 /* inernUITests */ = {
+		DB3BFA502211949F0074EE25 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				DB06610821F793DA007F6989 /* inernUITests.swift */,
-				DB06610A21F793DA007F6989 /* Info.plist */,
+				DB3BFA51221194C80074EE25 /* DataBaseManager.swift */,
+				DB3BFA5A2211A7060074EE25 /* DepartmentBook.xcdatamodeld */,
 			);
-			path = inernUITests;
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		DBA6F3E8221190EB003ABF10 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DBA6F3E222118AC8003ABF10 /* MainNavigationController.swift */,
+				DBA6F3E422118B12003ABF10 /* MainTableViewController.swift */,
+				DB3BFA682211C4930074EE25 /* EmployeeProfileController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DBA6F3E922119105003ABF10 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				DB0660F121F793DA007F6989 /* LaunchScreen.storyboard */,
+				DBA6F3E622118FD4003ABF10 /* EmployeeCell.swift */,
+				DB3BFA662211BFB00074EE25 /* EmployeeProfile.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		DBA6F3EA221191A5003ABF10 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DB3BFA502211949F0074EE25 /* CoreData */,
+				DBA6F3EB2211920D003ABF10 /* Main */,
+				DBA6F3E8221190EB003ABF10 /* Controllers */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		DBA6F3EB2211920D003ABF10 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DB0660E821F793D5007F6989 /* AppDelegate.swift */,
+				DB0660F421F793DA007F6989 /* Info.plist */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		DBA6F3EC2211921F003ABF10 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				DB0660EF21F793D9007F6989 /* Assets.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,7 +276,6 @@
 			files = (
 				DB0660F321F793DA007F6989 /* LaunchScreen.storyboard in Resources */,
 				DB0660F021F793D9007F6989 /* Assets.xcassets in Resources */,
-				DB0660EE21F793D5007F6989 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,8 +300,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB0660EB21F793D5007F6989 /* ViewController.swift in Sources */,
+				DB3BFA52221194C80074EE25 /* DataBaseManager.swift in Sources */,
+				DBA6F3E322118AC8003ABF10 /* MainNavigationController.swift in Sources */,
+				DBA6F3E722118FD4003ABF10 /* EmployeeCell.swift in Sources */,
+				DBA6F3E522118B12003ABF10 /* MainTableViewController.swift in Sources */,
+				DB3BFA5C2211A7060074EE25 /* DepartmentBook.xcdatamodeld in Sources */,
 				DB0660E921F793D5007F6989 /* AppDelegate.swift in Sources */,
+				DB3BFA672211BFB00074EE25 /* EmployeeProfile.swift in Sources */,
+				DB3BFA692211C4930074EE25 /* EmployeeProfileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +315,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB0660FE21F793DA007F6989 /* inernTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +322,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB06610921F793DA007F6989 /* inernUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +341,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DB0660EC21F793D5007F6989 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DB0660ED21F793D5007F6989 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DB0660F121F793DA007F6989 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -434,7 +474,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A3P55P4RYT;
-				INFOPLIST_FILE = inern/Info.plist;
+				INFOPLIST_FILE = inern/Application/Main/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -452,7 +492,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A3P55P4RYT;
-				INFOPLIST_FILE = inern/Info.plist;
+				INFOPLIST_FILE = inern/Application/Main/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -586,6 +626,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DB3BFA5A2211A7060074EE25 /* DepartmentBook.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DB3BFA5B2211A7060074EE25 /* DepartmentBook.xcdatamodel */,
+			);
+			currentVersion = DB3BFA5B2211A7060074EE25 /* DepartmentBook.xcdatamodel */;
+			path = DepartmentBook.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DB0660DD21F793D5007F6989 /* Project object */;
 }
