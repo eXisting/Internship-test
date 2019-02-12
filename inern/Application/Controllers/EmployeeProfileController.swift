@@ -11,9 +11,13 @@ import UIKit
 class EmployeeProfileController: UIViewController {
   private var mainView: EmployeeProfile!
   
+  private let titleName = "Profile"
+  
+  var profile: Employee?
+  
   override func loadView() {
     super.loadView()
-    self.title = "Employee profile"
+    self.tabBarItem.title = titleName
     
     mainView = EmployeeProfile(frame: self.view.frame)
     self.view = mainView
@@ -24,7 +28,7 @@ class EmployeeProfileController: UIViewController {
   private func setupFields() {
     // (self.view as! EmployeeProfile)
   }
-    
+  
   @objc func save() {
     print("Saved")
   }

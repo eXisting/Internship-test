@@ -10,6 +10,7 @@
 		DB0660E921F793D5007F6989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0660E821F793D5007F6989 /* AppDelegate.swift */; };
 		DB0660F021F793D9007F6989 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB0660EF21F793D9007F6989 /* Assets.xcassets */; };
 		DB0660F321F793DA007F6989 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB0660F121F793DA007F6989 /* LaunchScreen.storyboard */; };
+		DB0F28F0221302E900784EE5 /* AddMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0F28EF221302E900784EE5 /* AddMoreViewController.swift */; };
 		DB3BFA52221194C80074EE25 /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BFA51221194C80074EE25 /* DataBaseManager.swift */; };
 		DB3BFA5C2211A7060074EE25 /* DepartmentBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB3BFA5A2211A7060074EE25 /* DepartmentBook.xcdatamodeld */; };
 		DB3BFA672211BFB00074EE25 /* EmployeeProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BFA662211BFB00074EE25 /* EmployeeProfile.swift */; };
@@ -44,6 +45,7 @@
 		DB0660F421F793DA007F6989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB0660F921F793DA007F6989 /* inernTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = inernTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB06610421F793DA007F6989 /* inernUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = inernUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB0F28EF221302E900784EE5 /* AddMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoreViewController.swift; sourceTree = "<group>"; };
 		DB3BFA51221194C80074EE25 /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
 		DB3BFA5B2211A7060074EE25 /* DepartmentBook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DepartmentBook.xcdatamodel; sourceTree = "<group>"; };
 		DB3BFA662211BFB00074EE25 /* EmployeeProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfile.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				DBA6F3E222118AC8003ABF10 /* MainNavigationController.swift */,
 				DBA6F3E422118B12003ABF10 /* MainTableViewController.swift */,
 				DB3BFA682211C4930074EE25 /* EmployeeProfileController.swift */,
+				DB0F28EF221302E900784EE5 /* AddMoreViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				DBA6F3E522118B12003ABF10 /* MainTableViewController.swift in Sources */,
 				DB3BFA5C2211A7060074EE25 /* DepartmentBook.xcdatamodeld in Sources */,
 				DB0660E921F793D5007F6989 /* AppDelegate.swift in Sources */,
+				DB0F28F0221302E900784EE5 /* AddMoreViewController.swift in Sources */,
 				DB3BFA672211BFB00074EE25 /* EmployeeProfile.swift in Sources */,
 				DB3BFA692211C4930074EE25 /* EmployeeProfileController.swift in Sources */,
 			);

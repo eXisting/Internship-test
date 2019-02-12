@@ -13,6 +13,8 @@ class EmployeeCell: UITableViewCell {
   var role: UILabel?
   var photo: UIImageView?
   
+  var employee: Employee?
+  
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     
@@ -20,6 +22,8 @@ class EmployeeCell: UITableViewCell {
     laidOutLabels()
     
     accessoryType = .disclosureIndicator
+    
+    employee = Employee()
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -27,8 +31,10 @@ class EmployeeCell: UITableViewCell {
   }
   
   private func laidOutImage() {
-    let photoOrign = CGPoint.zero
-    let photoSize = CGSize(width: self.frame.width / 4, height: self.frame.height)
+    let halfHeight = MainTableViewController.defaultRowHeight / 2
+    
+    let photoSize = CGSize(width: self.frame.width / 4, height: halfHeight)
+    let photoOrign = CGPoint(x: self.frame.width * 0.05, y: halfHeight / 2)
     let photoFrame = CGRect.init(origin: photoOrign, size: photoSize)
     
     photo = UIImageView(frame: photoFrame)
