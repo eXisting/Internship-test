@@ -12,6 +12,7 @@ class AddMoreViewController: UIViewController {
   private(set) var mainView: AddEntityView!
   
   private let titleName = "Add more"
+  lazy var imagePicker = UIImagePickerController()
   
   override func loadView() {
     super.loadView()
@@ -24,9 +25,18 @@ class AddMoreViewController: UIViewController {
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(save))
   }
   
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+  
   private func addTargets() {
     mainView.departmentManager?.addTarget(self, action: #selector(selectManager), for: .touchDown)
+    let singleTap = UITapGestureRecognizer(target: self, action: #selector(chooseImage))
+    mainView.employeeProfileView?.addGestureRecognizer(singleTap)
   }
+  
+  // MARK: - Objc methods
   
   @objc func save() {
     self.navigationController?.popViewController(animated: true)
@@ -40,11 +50,27 @@ class AddMoreViewController: UIViewController {
     self.navigationController?.pushViewController(controller, animated: true)
   }
   
-  private func onSelectManager(_ manager: String) {
-    mainView.departmentManager?.text = manager
-  }
-  
   @objc func toggleState() {
     mainView.toggleVisibleStack()
+  }
+
+  @objc func chooseImage() {
+    let cameraAction =  UIAlertAction(title: "Camera", style: .default, handler: { _ in
+      self.openCamera()
+    })
+    
+    let galleryAction = UIAlertAction(title: "Gallery", style: .default, handler: { _ in
+      self.openGallary()
+    })
+
+    AlertController.showChoose(for: self, title: "Choose image", cameraAction, galleryAction)
+    
+    imagePicker.delegate = self
+    imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+    imagePicker.allowsEditing = false
+  }
+  
+  private func onSelectManager(_ manager: String) {
+    mainView.departmentManager?.text = manager
   }
 }

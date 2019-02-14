@@ -9,15 +9,15 @@
 import UIKit
 
 class EmployeeProfile: UIView {
-  private var profileImage: UIImageView?
+  var profileImage: UIImageView?
+  
+  var name: UITextField?
+  var role: UITextField?
+  var phone: UITextField?
+  var email: UITextField?
   
   private var infoStack: UIStackView?
-  
-  private var name: UITextField?
-  private var role: UITextField?
-  private var phone: UITextField?
-  private var email: UITextField?
-  
+
   override init(frame: CGRect) {
     super.init(frame: frame)
     
