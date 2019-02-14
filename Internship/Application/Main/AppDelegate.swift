@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     window = UIWindow(frame: UIScreen.main.bounds)
     
-    let mainController = MainTableViewController()
-    let root = MainNavigationController(rootViewController: mainController)
+    let mainController = EmployeesViewController()
+    let root = UINavigationController(rootViewController: mainController)
     
     window?.rootViewController = root
     window?.makeKeyAndVisible()

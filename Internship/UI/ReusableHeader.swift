@@ -9,5 +9,5 @@
 import UIKit
 
 class ReusableHeader: UITableViewHeaderFooterView {
-  
+  var isCollapsed = false
 }

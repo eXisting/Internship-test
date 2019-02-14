@@ -44,14 +44,15 @@ class AddEntityView: UIView {
   }
   
   private func laidOutStacks() {
-    let employeeStackSize = CGSize(width: self.frame.width * 0.65, height: self.frame.height * 0.7)
-    let departmentStackSize = CGSize(width: self.frame.width * 0.65, height: self.frame.height * 0.3)
+    let employeeStackSize = CGSize(width: self.frame.width, height: self.frame.height * 0.7)
+    let departmentStackSize = CGSize(width: self.frame.width * 0.65, height: self.frame.height * 0.15)
 
     let originY = segmentControll!.frame.height + segmentControll!.frame.origin.y
-    let orign = CGPoint(x: self.frame.width / 2 - employeeStackSize.width / 2, y: originY)
+    let orignEmployeeStack = CGPoint(x: 0, y: originY)
+    let originDepartmentStack = CGPoint(x: self.frame.width * 0.1, y: originY)
 
-    employeeProfileView = EmployeeProfile(frame: CGRect(origin: orign, size: employeeStackSize))
-    departmentStackView = UIStackView(frame: CGRect(origin: orign, size: departmentStackSize))
+    employeeProfileView = EmployeeProfile(frame: CGRect(origin: orignEmployeeStack, size: employeeStackSize))
+    departmentStackView = UIStackView(frame: CGRect(origin: originDepartmentStack, size: departmentStackSize))
     
     departmentStackView?.alignment = .fill
     departmentStackView?.distribution = .fillEqually
