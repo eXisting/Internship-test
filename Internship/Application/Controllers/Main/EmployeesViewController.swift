@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class EmployeesViewController: UIViewController {
   
@@ -38,6 +39,8 @@ class EmployeesViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.register(cell: (cellId, EmployeeCell.self), header: (headerId, ReusableHeader.self))
+    
+    DataBaseManager.shared.frcDelegate = self
   }
   
   @objc func onAddMoreButtonClick() {
@@ -108,5 +111,17 @@ extension EmployeesViewController: UITableViewDelegate {
       dataSource.sections[indexPath.section].remove(at: indexPath.row)
       self.tableView!.deleteRows(at: [indexPath], with: .automatic)
     }
+  }
+}
+
+extension EmployeesViewController: NSFetchedResultsControllerDelegate {
+  func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+    tableView.beginUpdates()
+    print("Will change content")
+  }
+  
+  func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+    tableView.endUpdates()
+    print("Did change content")
   }
 }

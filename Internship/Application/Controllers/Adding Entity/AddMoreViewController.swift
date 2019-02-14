@@ -40,7 +40,7 @@ class AddMoreViewController: UIViewController {
   
   @objc func save() {
     self.navigationController?.popViewController(animated: true)
-    // TODO: Call core data
+    //DataBaseManager.shared.create(from: ["name": "JOHN", "phone":"123123", "email":"something@gmail.com", "photo":"SUPER image PATH"])
     print("saved")
   }
   
