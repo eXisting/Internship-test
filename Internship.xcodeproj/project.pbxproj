@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DB0660E921F793D5007F6989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0660E821F793D5007F6989 /* AppDelegate.swift */; };
 		DB0660F021F793D9007F6989 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB0660EF21F793D9007F6989 /* Assets.xcassets */; };
 		DB0660F321F793DA007F6989 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB0660F121F793DA007F6989 /* LaunchScreen.storyboard */; };
 		DB0F28F0221302E900784EE5 /* AddMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0F28EF221302E900784EE5 /* AddMoreViewController.swift */; };
@@ -18,6 +17,7 @@
 		DBA6F3E322118AC8003ABF10 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F3E222118AC8003ABF10 /* MainNavigationController.swift */; };
 		DBA6F3E522118B12003ABF10 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F3E422118B12003ABF10 /* MainTableViewController.swift */; };
 		DBA6F3E722118FD4003ABF10 /* EmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F3E622118FD4003ABF10 /* EmployeeCell.swift */; };
+		EDF8430822156358009ABF71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8430722156357009ABF71 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,13 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DB0660E521F793D5007F6989 /* inern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = inern.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB0660E821F793D5007F6989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = /Users/andreypopazov/Desktop/inern/inern/AppDelegate.swift; sourceTree = "<absolute>"; };
+		DB0660E521F793D5007F6989 /* Internship.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Internship.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB0660EF21F793D9007F6989 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB0660F221F793DA007F6989 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB0660F421F793DA007F6989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DB0660F921F793DA007F6989 /* inernTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = inernTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB06610421F793DA007F6989 /* inernUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = inernUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB0660F921F793DA007F6989 /* InternshipTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InternshipTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB06610421F793DA007F6989 /* InternshipUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InternshipUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB0F28EF221302E900784EE5 /* AddMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoreViewController.swift; sourceTree = "<group>"; };
 		DB3BFA51221194C80074EE25 /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
 		DB3BFA5B2211A7060074EE25 /* DepartmentBook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DepartmentBook.xcdatamodel; sourceTree = "<group>"; };
@@ -53,6 +52,7 @@
 		DBA6F3E222118AC8003ABF10 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		DBA6F3E422118B12003ABF10 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		DBA6F3E622118FD4003ABF10 /* EmployeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeCell.swift; sourceTree = "<group>"; };
+		EDF8430722156357009ABF71 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../../../../Users/sys-246/Projects/Internship/Internship/Application/Main/AppDelegate.swift"; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +83,7 @@
 		DB0660DC21F793D5007F6989 = {
 			isa = PBXGroup;
 			children = (
-				DB0660E721F793D5007F6989 /* inern */,
+				DB0660E721F793D5007F6989 /* Internship */,
 				DB0660E621F793D5007F6989 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,14 +91,14 @@
 		DB0660E621F793D5007F6989 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DB0660E521F793D5007F6989 /* inern.app */,
-				DB0660F921F793DA007F6989 /* inernTests.xctest */,
-				DB06610421F793DA007F6989 /* inernUITests.xctest */,
+				DB0660E521F793D5007F6989 /* Internship.app */,
+				DB0660F921F793DA007F6989 /* InternshipTests.xctest */,
+				DB06610421F793DA007F6989 /* InternshipUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DB0660E721F793D5007F6989 /* inern */ = {
+		DB0660E721F793D5007F6989 /* Internship */ = {
 			isa = PBXGroup;
 			children = (
 				DB3BFA4F221193F70074EE25 /* Models */,
@@ -106,7 +106,7 @@
 				DBA6F3EA221191A5003ABF10 /* Application */,
 				DBA6F3E922119105003ABF10 /* UI */,
 			);
-			path = inern;
+			path = Internship;
 			sourceTree = "<group>";
 		};
 		DB3BFA4F221193F70074EE25 /* Models */ = {
@@ -159,7 +159,7 @@
 		DBA6F3EB2211920D003ABF10 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				DB0660E821F793D5007F6989 /* AppDelegate.swift */,
+				EDF8430722156357009ABF71 /* AppDelegate.swift */,
 				DB0660F421F793DA007F6989 /* Info.plist */,
 			);
 			path = Main;
@@ -176,9 +176,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DB0660E421F793D5007F6989 /* inern */ = {
+		DB0660E421F793D5007F6989 /* Internship */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DB06610D21F793DA007F6989 /* Build configuration list for PBXNativeTarget "inern" */;
+			buildConfigurationList = DB06610D21F793DA007F6989 /* Build configuration list for PBXNativeTarget "Internship" */;
 			buildPhases = (
 				DB0660E121F793D5007F6989 /* Sources */,
 				DB0660E221F793D5007F6989 /* Frameworks */,
@@ -188,14 +188,14 @@
 			);
 			dependencies = (
 			);
-			name = inern;
+			name = Internship;
 			productName = inern;
-			productReference = DB0660E521F793D5007F6989 /* inern.app */;
+			productReference = DB0660E521F793D5007F6989 /* Internship.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DB0660F821F793DA007F6989 /* inernTests */ = {
+		DB0660F821F793DA007F6989 /* InternshipTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DB06611021F793DA007F6989 /* Build configuration list for PBXNativeTarget "inernTests" */;
+			buildConfigurationList = DB06611021F793DA007F6989 /* Build configuration list for PBXNativeTarget "InternshipTests" */;
 			buildPhases = (
 				DB0660F521F793DA007F6989 /* Sources */,
 				DB0660F621F793DA007F6989 /* Frameworks */,
@@ -206,14 +206,14 @@
 			dependencies = (
 				DB0660FB21F793DA007F6989 /* PBXTargetDependency */,
 			);
-			name = inernTests;
+			name = InternshipTests;
 			productName = inernTests;
-			productReference = DB0660F921F793DA007F6989 /* inernTests.xctest */;
+			productReference = DB0660F921F793DA007F6989 /* InternshipTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DB06610321F793DA007F6989 /* inernUITests */ = {
+		DB06610321F793DA007F6989 /* InternshipUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DB06611321F793DA007F6989 /* Build configuration list for PBXNativeTarget "inernUITests" */;
+			buildConfigurationList = DB06611321F793DA007F6989 /* Build configuration list for PBXNativeTarget "InternshipUITests" */;
 			buildPhases = (
 				DB06610021F793DA007F6989 /* Sources */,
 				DB06610121F793DA007F6989 /* Frameworks */,
@@ -224,9 +224,9 @@
 			dependencies = (
 				DB06610621F793DA007F6989 /* PBXTargetDependency */,
 			);
-			name = inernUITests;
+			name = InternshipUITests;
 			productName = inernUITests;
-			productReference = DB06610421F793DA007F6989 /* inernUITests.xctest */;
+			productReference = DB06610421F793DA007F6989 /* InternshipUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -252,7 +252,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DB0660E021F793D5007F6989 /* Build configuration list for PBXProject "inern" */;
+			buildConfigurationList = DB0660E021F793D5007F6989 /* Build configuration list for PBXProject "Internship" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -265,9 +265,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DB0660E421F793D5007F6989 /* inern */,
-				DB0660F821F793DA007F6989 /* inernTests */,
-				DB06610321F793DA007F6989 /* inernUITests */,
+				DB0660E421F793D5007F6989 /* Internship */,
+				DB0660F821F793DA007F6989 /* InternshipTests */,
+				DB06610321F793DA007F6989 /* InternshipUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -306,9 +306,9 @@
 				DB3BFA52221194C80074EE25 /* DataBaseManager.swift in Sources */,
 				DBA6F3E322118AC8003ABF10 /* MainNavigationController.swift in Sources */,
 				DBA6F3E722118FD4003ABF10 /* EmployeeCell.swift in Sources */,
+				EDF8430822156358009ABF71 /* AppDelegate.swift in Sources */,
 				DBA6F3E522118B12003ABF10 /* MainTableViewController.swift in Sources */,
 				DB3BFA5C2211A7060074EE25 /* DepartmentBook.xcdatamodeld in Sources */,
-				DB0660E921F793D5007F6989 /* AppDelegate.swift in Sources */,
 				DB0F28F0221302E900784EE5 /* AddMoreViewController.swift in Sources */,
 				DB3BFA672211BFB00074EE25 /* EmployeeProfile.swift in Sources */,
 				DB3BFA692211C4930074EE25 /* EmployeeProfileController.swift in Sources */,
@@ -334,12 +334,12 @@
 /* Begin PBXTargetDependency section */
 		DB0660FB21F793DA007F6989 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DB0660E421F793D5007F6989 /* inern */;
+			target = DB0660E421F793D5007F6989 /* Internship */;
 			targetProxy = DB0660FA21F793DA007F6989 /* PBXContainerItemProxy */;
 		};
 		DB06610621F793DA007F6989 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DB0660E421F793D5007F6989 /* inern */;
+			target = DB0660E421F793D5007F6989 /* Internship */;
 			targetProxy = DB06610521F793DA007F6989 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -478,12 +478,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A3P55P4RYT;
-				INFOPLIST_FILE = inern/Application/Main/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Internship/Application/Main/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = hjh.inern;
+				PRODUCT_BUNDLE_IDENTIFIER = Andrey.Internship;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -496,12 +496,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A3P55P4RYT;
-				INFOPLIST_FILE = inern/Application/Main/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Internship/Application/Main/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = hjh.inern;
+				PRODUCT_BUNDLE_IDENTIFIER = Andrey.Internship;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -525,7 +525,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/inern.app/inern";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Internship.app/Internship";
 			};
 			name = Debug;
 		};
@@ -546,7 +546,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/inern.app/inern";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Internship.app/Internship";
 			};
 			name = Release;
 		};
@@ -593,7 +593,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DB0660E021F793D5007F6989 /* Build configuration list for PBXProject "inern" */ = {
+		DB0660E021F793D5007F6989 /* Build configuration list for PBXProject "Internship" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB06610B21F793DA007F6989 /* Debug */,
@@ -602,7 +602,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DB06610D21F793DA007F6989 /* Build configuration list for PBXNativeTarget "inern" */ = {
+		DB06610D21F793DA007F6989 /* Build configuration list for PBXNativeTarget "Internship" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB06610E21F793DA007F6989 /* Debug */,
@@ -611,7 +611,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DB06611021F793DA007F6989 /* Build configuration list for PBXNativeTarget "inernTests" */ = {
+		DB06611021F793DA007F6989 /* Build configuration list for PBXNativeTarget "InternshipTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB06611121F793DA007F6989 /* Debug */,
@@ -620,7 +620,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DB06611321F793DA007F6989 /* Build configuration list for PBXNativeTarget "inernUITests" */ = {
+		DB06611321F793DA007F6989 /* Build configuration list for PBXNativeTarget "InternshipUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB06611421F793DA007F6989 /* Debug */,
