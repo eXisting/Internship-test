@@ -30,6 +30,9 @@ class EmployeeProfileController: UIViewController {
   }
   
   @objc func save() {
-    print("Saved")
+    AlertController.showConfirm(for: self, "Success", "Saved successfuly!", .alert) {
+      [weak self] _ in
+      self?.navigationController?.popViewController(animated: true)
+    }
   }
 }
