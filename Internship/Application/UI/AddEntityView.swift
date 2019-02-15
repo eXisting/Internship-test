@@ -32,6 +32,10 @@ class AddEntityView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
+  func getFieldsDataAsDict() -> [String: Any] {
+    return employeeProfileView!.getFieldsDataAsDict()
+  }
+  
   @objc func toggleVisibleStack() {
     departmentStackView?.isHidden = !departmentStackView!.isHidden
     employeeProfileView?.isHidden = !employeeProfileView!.isHidden

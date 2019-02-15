@@ -22,12 +22,16 @@ class EmployeeCell: UITableViewCell {
     laidOutLabels()
     
     accessoryType = .disclosureIndicator
-    
-    employee = Employee()
   }
   
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
+  }
+  
+  func populateTextFields() {
+    name?.text = employee?.name
+    photo?.image = UIImage(data: employee?.photo ?? Data())
+    role?.text = employee?.role?.name
   }
   
   private func laidOutImage() {

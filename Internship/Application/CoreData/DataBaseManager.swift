@@ -82,6 +82,7 @@ class DataBaseManager: NSObject {
     fetchRequest.entity = NSEntityDescription.entity(forEntityName: entityName, in: mainManagedObjectContext!)
     
     fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+    fetchRequest.returnsObjectsAsFaults = false
     fetchRequest.fetchBatchSize = 20
     
     fetchedResultsController = NSFetchedResultsController(
@@ -103,24 +104,26 @@ class DataBaseManager: NSObject {
   // MARK: Actions
   
   func create(from dict: [String: Any]) {
-    let employee = NSEntityDescription.insertNewObject(forEntityName: entityName, into: storeManagedObjectContext!)
-    employee.setValue(dict["name"], forKey: "name")
-    employee.setValue(dict["phone"], forKey: "phone")
-    employee.setValue(dict["email"], forKey: "email")
-    employee.setValue(dict["photo"], forKey: "photo")
+    let object = NSEntityDescription.insertNewObject(forEntityName: entityName, into: storeManagedObjectContext!)
     
-//    employee.setValue(dict["roleId"], forKey: "roleId")
-//    employee.setValue(dict["departmentId"], forKey: "departmentId")
+    setFields(of: object, with: dict)
     
     save(context: storeManagedObjectContext)
   }
   
   func update(with dict: [String: Any]) {
+    let object = storeManagedObjectContext!.object(with: dict["objectId"] as! NSManagedObjectID)
     
+    setFields(of: object, with: dict)
+    
+    save(context: storeManagedObjectContext)
   }
   
-  func delete(employee: Employee) {
+  func delete(object: NSManagedObject) {
+    let managedObjectId = object.objectID
     
+    storeManagedObjectContext!.delete(storeManagedObjectContext!.object(with: managedObjectId))
+    save(context: storeManagedObjectContext)
   }
   
   // MARK: Helpers
@@ -148,5 +151,15 @@ class DataBaseManager: NSObject {
         saveDatabase(with: parentContext)
       }
     }
+  }
+  
+  private func setFields(of object: NSManagedObject, with dict: [String: Any]) {
+    object.setValue(dict["name"], forKey: "name")
+    object.setValue(dict["phone"], forKey: "phone")
+    object.setValue(dict["email"], forKey: "email")
+    object.setValue(dict["photo"], forKey: "photo")
+    
+    //    object.setValue(dict["roleId"], forKey: "roleId")
+    //    object.setValue(dict["departmentId"], forKey: "departmentId")
   }
 }

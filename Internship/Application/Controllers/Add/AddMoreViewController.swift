@@ -22,7 +22,6 @@ class AddMoreViewController: UIViewController {
     self.view = mainView
     
     addTargets()
-    self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(save))
   }
   
   override func didReceiveMemoryWarning() {
@@ -32,16 +31,21 @@ class AddMoreViewController: UIViewController {
   
   private func addTargets() {
     mainView.departmentManager?.addTarget(self, action: #selector(selectManager), for: .touchDown)
+    
     let singleTap = UITapGestureRecognizer(target: self, action: #selector(chooseImage))
     mainView.employeeProfileView?.addGestureRecognizer(singleTap)
+    
+    self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(save))
   }
   
   // MARK: - Objc methods
   
   @objc func save() {
+    let data = mainView.getFieldsDataAsDict()
+    
+    DataBaseManager.shared.create(from: data)
+    
     self.navigationController?.popViewController(animated: true)
-    //DataBaseManager.shared.create(from: ["name": "JOHN", "phone":"123123", "email":"something@gmail.com", "photo":"SUPER image PATH"])
-    print("saved")
   }
   
   @objc func selectManager() {

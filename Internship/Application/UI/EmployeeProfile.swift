@@ -16,7 +16,7 @@ class EmployeeProfile: UIView {
   var phone: UITextField?
   var email: UITextField?
   
-  private var infoStack: UIStackView?
+  var infoStack: UIStackView?
 
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -26,6 +26,23 @@ class EmployeeProfile: UIView {
   
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
+  }
+  
+  func setupFields(from employee: Employee?) {
+    name?.text = employee?.name
+    role?.text = employee?.role?.name
+    phone?.text = employee?.phone
+    email?.text = employee?.email
+    profileImage?.image = UIImage(data: employee?.photo ?? Data())
+  }
+  
+  func getFieldsDataAsDict() -> [String: Any] {
+    return [
+      "name": name?.text as Any,
+      "phone":phone?.text as Any,
+      "email":email?.text as Any,
+      "photo": profileImage?.image?.pngData() as Any
+    ]
   }
   
   private func laidOutViews() {

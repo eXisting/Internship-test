@@ -115,19 +115,10 @@
 		DB0660E721F793D5007F6989 /* Internship */ = {
 			isa = PBXGroup;
 			children = (
-				DB3BFA4F221193F70074EE25 /* Models */,
-				DBA6F3EC2211921F003ABF10 /* Assets */,
 				DBA6F3EA221191A5003ABF10 /* Application */,
-				DBA6F3E922119105003ABF10 /* UI */,
+				DBA6F3EC2211921F003ABF10 /* Assets */,
 			);
 			path = Internship;
-			sourceTree = "<group>";
-		};
-		DB3BFA4F221193F70074EE25 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		DB3BFA502211949F0074EE25 /* CoreData */ = {
@@ -142,10 +133,10 @@
 		DBA6F3E8221190EB003ABF10 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EDF8432822159760009ABF71 /* Main */,
-				EDF8431E22157C81009ABF71 /* Adding Entity */,
+				EDF8431E22157C81009ABF71 /* Add */,
 				EDF84309221566F1009ABF71 /* Common */,
-				DB3BFA682211C4930074EE25 /* EmployeeProfileController.swift */,
+				ED77A4682216DA96004FF4B2 /* Edit */,
+				EDF8432822159760009ABF71 /* Main */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -166,9 +157,10 @@
 		DBA6F3EA221191A5003ABF10 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				DBA6F3E8221190EB003ABF10 /* Controllers */,
 				DB3BFA502211949F0074EE25 /* CoreData */,
 				DBA6F3EB2211920D003ABF10 /* Main */,
-				DBA6F3E8221190EB003ABF10 /* Controllers */,
+				DBA6F3E922119105003ABF10 /* UI */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -190,6 +182,14 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		ED77A4682216DA96004FF4B2 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				DB3BFA682211C4930074EE25 /* EmployeeProfileController.swift */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
 		EDF84309221566F1009ABF71 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,7 +198,7 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		EDF8431E22157C81009ABF71 /* Adding Entity */ = {
+		EDF8431E22157C81009ABF71 /* Add */ = {
 			isa = PBXGroup;
 			children = (
 				EDF8431F22157C9E009ABF71 /* AddMoreTextDelegate.swift */,
@@ -206,7 +206,7 @@
 				EDF84322221580D2009ABF71 /* ManagerTableViewController.swift */,
 				EDF843332215AE97009ABF71 /* ImagePickerExtension.swift */,
 			);
-			path = "Adding Entity";
+			path = Add;
 			sourceTree = "<group>";
 		};
 		EDF8432822159760009ABF71 /* Main */ = {
