@@ -24,7 +24,7 @@
     </entity>
     <elements>
         <element name="Department" positionX="-548.578125" positionY="-272.4921875" width="128" height="103"/>
-        <element name="Employee" positionX="-584.2265625" positionY="-98.38671875" width="128" height="180"/>
+        <element name="Employee" positionX="-584.2265625" positionY="-98.38671875" width="128" height="178"/>
         <element name="Role" positionX="-279.60546875" positionY="-170.734375" width="128" height="90"/>
     </elements>
 </model>

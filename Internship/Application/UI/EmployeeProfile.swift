@@ -15,6 +15,7 @@ class EmployeeProfile: UIView {
   var role: UITextField?
   var phone: UITextField?
   var email: UITextField?
+  var department: UITextField?
   
   var infoStack: UIStackView?
 
@@ -33,6 +34,15 @@ class EmployeeProfile: UIView {
     role?.text = employee?.role?.name
     phone?.text = employee?.phone
     email?.text = employee?.email
+    
+    for element in (employee?.department)! {
+      guard let element = element as? Department else {
+        continue
+      }
+      
+      department?.text?.append("\(element.name ?? "");")
+    }
+    
     profileImage?.image = UIImage(data: employee?.photo ?? Data())
   }
   
@@ -67,6 +77,7 @@ class EmployeeProfile: UIView {
     role = UITextField()
     phone = UITextField()
     email = UITextField()
+    department = UITextField()
 
     name!.textColor = .black
     name!.font = UIFont.boldSystemFont(ofSize: 17)
@@ -92,15 +103,17 @@ class EmployeeProfile: UIView {
     email!.textAlignment = .left
     email!.placeholder = "E-mail"
     
+    department!.textColor = .black
+    department!.font = UIFont.boldSystemFont(ofSize: 17)
+    department!.clearButtonMode = .whileEditing
+    department!.textAlignment = .left
+    department!.placeholder = "Department"
+
     infoStack!.addArrangedSubview(name!)
     infoStack!.addArrangedSubview(role!)
     infoStack!.addArrangedSubview(phone!)
     infoStack!.addArrangedSubview(email!)
-    
-    name?.text = "Hello"
-    role?.text = "TRainee"
-    phone?.text = "812392918239"
-    email?.text = "something@gmail.com"
+    infoStack!.addArrangedSubview(department!)
   }
   
   private func laidOutImage() {

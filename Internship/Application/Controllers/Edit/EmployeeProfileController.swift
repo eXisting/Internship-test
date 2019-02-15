@@ -27,6 +27,9 @@ class EmployeeProfileController: UIViewController {
     mainView = EmployeeProfile(frame: CGRect(origin: CGPoint(x: 0, y: self.view.frame.height * 0.1), size: self.view.frame.size))
     self.view.addSubview(mainView)
     
+    
+    mainView.role?.addTarget(self, action: #selector(selectRole), for: .touchDown)
+    mainView.department?.addTarget(self, action: #selector(selectDepartment), for: .touchDown)
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(save))
   }
   
@@ -40,5 +43,13 @@ class EmployeeProfileController: UIViewController {
       [weak self] _ in
       self!.navigationController?.popViewController(animated: true)
     }
+  }
+  
+  @objc func selectRole() {
+    
+  }
+  
+  @objc func selectDepartment() {
+    
   }
 }
