@@ -19,15 +19,15 @@ class HomeViewController: UIViewController {
   private var cellId = "EmployeeCell"
   private var headerId = "ReusableHeader"
   
-  var tableView: EmployeesTableView!
-  lazy var fetchController = DataBaseManager.shared.employeesFetchController()
+  var tableView: HomeTableView!
+  lazy var fetchController = DataBaseManager.shared.departmentsFetchController()
   
-  var data: [[Employee]] = []
+  var data: [SectionData] = []
   
   override func loadView() {
     super.loadView()
     
-    tableView = EmployeesTableView(frame: self.view.frame, style: .plain)
+    tableView = HomeTableView(frame: self.view.frame, style: .plain)
     
     self.view = tableView
     
@@ -41,7 +41,11 @@ class HomeViewController: UIViewController {
     super.viewDidLoad()
     tableView.register(cell: (cellId, EmployeeCell.self), header: (headerId, ReusableHeader.self))
     
-    data.append(fetchController.fetchedObjects ?? [])
+    if let departments = fetchController.fetchedObjects {
+      for department in departments {
+        data.append(.init(department))
+      }
+    }
   }
   
   @objc func onAddMoreButtonClick() {
@@ -57,7 +61,11 @@ extension HomeViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return data[section].count
+    if data[section].isCollapsed {
+      return 0
+    }
+    
+    return data[section].employees.count
   }
   
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -67,8 +75,8 @@ extension HomeViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! EmployeeCell
 
-    let object = data[indexPath.section][indexPath.row]
-    cell.employee = object
+    let object = data[indexPath.section]
+    cell.employee = object.employees[indexPath.row]
     cell.populateTextFields()
     
     return cell
@@ -76,17 +84,11 @@ extension HomeViewController: UITableViewDataSource {
 }
 
 extension HomeViewController: UITableViewDelegate {
-  func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-    return true
-  }
-  
-  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return ""
-  }
-
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerId) as! ReusableHeader
-    header.textLabel?.text = "Section \(section)"
+    data[section].section = section
+    header.data = data[section]
+    header.delegate = self
     
     return header
   }
@@ -106,9 +108,9 @@ extension HomeViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     if (editingStyle == .delete) {
-      DataBaseManager.shared.delete(id: data[indexPath.section][indexPath.row].objectID)
+      //DataBaseManager.shared.delete(id: data[indexPath.section].employees[indexPath.row].objectID)
       
-      data[indexPath.section].remove(at: indexPath.row)
+      data[indexPath.section].employees.remove(at: indexPath.row)
       
       self.tableView!.deleteRows(at: [indexPath], with: .automatic)
     }
@@ -148,5 +150,15 @@ extension HomeViewController: NSFetchedResultsControllerDelegate {
   
   func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     tableView.endUpdates()
+  }
+}
+
+extension HomeViewController: ExandableHeaderViewDelegate {
+  func toogleExpand(for header: ReusableHeader, section: Int) {
+    data[section].isCollapsed = !data[section].isCollapsed
+    
+    header.data.isCollapsed = data[section].isCollapsed
+    
+    tableView.reloadSections(NSIndexSet(index: section) as IndexSet, with: .fade)
   }
 }

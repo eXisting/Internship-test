@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EmployeesTableView: UITableView {
+class HomeTableView: UITableView {
   override init(frame: CGRect, style: UITableView.Style) {
     super.init(frame: frame, style: style)
     

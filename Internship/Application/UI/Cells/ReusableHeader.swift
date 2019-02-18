@@ -12,9 +12,13 @@ protocol ExandableHeaderViewDelegate {
   func toogleExpand(for header: ReusableHeader, section: Int)
 }
 
-class ReusableHeader: UITableViewHeaderFooterView {
-  var isCollapsed: Bool!
-  var section: Int!
+class ReusableHeader: UITableViewHeaderFooterView {  
+  var data: SectionData! {
+    didSet {
+      textLabel?.text = data.department.name
+    }
+  }
+  
   var delegate: ExandableHeaderViewDelegate!
   
   override init(reuseIdentifier: String?) {
@@ -27,7 +31,8 @@ class ReusableHeader: UITableViewHeaderFooterView {
   }
   
   @objc func onSelectHeader(recognizer: UITapGestureRecognizer) {
-//    let cell = recognizer.view as! ReusableHeader
-//    delegate.toogleExpand(for: cell, section: cell.section)
+    print("Clicked \(data.section)")
+    let cell = recognizer.view as! ReusableHeader
+    delegate.toogleExpand(for: cell, section: cell.data.section)
   }
 }

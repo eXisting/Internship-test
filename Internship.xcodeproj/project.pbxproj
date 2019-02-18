@@ -20,13 +20,14 @@
 		EDF6401A221AA094001332EC /* DepartmentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64019221AA094001332EC /* DepartmentTableViewController.swift */; };
 		EDF6401C221AA0CC001332EC /* GeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF6401B221AA0CC001332EC /* GeneralCell.swift */; };
 		EDF6401F221AA59A001332EC /* RoleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF6401E221AA59A001332EC /* RoleTableViewController.swift */; };
+		EDF64021221AEF94001332EC /* SectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64020221AEF94001332EC /* SectionData.swift */; };
 		EDF8430822156358009ABF71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8430722156357009ABF71 /* AppDelegate.swift */; };
 		EDF8430D22156755009ABF71 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8430C22156755009ABF71 /* AlertController.swift */; };
 		EDF8431B22156B24009ABF71 /* AddEntityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8431A22156B24009ABF71 /* AddEntityView.swift */; };
 		EDF8432022157C9E009ABF71 /* AddMoreTextDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8431F22157C9E009ABF71 /* AddMoreTextDelegate.swift */; };
 		EDF84323221580D2009ABF71 /* ManagerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF84322221580D2009ABF71 /* ManagerTableViewController.swift */; };
 		EDF8432722158F98009ABF71 /* ReusableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8432622158F98009ABF71 /* ReusableHeader.swift */; };
-		EDF8432C22159B04009ABF71 /* EmployeesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8432B22159B04009ABF71 /* EmployeesTableView.swift */; };
+		EDF8432C22159B04009ABF71 /* HomeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8432B22159B04009ABF71 /* HomeTableView.swift */; };
 		EDF843342215AE97009ABF71 /* AddMoreImagePickerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF843332215AE97009ABF71 /* AddMoreImagePickerExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,13 +66,14 @@
 		EDF64019221AA094001332EC /* DepartmentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentTableViewController.swift; sourceTree = "<group>"; };
 		EDF6401B221AA0CC001332EC /* GeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralCell.swift; sourceTree = "<group>"; };
 		EDF6401E221AA59A001332EC /* RoleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleTableViewController.swift; sourceTree = "<group>"; };
+		EDF64020221AEF94001332EC /* SectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionData.swift; sourceTree = "<group>"; };
 		EDF8430722156357009ABF71 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../../../../Users/sys-246/Projects/Internship/Internship/Application/Main/AppDelegate.swift"; sourceTree = DEVELOPER_DIR; };
 		EDF8430C22156755009ABF71 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		EDF8431A22156B24009ABF71 /* AddEntityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntityView.swift; sourceTree = "<group>"; };
 		EDF8431F22157C9E009ABF71 /* AddMoreTextDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoreTextDelegate.swift; sourceTree = "<group>"; };
 		EDF84322221580D2009ABF71 /* ManagerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerTableViewController.swift; sourceTree = "<group>"; };
-		EDF8432622158F98009ABF71 /* ReusableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableHeader.swift; sourceTree = "<group>"; };
-		EDF8432B22159B04009ABF71 /* EmployeesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesTableView.swift; sourceTree = "<group>"; };
+		EDF8432622158F98009ABF71 /* ReusableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReusableHeader.swift; path = Internship/Application/UI/Cells/ReusableHeader.swift; sourceTree = SOURCE_ROOT; };
+		EDF8432B22159B04009ABF71 /* HomeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableView.swift; sourceTree = "<group>"; };
 		EDF843332215AE97009ABF71 /* AddMoreImagePickerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoreImagePickerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,13 +152,9 @@
 		DBA6F3E922119105003ABF10 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				EDF64023221AFCF6001332EC /* Cells */,
+				EDF64022221AFCE3001332EC /* Views */,
 				DB0660F121F793DA007F6989 /* LaunchScreen.storyboard */,
-				DBA6F3E622118FD4003ABF10 /* EmployeeCell.swift */,
-				DB3BFA662211BFB00074EE25 /* EmployeeProfile.swift */,
-				EDF8431A22156B24009ABF71 /* AddEntityView.swift */,
-				EDF8432622158F98009ABF71 /* ReusableHeader.swift */,
-				EDF8432B22159B04009ABF71 /* EmployeesTableView.swift */,
-				EDF6401B221AA0CC001332EC /* GeneralCell.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -209,6 +207,26 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		EDF64022221AFCE3001332EC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DB3BFA662211BFB00074EE25 /* EmployeeProfile.swift */,
+				EDF8431A22156B24009ABF71 /* AddEntityView.swift */,
+				EDF8432B22159B04009ABF71 /* HomeTableView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EDF64023221AFCF6001332EC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DBA6F3E622118FD4003ABF10 /* EmployeeCell.swift */,
+				EDF8432622158F98009ABF71 /* ReusableHeader.swift */,
+				EDF6401B221AA0CC001332EC /* GeneralCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		EDF84309221566F1009ABF71 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				DBA6F3E422118B12003ABF10 /* HomeViewController.swift */,
+				EDF64020221AEF94001332EC /* SectionData.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -367,11 +386,12 @@
 			files = (
 				DB3BFA52221194C80074EE25 /* DataBaseManager.swift in Sources */,
 				DBA6F3E722118FD4003ABF10 /* EmployeeCell.swift in Sources */,
-				EDF8432C22159B04009ABF71 /* EmployeesTableView.swift in Sources */,
+				EDF8432C22159B04009ABF71 /* HomeTableView.swift in Sources */,
 				EDF84323221580D2009ABF71 /* ManagerTableViewController.swift in Sources */,
 				EDF6401C221AA0CC001332EC /* GeneralCell.swift in Sources */,
 				EDF6401A221AA094001332EC /* DepartmentTableViewController.swift in Sources */,
 				EDF8430822156358009ABF71 /* AppDelegate.swift in Sources */,
+				EDF64021221AEF94001332EC /* SectionData.swift in Sources */,
 				EDF8432722158F98009ABF71 /* ReusableHeader.swift in Sources */,
 				EDF8432022157C9E009ABF71 /* AddMoreTextDelegate.swift in Sources */,
 				DBA6F3E522118B12003ABF10 /* HomeViewController.swift in Sources */,
