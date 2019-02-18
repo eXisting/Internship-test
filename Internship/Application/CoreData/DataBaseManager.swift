@@ -184,10 +184,8 @@ class DataBaseManager: NSObject {
     save(context: storeManagedObjectContext)
   }
   
-  func delete(object: NSManagedObject) {
-    let managedObjectId = object.objectID
-    
-    storeManagedObjectContext!.delete(storeManagedObjectContext!.object(with: managedObjectId))
+  func delete(id: NSManagedObjectID) {
+    storeManagedObjectContext!.delete(storeManagedObjectContext!.object(with: id))
     save(context: storeManagedObjectContext)
   }
   

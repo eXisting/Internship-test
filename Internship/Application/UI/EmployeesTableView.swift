@@ -12,7 +12,7 @@ class EmployeesTableView: UITableView {
   override init(frame: CGRect, style: UITableView.Style) {
     super.init(frame: frame, style: style)
     
-    rowHeight = EmployeesViewController.defaultRowHeight
+    rowHeight = HomeViewController.defaultRowHeight
   }
   
   required init?(coder aDecoder: NSCoder) {

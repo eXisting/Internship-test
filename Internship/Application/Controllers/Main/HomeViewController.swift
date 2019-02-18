@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class EmployeesViewController: UIViewController {
+class HomeViewController: UIViewController {
   
   static let defaultRowHeight = UIScreen.main.bounds.height * 0.08
   static let defaultSectionHeight = UIScreen.main.bounds.height * 0.1
@@ -20,7 +20,9 @@ class EmployeesViewController: UIViewController {
   private var headerId = "ReusableHeader"
   
   var tableView: EmployeesTableView!
-  lazy var fetch = DataBaseManager.shared.employeesFetchController()
+  lazy var fetchController = DataBaseManager.shared.employeesFetchController()
+  
+  var data: [[Employee]] = []
   
   override func loadView() {
     super.loadView()
@@ -39,7 +41,7 @@ class EmployeesViewController: UIViewController {
     super.viewDidLoad()
     tableView.register(cell: (cellId, EmployeeCell.self), header: (headerId, ReusableHeader.self))
     
-    fetch.delegate = self
+    data.append(fetchController.fetchedObjects ?? [])
   }
   
   @objc func onAddMoreButtonClick() {
@@ -49,27 +51,23 @@ class EmployeesViewController: UIViewController {
   }
 }
 
-extension EmployeesViewController: UITableViewDataSource {
+extension HomeViewController: UITableViewDataSource {
   func numberOfSections(in tableView: UITableView) -> Int {
-    return fetch.sections!.count
+    return data.count
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    guard let sections = fetch.sections else {
-      fatalError("No sections in fetchedResultsController")
-    }
-    let sectionInfo = sections[section]
-    return sectionInfo.numberOfObjects
+    return data[section].count
   }
   
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return EmployeesViewController.defaultSectionHeight
+    return HomeViewController.defaultSectionHeight
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! EmployeeCell
 
-    let object = fetch.object(at: indexPath)
+    let object = data[indexPath.section][indexPath.row]
     cell.employee = object
     cell.populateTextFields()
     
@@ -77,17 +75,13 @@ extension EmployeesViewController: UITableViewDataSource {
   }
 }
 
-extension EmployeesViewController: UITableViewDelegate {
+extension HomeViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
     return true
   }
   
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    guard let sectionInfo = fetch.sections?[section] else {
-      return nil
-    }
-    
-    return sectionInfo.name
+    return ""
   }
 
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -112,13 +106,16 @@ extension EmployeesViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     if (editingStyle == .delete) {
-      DataBaseManager.shared.delete(object: fetch.object(at: indexPath))
+      DataBaseManager.shared.delete(id: data[indexPath.section][indexPath.row].objectID)
+      
+      data[indexPath.section].remove(at: indexPath.row)
+      
       self.tableView!.deleteRows(at: [indexPath], with: .automatic)
     }
   }
 }
 
-extension EmployeesViewController: NSFetchedResultsControllerDelegate {
+extension HomeViewController: NSFetchedResultsControllerDelegate {
   func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     tableView.beginUpdates()
   }

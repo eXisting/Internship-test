@@ -14,7 +14,7 @@
 		DB3BFA5C2211A7060074EE25 /* DepartmentBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB3BFA5A2211A7060074EE25 /* DepartmentBook.xcdatamodeld */; };
 		DB3BFA672211BFB00074EE25 /* EmployeeProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BFA662211BFB00074EE25 /* EmployeeProfile.swift */; };
 		DB3BFA692211C4930074EE25 /* EmployeeProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BFA682211C4930074EE25 /* EmployeeProfileController.swift */; };
-		DBA6F3E522118B12003ABF10 /* EmployeesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F3E422118B12003ABF10 /* EmployeesViewController.swift */; };
+		DBA6F3E522118B12003ABF10 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F3E422118B12003ABF10 /* HomeViewController.swift */; };
 		DBA6F3E722118FD4003ABF10 /* EmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F3E622118FD4003ABF10 /* EmployeeCell.swift */; };
 		EDF64018221A9B19001332EC /* EmployeeProfileImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64017221A9B19001332EC /* EmployeeProfileImagePicker.swift */; };
 		EDF6401A221AA094001332EC /* DepartmentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64019221AA094001332EC /* DepartmentTableViewController.swift */; };
@@ -26,7 +26,6 @@
 		EDF8432022157C9E009ABF71 /* AddMoreTextDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8431F22157C9E009ABF71 /* AddMoreTextDelegate.swift */; };
 		EDF84323221580D2009ABF71 /* ManagerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF84322221580D2009ABF71 /* ManagerTableViewController.swift */; };
 		EDF8432722158F98009ABF71 /* ReusableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8432622158F98009ABF71 /* ReusableHeader.swift */; };
-		EDF8432A2215980E009ABF71 /* EmployeesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF843292215980E009ABF71 /* EmployeesDataSource.swift */; };
 		EDF8432C22159B04009ABF71 /* EmployeesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8432B22159B04009ABF71 /* EmployeesTableView.swift */; };
 		EDF843342215AE97009ABF71 /* AddMoreImagePickerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF843332215AE97009ABF71 /* AddMoreImagePickerExtension.swift */; };
 /* End PBXBuildFile section */
@@ -60,7 +59,7 @@
 		DB3BFA5B2211A7060074EE25 /* DepartmentBook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DepartmentBook.xcdatamodel; sourceTree = "<group>"; };
 		DB3BFA662211BFB00074EE25 /* EmployeeProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfile.swift; sourceTree = "<group>"; };
 		DB3BFA682211C4930074EE25 /* EmployeeProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfileController.swift; sourceTree = "<group>"; };
-		DBA6F3E422118B12003ABF10 /* EmployeesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewController.swift; sourceTree = "<group>"; };
+		DBA6F3E422118B12003ABF10 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DBA6F3E622118FD4003ABF10 /* EmployeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeCell.swift; sourceTree = "<group>"; };
 		EDF64017221A9B19001332EC /* EmployeeProfileImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfileImagePicker.swift; sourceTree = "<group>"; };
 		EDF64019221AA094001332EC /* DepartmentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentTableViewController.swift; sourceTree = "<group>"; };
@@ -72,7 +71,6 @@
 		EDF8431F22157C9E009ABF71 /* AddMoreTextDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoreTextDelegate.swift; sourceTree = "<group>"; };
 		EDF84322221580D2009ABF71 /* ManagerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerTableViewController.swift; sourceTree = "<group>"; };
 		EDF8432622158F98009ABF71 /* ReusableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableHeader.swift; sourceTree = "<group>"; };
-		EDF843292215980E009ABF71 /* EmployeesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesDataSource.swift; sourceTree = "<group>"; };
 		EDF8432B22159B04009ABF71 /* EmployeesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesTableView.swift; sourceTree = "<group>"; };
 		EDF843332215AE97009ABF71 /* AddMoreImagePickerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoreImagePickerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -232,8 +230,7 @@
 		EDF8432822159760009ABF71 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				DBA6F3E422118B12003ABF10 /* EmployeesViewController.swift */,
-				EDF843292215980E009ABF71 /* EmployeesDataSource.swift */,
+				DBA6F3E422118B12003ABF10 /* HomeViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -369,7 +366,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB3BFA52221194C80074EE25 /* DataBaseManager.swift in Sources */,
-				EDF8432A2215980E009ABF71 /* EmployeesDataSource.swift in Sources */,
 				DBA6F3E722118FD4003ABF10 /* EmployeeCell.swift in Sources */,
 				EDF8432C22159B04009ABF71 /* EmployeesTableView.swift in Sources */,
 				EDF84323221580D2009ABF71 /* ManagerTableViewController.swift in Sources */,
@@ -378,7 +374,7 @@
 				EDF8430822156358009ABF71 /* AppDelegate.swift in Sources */,
 				EDF8432722158F98009ABF71 /* ReusableHeader.swift in Sources */,
 				EDF8432022157C9E009ABF71 /* AddMoreTextDelegate.swift in Sources */,
-				DBA6F3E522118B12003ABF10 /* EmployeesViewController.swift in Sources */,
+				DBA6F3E522118B12003ABF10 /* HomeViewController.swift in Sources */,
 				DB3BFA5C2211A7060074EE25 /* DepartmentBook.xcdatamodeld in Sources */,
 				EDF8430D22156755009ABF71 /* AlertController.swift in Sources */,
 				EDF6401F221AA59A001332EC /* RoleTableViewController.swift in Sources */,

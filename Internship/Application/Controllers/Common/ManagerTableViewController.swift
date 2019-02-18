@@ -19,7 +19,7 @@ class ManagerTableViewController: UITableViewController {
   
   override func loadView() {
     super.loadView()
-    tableView.rowHeight = EmployeesViewController.defaultRowHeight
+    tableView.rowHeight = HomeViewController.defaultRowHeight
     self.navigationItem.title = titleName
   }
   
