@@ -22,6 +22,12 @@ class AddEntityView: UIView {
   private(set) var departmentName: UITextField?
   private(set) var departmentManager: UITextField?
   
+  var manager: Employee? {
+    didSet {
+      departmentManager?.text = manager?.name
+    }
+  }
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     
@@ -33,7 +39,12 @@ class AddEntityView: UIView {
   }
   
   func getFieldsDataAsDict() -> [String: Any] {
-    return employeeProfileView!.getFieldsDataAsDict()
+    return segmentControll?.selectedSegmentIndex == SelectStates.employee.rawValue ?
+      employeeProfileView!.getFieldsDataAsDict() : getDepartmentFieldsAsDict()
+  }
+  
+  private func getDepartmentFieldsAsDict() -> [String: Any] {
+    return ["name": departmentName!.text as Any]
   }
   
   @objc func toggleVisibleStack() {

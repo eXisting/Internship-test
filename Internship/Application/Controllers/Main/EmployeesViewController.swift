@@ -14,13 +14,13 @@ class EmployeesViewController: UIViewController {
   static let defaultRowHeight = UIScreen.main.bounds.height * 0.08
   static let defaultSectionHeight = UIScreen.main.bounds.height * 0.1
 
-  private var titleName = "Employees"
+  private var titleName = "Home"
   
   private var cellId = "EmployeeCell"
   private var headerId = "ReusableHeader"
   
   var tableView: EmployeesTableView!
-  let fetch = DataBaseManager.shared.getFetchController()
+  lazy var fetch = DataBaseManager.shared.employeesFetchController()
   
   override func loadView() {
     super.loadView()
@@ -39,7 +39,7 @@ class EmployeesViewController: UIViewController {
     super.viewDidLoad()
     tableView.register(cell: (cellId, EmployeeCell.self), header: (headerId, ReusableHeader.self))
     
-    DataBaseManager.shared.frcDelegate = self
+    DataBaseManager.shared.employeesFcrDelegate = self
   }
   
   @objc func onAddMoreButtonClick() {

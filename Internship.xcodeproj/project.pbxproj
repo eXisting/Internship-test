@@ -16,6 +16,10 @@
 		DB3BFA692211C4930074EE25 /* EmployeeProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BFA682211C4930074EE25 /* EmployeeProfileController.swift */; };
 		DBA6F3E522118B12003ABF10 /* EmployeesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F3E422118B12003ABF10 /* EmployeesViewController.swift */; };
 		DBA6F3E722118FD4003ABF10 /* EmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F3E622118FD4003ABF10 /* EmployeeCell.swift */; };
+		EDF64018221A9B19001332EC /* EmployeeProfileImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64017221A9B19001332EC /* EmployeeProfileImagePicker.swift */; };
+		EDF6401A221AA094001332EC /* DepartmentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64019221AA094001332EC /* DepartmentTableViewController.swift */; };
+		EDF6401C221AA0CC001332EC /* GeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF6401B221AA0CC001332EC /* GeneralCell.swift */; };
+		EDF6401F221AA59A001332EC /* RoleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF6401E221AA59A001332EC /* RoleTableViewController.swift */; };
 		EDF8430822156358009ABF71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8430722156357009ABF71 /* AppDelegate.swift */; };
 		EDF8430D22156755009ABF71 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8430C22156755009ABF71 /* AlertController.swift */; };
 		EDF8431B22156B24009ABF71 /* AddEntityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8431A22156B24009ABF71 /* AddEntityView.swift */; };
@@ -24,7 +28,7 @@
 		EDF8432722158F98009ABF71 /* ReusableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8432622158F98009ABF71 /* ReusableHeader.swift */; };
 		EDF8432A2215980E009ABF71 /* EmployeesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF843292215980E009ABF71 /* EmployeesDataSource.swift */; };
 		EDF8432C22159B04009ABF71 /* EmployeesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8432B22159B04009ABF71 /* EmployeesTableView.swift */; };
-		EDF843342215AE97009ABF71 /* ImagePickerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF843332215AE97009ABF71 /* ImagePickerExtension.swift */; };
+		EDF843342215AE97009ABF71 /* AddMoreImagePickerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF843332215AE97009ABF71 /* AddMoreImagePickerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +62,10 @@
 		DB3BFA682211C4930074EE25 /* EmployeeProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfileController.swift; sourceTree = "<group>"; };
 		DBA6F3E422118B12003ABF10 /* EmployeesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewController.swift; sourceTree = "<group>"; };
 		DBA6F3E622118FD4003ABF10 /* EmployeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeCell.swift; sourceTree = "<group>"; };
+		EDF64017221A9B19001332EC /* EmployeeProfileImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfileImagePicker.swift; sourceTree = "<group>"; };
+		EDF64019221AA094001332EC /* DepartmentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentTableViewController.swift; sourceTree = "<group>"; };
+		EDF6401B221AA0CC001332EC /* GeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralCell.swift; sourceTree = "<group>"; };
+		EDF6401E221AA59A001332EC /* RoleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleTableViewController.swift; sourceTree = "<group>"; };
 		EDF8430722156357009ABF71 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../../../../Users/sys-246/Projects/Internship/Internship/Application/Main/AppDelegate.swift"; sourceTree = DEVELOPER_DIR; };
 		EDF8430C22156755009ABF71 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		EDF8431A22156B24009ABF71 /* AddEntityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntityView.swift; sourceTree = "<group>"; };
@@ -66,7 +74,7 @@
 		EDF8432622158F98009ABF71 /* ReusableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableHeader.swift; sourceTree = "<group>"; };
 		EDF843292215980E009ABF71 /* EmployeesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesDataSource.swift; sourceTree = "<group>"; };
 		EDF8432B22159B04009ABF71 /* EmployeesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesTableView.swift; sourceTree = "<group>"; };
-		EDF843332215AE97009ABF71 /* ImagePickerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerExtension.swift; sourceTree = "<group>"; };
+		EDF843332215AE97009ABF71 /* AddMoreImagePickerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoreImagePickerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,8 +141,8 @@
 		DBA6F3E8221190EB003ABF10 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EDF6401D221AA2AD001332EC /* Common */,
 				EDF8431E22157C81009ABF71 /* Add */,
-				EDF84309221566F1009ABF71 /* Common */,
 				ED77A4682216DA96004FF4B2 /* Edit */,
 				EDF8432822159760009ABF71 /* Main */,
 			);
@@ -150,6 +158,7 @@
 				EDF8431A22156B24009ABF71 /* AddEntityView.swift */,
 				EDF8432622158F98009ABF71 /* ReusableHeader.swift */,
 				EDF8432B22159B04009ABF71 /* EmployeesTableView.swift */,
+				EDF6401B221AA0CC001332EC /* GeneralCell.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -157,6 +166,7 @@
 		DBA6F3EA221191A5003ABF10 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				EDF84309221566F1009ABF71 /* Common */,
 				DBA6F3E8221190EB003ABF10 /* Controllers */,
 				DB3BFA502211949F0074EE25 /* CoreData */,
 				DBA6F3EB2211920D003ABF10 /* Main */,
@@ -186,8 +196,19 @@
 			isa = PBXGroup;
 			children = (
 				DB3BFA682211C4930074EE25 /* EmployeeProfileController.swift */,
+				EDF64017221A9B19001332EC /* EmployeeProfileImagePicker.swift */,
 			);
 			path = Edit;
+			sourceTree = "<group>";
+		};
+		EDF6401D221AA2AD001332EC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EDF84322221580D2009ABF71 /* ManagerTableViewController.swift */,
+				EDF64019221AA094001332EC /* DepartmentTableViewController.swift */,
+				EDF6401E221AA59A001332EC /* RoleTableViewController.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		EDF84309221566F1009ABF71 /* Common */ = {
@@ -203,8 +224,7 @@
 			children = (
 				EDF8431F22157C9E009ABF71 /* AddMoreTextDelegate.swift */,
 				DB0F28EF221302E900784EE5 /* AddMoreViewController.swift */,
-				EDF84322221580D2009ABF71 /* ManagerTableViewController.swift */,
-				EDF843332215AE97009ABF71 /* ImagePickerExtension.swift */,
+				EDF843332215AE97009ABF71 /* AddMoreImagePickerExtension.swift */,
 			);
 			path = Add;
 			sourceTree = "<group>";
@@ -353,14 +373,18 @@
 				DBA6F3E722118FD4003ABF10 /* EmployeeCell.swift in Sources */,
 				EDF8432C22159B04009ABF71 /* EmployeesTableView.swift in Sources */,
 				EDF84323221580D2009ABF71 /* ManagerTableViewController.swift in Sources */,
+				EDF6401C221AA0CC001332EC /* GeneralCell.swift in Sources */,
+				EDF6401A221AA094001332EC /* DepartmentTableViewController.swift in Sources */,
 				EDF8430822156358009ABF71 /* AppDelegate.swift in Sources */,
 				EDF8432722158F98009ABF71 /* ReusableHeader.swift in Sources */,
 				EDF8432022157C9E009ABF71 /* AddMoreTextDelegate.swift in Sources */,
 				DBA6F3E522118B12003ABF10 /* EmployeesViewController.swift in Sources */,
 				DB3BFA5C2211A7060074EE25 /* DepartmentBook.xcdatamodeld in Sources */,
 				EDF8430D22156755009ABF71 /* AlertController.swift in Sources */,
-				EDF843342215AE97009ABF71 /* ImagePickerExtension.swift in Sources */,
+				EDF6401F221AA59A001332EC /* RoleTableViewController.swift in Sources */,
+				EDF843342215AE97009ABF71 /* AddMoreImagePickerExtension.swift in Sources */,
 				DB0F28F0221302E900784EE5 /* AddMoreViewController.swift in Sources */,
+				EDF64018221A9B19001332EC /* EmployeeProfileImagePicker.swift in Sources */,
 				EDF8431B22156B24009ABF71 /* AddEntityView.swift in Sources */,
 				DB3BFA672211BFB00074EE25 /* EmployeeProfile.swift in Sources */,
 				DB3BFA692211C4930074EE25 /* EmployeeProfileController.swift in Sources */,

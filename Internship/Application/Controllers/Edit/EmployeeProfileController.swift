@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 class EmployeeProfileController: UIViewController {
-  private var mainView: EmployeeProfile!
+  private(set) var mainView: EmployeeProfile!
   
   private let titleName = "Profile"
+  
+  lazy var imagePicker = UIImagePickerController()
   var indexPath: IndexPath?
   
   weak var profile: Employee? {
@@ -27,6 +30,12 @@ class EmployeeProfileController: UIViewController {
     mainView = EmployeeProfile(frame: CGRect(origin: CGPoint(x: 0, y: self.view.frame.height * 0.1), size: self.view.frame.size))
     self.view.addSubview(mainView)
     
+    addTargets()
+  }
+  
+  private func addTargets() {
+    let singleTap = UITapGestureRecognizer(target: self, action: #selector(pickImage))
+    mainView.profileImage?.addGestureRecognizer(singleTap)
     
     mainView.role?.addTarget(self, action: #selector(selectRole), for: .touchDown)
     mainView.department?.addTarget(self, action: #selector(selectDepartment), for: .touchDown)
@@ -35,7 +44,7 @@ class EmployeeProfileController: UIViewController {
   
   @objc func save() {
     var dict = mainView.getFieldsDataAsDict()
-    dict["objectId"] = DataBaseManager.shared.getFetchController().object(at: indexPath!).objectID
+    dict["objectId"] = DataBaseManager.shared.employeesFetchController().object(at: indexPath!).objectID
     
     DataBaseManager.shared.update(with: dict)
     
@@ -45,11 +54,43 @@ class EmployeeProfileController: UIViewController {
     }
   }
   
-  @objc func selectRole() {
-    
+  @objc func selectDepartment() {
+    let controller = DepartmentTableViewController()
+    controller.onCellSelect = onSelectDepartment
+    self.navigationController?.pushViewController(controller, animated: true)
   }
   
-  @objc func selectDepartment() {
+  @objc func selectRole() {
+    let controller = RoleTableViewController()
+    controller.onCellSelect = onSelectRole
+    self.navigationController?.pushViewController(controller, animated: true)
+  }
+  
+  private func onSelectDepartment(_ department: NSManagedObject) {
+    mainView.departmentObject = (department as! Department)
+  }
+  
+  private func onSelectRole(_ role: NSManagedObject) {
+    let role = (role as! Role)
     
+    mainView.role?.text = role.name
+    mainView.roleId = role.objectID
+  }
+  
+  @objc func pickImage() {
+    print("Picked")
+    let cameraAction =  UIAlertAction(title: "Camera", style: .default, handler: { _ in
+      self.openCamera()
+    })
+    
+    let galleryAction = UIAlertAction(title: "Gallery", style: .default, handler: { _ in
+      self.openGallary()
+    })
+    
+    AlertController.showChoose(for: self, title: "Choose image", cameraAction, galleryAction)
+    
+    imagePicker.delegate = self
+    imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+    imagePicker.allowsEditing = false
   }
 }

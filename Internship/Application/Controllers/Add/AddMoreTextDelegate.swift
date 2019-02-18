@@ -11,13 +11,13 @@ import UIKit
 extension AddMoreViewController: UITextFieldDelegate {
   override func viewDidLoad() {
     self.mainView.departmentManager!.delegate = self
+    self.mainView.employeeProfileView?.department!.delegate = self
+    self.mainView.employeeProfileView?.role?.delegate = self
   }
   
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-    if textField == self.mainView.departmentManager {
-      return false
-    }
-    
-    return true
+    return textField != self.mainView.departmentManager &&
+      textField != self.mainView.employeeProfileView?.department &&
+      textField != self.mainView.employeeProfileView?.role
   }
 }

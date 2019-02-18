@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
 class ManagerTableViewController: UITableViewController {
-  var onCellSelect: ((String) -> Void)?
+  var onCellSelect: ((NSManagedObject) -> Void)?
   
   private var titleName = "Employees"
   private var cellId = "EmployeeCell"
-  private var rowsCount = 20
+  
+  lazy var fetchController = DataBaseManager.shared.employeesFetchController()
   
   override func loadView() {
     super.loadView()
@@ -24,25 +26,21 @@ class ManagerTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.register(EmployeeCell.self, forCellReuseIdentifier: cellId)
+    DataBaseManager.shared.employeesFcrDelegate = self
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return rowsCount
+    let fetched = fetchController.fetchedObjects
+    
+    return fetched?.count ?? 1
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! EmployeeCell
     
-    // TODO: Load all managers from core data
-    
-    cell.name?.text = "John \(indexPath.row)"
-    cell.role?.text = "Some Role"
-    let url = URL(string: "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png")
-    let data = try? Data(contentsOf: url!)
-    
-    if let imageData = data {
-      cell.photo?.image = UIImage(data: imageData)
-    }
+    let employee = fetchController.object(at: indexPath)
+    cell.employee = employee
+    cell.populateTextFields()
     
     return cell
   }
@@ -52,7 +50,19 @@ class ManagerTableViewController: UITableViewController {
       return
     }
     
-    onCellSelect?(chosenCell.name!.text!)
+    onCellSelect?(chosenCell.employee)
     self.navigationController?.popViewController(animated: true)
+  }
+}
+
+extension ManagerTableViewController: NSFetchedResultsControllerDelegate {
+  func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+    tableView.beginUpdates()
+    print("Will change content")
+  }
+  
+  func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+    tableView.endUpdates()
+    print("Did change content")
   }
 }

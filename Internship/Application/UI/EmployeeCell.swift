@@ -13,7 +13,7 @@ class EmployeeCell: UITableViewCell {
   var role: UILabel?
   var photo: UIImageView?
   
-  var employee: Employee?
+  var employee: Employee!
   
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -29,9 +29,9 @@ class EmployeeCell: UITableViewCell {
   }
   
   func populateTextFields() {
-    name?.text = employee?.name
-    photo?.image = UIImage(data: employee?.photo ?? Data())
-    role?.text = employee?.role?.name
+    name?.text = employee.name
+    photo?.image = UIImage(data: employee.photo ?? Data())
+    role?.text = employee.role!.name
   }
   
   private func laidOutImage() {

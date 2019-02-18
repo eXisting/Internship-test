@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class EmployeeProfile: UIView {
   var profileImage: UIImageView?
@@ -16,6 +17,14 @@ class EmployeeProfile: UIView {
   var phone: UITextField?
   var email: UITextField?
   var department: UITextField?
+  
+  var departmentObject: Department? {
+    didSet {
+      department?.text = departmentObject?.name
+    }
+  }
+  
+  var roleId: NSManagedObjectID?
   
   var infoStack: UIStackView?
 
@@ -49,8 +58,10 @@ class EmployeeProfile: UIView {
   func getFieldsDataAsDict() -> [String: Any] {
     return [
       "name": name?.text as Any,
-      "phone":phone?.text as Any,
-      "email":email?.text as Any,
+      "phone": phone?.text as Any,
+      "email": email?.text as Any,
+      "roleId": roleId as Any,
+      "department": departmentObject as Any,
       "photo": profileImage?.image?.pngData() as Any
     ]
   }
@@ -62,7 +73,7 @@ class EmployeeProfile: UIView {
   }
   
   private func laidOutInfoStack() {
-    let stackSize = CGSize(width: self.frame.width * 0.65, height: self.frame.height * 0.3)
+    let stackSize = CGSize(width: self.frame.width * 0.65, height: self.frame.height * 0.4)
     let orign = CGPoint(x: self.frame.width / 2 - stackSize.width / 2, y: self.frame.height * 0.4)
     
     infoStack = UIStackView(frame: CGRect(origin: orign, size: stackSize))

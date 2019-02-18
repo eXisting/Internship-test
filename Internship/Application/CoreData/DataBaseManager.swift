@@ -12,21 +12,28 @@ import CoreData
 class DataBaseManager: NSObject {
 
   let modelName = "DepartmentsBook"
-  let entityName = "Employee"
   
+  let employeeEntity = "Employee"
+  let departmentEntity = "Department"
+  let roleEntity = "Role"
+
   // MARK: Fields
   
   static let shared = DataBaseManager()
   
   private var persistentStoreCoordinator: NSPersistentStoreCoordinator?
   
-  private var mainManagedObjectContext: NSManagedObjectContext?
+  private(set) var mainManagedObjectContext: NSManagedObjectContext?
   private var storeManagedObjectContext: NSManagedObjectContext?
   
-  private var fetchedResultsController: NSFetchedResultsController<Employee>?
-  
-  weak var frcDelegate: NSFetchedResultsControllerDelegate?
-  
+  private var employeesResultsController: NSFetchedResultsController<Employee>?
+  private var rolesResultsController: NSFetchedResultsController<Role>?
+  private var departmentsResultsController: NSFetchedResultsController<Department>?
+
+  weak var employeesFcrDelegate: NSFetchedResultsControllerDelegate?
+  weak var rolesFcrDelegate: NSFetchedResultsControllerDelegate?
+  weak var departmentsFcrDelegate: NSFetchedResultsControllerDelegate?
+
   // MARK: Initialization
 
   private override init() {
@@ -71,45 +78,93 @@ class DataBaseManager: NSObject {
     storeManagedObjectContext!.persistentStoreCoordinator = self.persistentStoreCoordinator
   }
   
-  // MARK: Fetch result controller
+  // MARK: Fetch result controllers
   
-  func getFetchController() ->  NSFetchedResultsController<Employee> {
-    if let controller = fetchedResultsController {
+  func employeesFetchController() ->  NSFetchedResultsController<Employee> {
+    if let controller = employeesResultsController {
       return controller
     }
     
     let fetchRequest = NSFetchRequest<Employee>()
-    fetchRequest.entity = NSEntityDescription.entity(forEntityName: entityName, in: mainManagedObjectContext!)
+    fetchRequest.entity = NSEntityDescription.entity(forEntityName: employeeEntity, in: mainManagedObjectContext!)
     
     fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
     fetchRequest.returnsObjectsAsFaults = false
     fetchRequest.fetchBatchSize = 20
     
-    fetchedResultsController = NSFetchedResultsController(
+    employeesResultsController = NSFetchedResultsController(
       fetchRequest: fetchRequest,
       managedObjectContext: mainManagedObjectContext!,
       sectionNameKeyPath: nil,
       cacheName: nil)
     
     do {
-      let _ = try fetchedResultsController?.performFetch()
+      let _ = try employeesResultsController?.performFetch()
     } catch {
       print("Unexpected error: \(error.localizedDescription)")
       abort()
     }
     
-    return fetchedResultsController!
+    return employeesResultsController!
+  }
+  
+  func rolesFetchController() -> NSFetchedResultsController<Role> {
+    if let controller = rolesResultsController {
+      return controller
+    }
+    
+    let fetchRequest = NSFetchRequest<Role>()
+    fetchRequest.entity = NSEntityDescription.entity(forEntityName: roleEntity, in: mainManagedObjectContext!)
+    
+    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+    fetchRequest.returnsObjectsAsFaults = false
+    fetchRequest.fetchBatchSize = 20
+    
+    rolesResultsController = NSFetchedResultsController(
+      fetchRequest: fetchRequest,
+      managedObjectContext: mainManagedObjectContext!,
+      sectionNameKeyPath: nil,
+      cacheName: nil)
+    
+    do {
+      let _ = try rolesResultsController!.performFetch()
+    } catch {
+      print("Unexpected error: \(error.localizedDescription)")
+      abort()
+    }
+    
+    return rolesResultsController!
+  }
+  
+  func departmentsFetchController() -> NSFetchedResultsController<Department> {
+    if let controller = departmentsResultsController {
+      return controller
+    }
+    
+    let fetchRequest = NSFetchRequest<Department>()
+    fetchRequest.entity = NSEntityDescription.entity(forEntityName: departmentEntity, in: mainManagedObjectContext!)
+    
+    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+    fetchRequest.returnsObjectsAsFaults = false
+    fetchRequest.fetchBatchSize = 20
+    
+    departmentsResultsController = NSFetchedResultsController(
+      fetchRequest: fetchRequest,
+      managedObjectContext: mainManagedObjectContext!,
+      sectionNameKeyPath: nil,
+      cacheName: nil)
+    
+    do {
+      let _ = try departmentsResultsController!.performFetch()
+    } catch {
+      print("Unexpected error: \(error.localizedDescription)")
+      abort()
+    }
+    
+    return departmentsResultsController!
   }
   
   // MARK: Actions
-  
-  func create(from dict: [String: Any]) {
-    let object = NSEntityDescription.insertNewObject(forEntityName: entityName, into: storeManagedObjectContext!)
-    
-    setFields(of: object, with: dict)
-    
-    save(context: storeManagedObjectContext)
-  }
   
   func update(with dict: [String: Any]) {
     let object = storeManagedObjectContext!.object(with: dict["objectId"] as! NSManagedObjectID)
@@ -126,12 +181,48 @@ class DataBaseManager: NSObject {
     save(context: storeManagedObjectContext)
   }
   
+  // MARK: Create
+  
+  func createEmployee(from dict: [String: Any]) {
+    let employee = NSEntityDescription.insertNewObject(forEntityName: employeeEntity, into: storeManagedObjectContext!) as! Employee
+    
+    setFields(of: employee, with: dict)
+    
+//    let department = dict["department"] as! Department
+//    employee.addToDepartment(department)
+//    department.addToEmployee(employee)
+    
+    let roleId = dict["roleId"] as! NSManagedObjectID
+    let role = storeManagedObjectContext?.object(with: roleId) as! Role
+    role.addToEmployee(employee)
+    
+    save(context: storeManagedObjectContext)
+  }
+  
+  func createDepartment(from dict: [String: Any]) {
+    let department = NSEntityDescription.insertNewObject(forEntityName: departmentEntity, into: storeManagedObjectContext!) as! Department
+//    let employee = storeManagedObjectContext!.object(with: dict["employeeId"] as! NSManagedObjectID) as! Employee
+    
+    department.setValue(dict["name"], forKey: "name")    
+//    department.addToEmployee(employee)
+//    employee.addToDepartment(department)
+    
+    save(context: storeManagedObjectContext)
+  }
+  
+  func createRole(_ name: String) {
+    let object = NSEntityDescription.insertNewObject(forEntityName: roleEntity, into: storeManagedObjectContext!)
+    
+    object.setValue(name, forKey: "name")
+    
+    save(context: storeManagedObjectContext)
+  }
+  
   // MARK: Helpers
   
   private func save(context: NSManagedObjectContext?) {
     saveDatabase(with: context)
   }
-  
   
   private func saveDatabase(with context: NSManagedObjectContext?) {
     if persistentStoreCoordinator == nil {
@@ -158,8 +249,5 @@ class DataBaseManager: NSObject {
     object.setValue(dict["phone"], forKey: "phone")
     object.setValue(dict["email"], forKey: "email")
     object.setValue(dict["photo"], forKey: "photo")
-    
-    //    object.setValue(dict["roleId"], forKey: "roleId")
-    //    object.setValue(dict["departmentId"], forKey: "departmentId")
   }
 }
