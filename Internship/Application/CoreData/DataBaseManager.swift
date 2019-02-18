@@ -30,10 +30,6 @@ class DataBaseManager: NSObject {
   private var rolesResultsController: NSFetchedResultsController<Role>?
   private var departmentsResultsController: NSFetchedResultsController<Department>?
 
-  weak var employeesFcrDelegate: NSFetchedResultsControllerDelegate?
-  weak var rolesFcrDelegate: NSFetchedResultsControllerDelegate?
-  weak var departmentsFcrDelegate: NSFetchedResultsControllerDelegate?
-
   // MARK: Initialization
 
   private override init() {
@@ -153,7 +149,7 @@ class DataBaseManager: NSObject {
       managedObjectContext: mainManagedObjectContext!,
       sectionNameKeyPath: nil,
       cacheName: nil)
-    
+        
     do {
       let _ = try departmentsResultsController!.performFetch()
     } catch {
@@ -167,9 +163,23 @@ class DataBaseManager: NSObject {
   // MARK: Actions
   
   func update(with dict: [String: Any]) {
-    let object = storeManagedObjectContext!.object(with: dict["objectId"] as! NSManagedObjectID)
+    let employee = storeManagedObjectContext!.object(with: dict["objectId"] as! NSManagedObjectID) as! Employee
     
-    setFields(of: object, with: dict)
+    setFields(of: employee, with: dict)
+    
+//    let departmentId = dict["departmentsIds"] as! Set<NSManagedObjectID>
+//
+//    if employee.department != nil {
+//      employee.removeFromDepartment(employee.department!)
+//    }
+//
+//    // TODO: Add to departments
+    
+    let roleId = dict["roleId"] as! NSManagedObjectID
+    let role = storeManagedObjectContext?.object(with: roleId) as! Role
+    
+    employee.role?.removeFromEmployee(employee)
+    role.addToEmployee(employee)
     
     save(context: storeManagedObjectContext)
   }

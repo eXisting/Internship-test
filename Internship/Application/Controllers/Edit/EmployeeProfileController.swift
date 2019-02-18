@@ -17,6 +17,8 @@ class EmployeeProfileController: UIViewController {
   lazy var imagePicker = UIImagePickerController()
   var indexPath: IndexPath?
   
+  lazy var fetchController = DataBaseManager.shared.employeesFetchController()
+  
   weak var profile: Employee? {
     didSet {
       mainView.setupFields(from: profile)
@@ -44,7 +46,7 @@ class EmployeeProfileController: UIViewController {
   
   @objc func save() {
     var dict = mainView.getFieldsDataAsDict()
-    dict["objectId"] = DataBaseManager.shared.employeesFetchController().object(at: indexPath!).objectID
+    dict["objectId"] = fetchController.object(at: indexPath!).objectID
     
     DataBaseManager.shared.update(with: dict)
     

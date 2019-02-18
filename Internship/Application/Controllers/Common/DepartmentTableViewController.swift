@@ -25,7 +25,6 @@ class DepartmentTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.register(GeneralCell.self, forCellReuseIdentifier: cellId)
-    DataBaseManager.shared.departmentsFcrDelegate = self
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,11 +56,35 @@ class DepartmentTableViewController: UITableViewController {
 extension DepartmentTableViewController: NSFetchedResultsControllerDelegate {
   func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     tableView.beginUpdates()
-    print("Will change content")
+  }
+  
+  func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+    switch type {
+    case .insert:
+      tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+    case .delete:
+      tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
+    case .move:
+      break
+    case .update:
+      break
+    }
+  }
+  
+  func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+    switch type {
+    case .insert:
+      tableView.insertRows(at: [newIndexPath!], with: .fade)
+    case .delete:
+      tableView.deleteRows(at: [indexPath!], with: .fade)
+    case .update:
+      tableView.reloadRows(at: [indexPath!], with: .fade)
+    case .move:
+      tableView.moveRow(at: indexPath!, to: newIndexPath!)
+    }
   }
   
   func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     tableView.endUpdates()
-    print("Did change content")
   }
 }
