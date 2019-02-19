@@ -141,11 +141,13 @@ class EmployeeProfile: UIView {
   }
   
   private func laidOutImage() {
-    let size = self.frame.width * 0.25
+    let size = self.frame.width * 0.4
     let imageSize = CGSize(width: size, height: size)
     let orign = CGPoint(x: self.frame.width / 2 - size / 2, y: size / 2)
     
     profileImage = UIImageView(frame: CGRect(origin: orign, size: imageSize))
+    profileImage?.backgroundColor = .lightGray
+    
     addSubview(profileImage!)
   }
 }

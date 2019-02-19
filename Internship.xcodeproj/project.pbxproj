@@ -253,9 +253,9 @@
 		EDF8432822159760009ABF71 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				EDF64026221C1442001332EC /* HomeTableViewDelegates.swift */,
 				DBA6F3E422118B12003ABF10 /* HomeViewController.swift */,
 				EDF64020221AEF94001332EC /* SectionData.swift */,
-				EDF64026221C1442001332EC /* HomeTableViewDelegates.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
