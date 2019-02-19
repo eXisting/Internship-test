@@ -107,7 +107,10 @@ extension HomeViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     if (editingStyle == .delete) {
-      DataBaseManager.shared.delete(id: data[indexPath.section].employees[indexPath.row].objectID)
+      DataBaseManager.shared.delete(
+        employeeId: data[indexPath.section].employees[indexPath.row].objectID,
+        fromDepartment: data[indexPath.section].department.objectID
+      )
       
       data[indexPath.section].employees.remove(at: indexPath.row)
       
