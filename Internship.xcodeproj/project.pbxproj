@@ -22,6 +22,7 @@
 		EDF6401F221AA59A001332EC /* RoleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF6401E221AA59A001332EC /* RoleTableViewController.swift */; };
 		EDF64021221AEF94001332EC /* SectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64020221AEF94001332EC /* SectionData.swift */; };
 		EDF64025221BFD67001332EC /* SelectableEmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64024221BFD67001332EC /* SelectableEmployeeCell.swift */; };
+		EDF64027221C1442001332EC /* HomeTableViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64026221C1442001332EC /* HomeTableViewDelegates.swift */; };
 		EDF8430822156358009ABF71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8430722156357009ABF71 /* AppDelegate.swift */; };
 		EDF8430D22156755009ABF71 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8430C22156755009ABF71 /* AlertController.swift */; };
 		EDF8431B22156B24009ABF71 /* AddEntityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8431A22156B24009ABF71 /* AddEntityView.swift */; };
@@ -69,6 +70,7 @@
 		EDF6401E221AA59A001332EC /* RoleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleTableViewController.swift; sourceTree = "<group>"; };
 		EDF64020221AEF94001332EC /* SectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionData.swift; sourceTree = "<group>"; };
 		EDF64024221BFD67001332EC /* SelectableEmployeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableEmployeeCell.swift; sourceTree = "<group>"; };
+		EDF64026221C1442001332EC /* HomeTableViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewDelegates.swift; sourceTree = "<group>"; };
 		EDF8430722156357009ABF71 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../../../../Users/sys-246/Projects/Internship/Internship/Application/Main/AppDelegate.swift"; sourceTree = DEVELOPER_DIR; };
 		EDF8430C22156755009ABF71 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		EDF8431A22156B24009ABF71 /* AddEntityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntityView.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			children = (
 				DBA6F3E422118B12003ABF10 /* HomeViewController.swift */,
 				EDF64020221AEF94001332EC /* SectionData.swift */,
+				EDF64026221C1442001332EC /* HomeTableViewDelegates.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				EDF8431B22156B24009ABF71 /* AddEntityView.swift in Sources */,
 				DB3BFA672211BFB00074EE25 /* EmployeeProfile.swift in Sources */,
 				DB3BFA692211C4930074EE25 /* EmployeeProfileController.swift in Sources */,
+				EDF64027221C1442001332EC /* HomeTableViewDelegates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
