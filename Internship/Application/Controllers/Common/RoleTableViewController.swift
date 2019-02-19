@@ -19,12 +19,12 @@ class RoleTableViewController: UITableViewController {
   
   override func loadView() {
     super.loadView()
+    fetchController.delegate = self
     self.navigationItem.title = titleName
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     tableView.register(GeneralCell.self, forCellReuseIdentifier: cellId)
   }
   

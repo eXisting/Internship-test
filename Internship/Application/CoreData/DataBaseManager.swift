@@ -23,13 +23,15 @@ class DataBaseManager: NSObject {
   
   private var persistentStoreCoordinator: NSPersistentStoreCoordinator?
   
-  private(set) var mainManagedObjectContext: NSManagedObjectContext?
+  private var mainManagedObjectContext: NSManagedObjectContext?
   private var storeManagedObjectContext: NSManagedObjectContext?
   
   private var employeesResultsController: NSFetchedResultsController<Employee>?
   private var rolesResultsController: NSFetchedResultsController<Role>?
   private var departmentsResultsController: NSFetchedResultsController<Department>?
-
+  
+  var frcDelegate: NSFetchedResultsControllerDelegate?
+  
   // MARK: Initialization
 
   private override init() {
@@ -94,6 +96,8 @@ class DataBaseManager: NSObject {
       sectionNameKeyPath: nil,
       cacheName: nil)
     
+    employeesResultsController?.delegate = frcDelegate
+    
     do {
       let _ = try employeesResultsController?.performFetch()
     } catch {
@@ -122,6 +126,8 @@ class DataBaseManager: NSObject {
       sectionNameKeyPath: nil,
       cacheName: nil)
     
+    rolesResultsController?.delegate = frcDelegate
+    
     do {
       let _ = try rolesResultsController!.performFetch()
     } catch {
@@ -149,7 +155,9 @@ class DataBaseManager: NSObject {
       managedObjectContext: mainManagedObjectContext!,
       sectionNameKeyPath: nil,
       cacheName: nil)
-        
+    
+    departmentsResultsController?.delegate = frcDelegate
+    
     do {
       let _ = try departmentsResultsController!.performFetch()
     } catch {
@@ -167,13 +175,21 @@ class DataBaseManager: NSObject {
     
     setFields(of: employee, with: dict)
     
-//    let departmentId = dict["departmentsIds"] as! Set<NSManagedObjectID>
-//
-//    if employee.department != nil {
-//      employee.removeFromDepartment(employee.department!)
-//    }
-//
-//    // TODO: Add to departments
+    if let assignedDepartments = employee.department {
+      for employeeDepartment in assignedDepartments {
+        let department = storeManagedObjectContext?.object(with: (employeeDepartment as! Department).objectID) as! Department
+        department.removeFromEmployee(employee)
+        employee.removeFromDepartment(department)
+      }
+    }
+    
+    if let departmentIds = dict["departmentsIds"] as? [NSManagedObjectID] {
+      for id in departmentIds {
+        let department = storeManagedObjectContext!.object(with: id) as! Department
+        employee.addToDepartment(department)
+        department.addToEmployee(employee)
+      }
+    }
     
     let roleId = dict["roleId"] as! NSManagedObjectID
     let role = storeManagedObjectContext?.object(with: roleId) as! Role
@@ -196,9 +212,13 @@ class DataBaseManager: NSObject {
     
     setFields(of: employee, with: dict)
     
-//    let department = dict["department"] as! Department
-//    employee.addToDepartment(department)
-//    department.addToEmployee(employee)
+    if let departmentsIds = dict["departmentsIds"] as? [NSManagedObjectID] {
+      for id in departmentsIds {
+        let department = storeManagedObjectContext!.object(with: id) as! Department
+        department.addToEmployee(employee)
+        employee.addToDepartment(department)
+      }
+    }
     
     let roleId = dict["roleId"] as! NSManagedObjectID
     let role = storeManagedObjectContext?.object(with: roleId) as! Role
@@ -209,11 +229,16 @@ class DataBaseManager: NSObject {
   
   func createDepartment(from dict: [String: Any]) {
     let department = NSEntityDescription.insertNewObject(forEntityName: departmentEntity, into: storeManagedObjectContext!) as! Department
-//    let employee = storeManagedObjectContext!.object(with: dict["employeeId"] as! NSManagedObjectID) as! Employee
     
-    department.setValue(dict["name"], forKey: "name")    
-//    department.addToEmployee(employee)
-//    employee.addToDepartment(department)
+    department.setValue(dict["name"], forKey: "name")
+    
+    if let employeesIds = dict["employeesIds"] as? [NSManagedObjectID] {
+      for id in employeesIds {
+        let employee = storeManagedObjectContext!.object(with: id) as! Employee
+        department.addToEmployee(employee)
+        employee.addToDepartment(department)
+      }
+    }
     
     save(context: storeManagedObjectContext)
   }

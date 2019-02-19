@@ -39,30 +39,25 @@ class AddMoreViewController: UIViewController {
   // MARK: - Objc methods
   
   @objc func save() {
-//    DataBaseManager.shared.createRole("Junior")
-//    DataBaseManager.shared.createRole("Senior")
-//    DataBaseManager.shared.createRole("Middle")
-//    DataBaseManager.shared.createRole("Intern")
+//    DataBaseManager.shared.createRole("Manager")
+//    DataBaseManager.shared.createRole("Programmer")
+//    DataBaseManager.shared.createRole("Analytics")
+//    DataBaseManager.shared.createRole("ML")
+//    DataBaseManager.shared.createRole("Game dev")
 //    DataBaseManager.shared.createDepartment(from: ["name": "PM"])
 //    DataBaseManager.shared.createDepartment(from: ["name": "Java"])
 //    DataBaseManager.shared.createDepartment(from: ["name": "C++"])
-
+//    DataBaseManager.shared.createDepartment(from: ["name": "iOS"])
+//    DataBaseManager.shared.createDepartment(from: ["name": "Unity"])
+    
     let data = mainView.getFieldsDataAsDict()
-//    let data: [String: Any] = [
-//      "name": "Johny" as Any,
-//      "phone": "12418249182" as Any,
-//      "email": "fjdlsf@gmail.com" as Any,
-//      "role": mainView.employeeProfileView!.roleObject! as Any,
-//      "department": mainView.employeeProfileView!.departmentObject! as Any,
-//      "photo": ""
-//    ]
 
     if mainView.segmentControll?.selectedSegmentIndex == SelectStates.deparment.rawValue {
       DataBaseManager.shared.createDepartment(from: data)
     } else {
       DataBaseManager.shared.createEmployee(from: data)
     }
-    
+
     self.navigationController?.popViewController(animated: true)
   }
   
@@ -104,8 +99,8 @@ class AddMoreViewController: UIViewController {
     imagePicker.allowsEditing = false
   }
   
-  private func onSelectDepartment(_ department: NSManagedObject) {
-    self.mainView.employeeProfileView?.departmentObject = (department as! Department)
+  private func onSelectDepartment(_ departments: [NSManagedObject]) {
+    self.mainView.employeeProfileView?.departments = (departments as! [Department])
   }
   
   private func onSelectRole(_ role: NSManagedObject) {
@@ -115,7 +110,7 @@ class AddMoreViewController: UIViewController {
     mainView.employeeProfileView?.roleId = role.objectID
   }
   
-  private func onSelectManager(_ manager: NSManagedObject) {
-    mainView.manager = (manager as! Employee)
+  private func onSelectManager(_ managers: [NSManagedObject]) {
+    mainView.managers = (managers as! [Employee])
   }
 }

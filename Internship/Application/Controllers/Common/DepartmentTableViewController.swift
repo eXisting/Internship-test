@@ -10,16 +10,23 @@ import UIKit
 import CoreData
 
 class DepartmentTableViewController: UITableViewController {
-  var onCellSelect: ((NSManagedObject) -> Void)?
+  var onCellSelect: (([NSManagedObject]) -> Void)?
   
   private var titleName = "Departments"
   private var cellId = "DepartmentCell"
+  
+  private var chosenDepartments: [NSManagedObject] = []
   
   lazy var fetchController = DataBaseManager.shared.departmentsFetchController()
   
   override func loadView() {
     super.loadView()
+    fetchController.delegate = self
+    tableView.allowsMultipleSelection = true
+    tableView.allowsMultipleSelectionDuringEditing = true
+    
     self.navigationItem.title = titleName
+    self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
   }
   
   override func viewDidLoad() {
@@ -48,7 +55,13 @@ class DepartmentTableViewController: UITableViewController {
       return
     }
     
-    onCellSelect?(chosenCell.content)
+    chosenCell.setSelected(true, animated: true)
+    chosenDepartments.append(chosenCell.content)
+  }
+  
+  @objc func done() {
+    onCellSelect?(chosenDepartments)
+    
     self.navigationController?.popViewController(animated: true)
   }
 }

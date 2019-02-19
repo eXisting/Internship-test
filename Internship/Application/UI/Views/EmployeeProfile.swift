@@ -18,9 +18,15 @@ class EmployeeProfile: UIView {
   var email: UITextField?
   var department: UITextField?
   
-  var departmentObject: Department? {
+  var departments: [Department]? {
     didSet {
-      department?.text = departmentObject?.name
+      var names = ""
+      
+      for element in departments! {
+        names += " \(element.name ?? "");"
+      }
+      
+      department?.text = names
     }
   }
   
@@ -49,19 +55,26 @@ class EmployeeProfile: UIView {
         continue
       }
       
-      department?.text?.append("\(element.name ?? "");")
+      department?.text?.append(" \(element.name ?? "");")
     }
     
     profileImage?.image = UIImage(data: employee?.photo ?? Data())
+    
+    roleId = employee?.role?.objectID
   }
   
   func getFieldsDataAsDict() -> [String: Any] {
+    var ids: [Any] = []
+    for element in departments! {
+      ids.append(element.objectID)
+    }
+    
     return [
       "name": name?.text as Any,
       "phone": phone?.text as Any,
       "email": email?.text as Any,
       "roleId": roleId as Any,
-      "department": departmentObject as Any,
+      "departmentsIds": ids,
       "photo": profileImage?.image?.pngData() as Any
     ]
   }

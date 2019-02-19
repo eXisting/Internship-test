@@ -32,7 +32,7 @@ class HomeViewController: UIViewController {
     self.view = tableView
     
     tableView?.set(delegate: self, dataSource: self)
-
+    fetchController.delegate = self
     self.navigationItem.title = titleName
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAddMoreButtonClick))
   }
@@ -101,14 +101,13 @@ extension HomeViewController: UITableViewDelegate {
     let controller = EmployeeProfileController()
     controller.view.backgroundColor = self.view.backgroundColor
     controller.profile = chosenCell.employee
-    controller.indexPath = indexPath
     
     self.navigationController?.pushViewController(controller, animated: true)
   }
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     if (editingStyle == .delete) {
-      //DataBaseManager.shared.delete(id: data[indexPath.section].employees[indexPath.row].objectID)
+      DataBaseManager.shared.delete(id: data[indexPath.section].employees[indexPath.row].objectID)
       
       data[indexPath.section].employees.remove(at: indexPath.row)
       

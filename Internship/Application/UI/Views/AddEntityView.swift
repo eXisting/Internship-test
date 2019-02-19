@@ -22,9 +22,15 @@ class AddEntityView: UIView {
   private(set) var departmentName: UITextField?
   private(set) var departmentManager: UITextField?
   
-  var manager: Employee? {
+  var managers: [Employee]? {
     didSet {
-      departmentManager?.text = manager?.name
+      var names = ""
+      
+      for element in managers! {
+        names += " \(element.name ?? "");"
+      }
+      
+      departmentManager?.text = names
     }
   }
   
@@ -44,7 +50,15 @@ class AddEntityView: UIView {
   }
   
   private func getDepartmentFieldsAsDict() -> [String: Any] {
-    return ["name": departmentName!.text as Any]
+    var ids: [Any] = []
+    for element in managers! {
+      ids.append(element.objectID)
+    }
+    
+    return [
+      "name": departmentName!.text as Any,
+      "employeesIds": ids
+    ]
   }
   
   @objc func toggleVisibleStack() {

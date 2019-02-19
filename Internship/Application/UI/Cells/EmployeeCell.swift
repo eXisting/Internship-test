@@ -17,10 +17,10 @@ class EmployeeCell: UITableViewCell {
   
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
-    
     laidOutImage()
     laidOutLabels()
     
+    selectionStyle = .none
     accessoryType = .disclosureIndicator
   }
   

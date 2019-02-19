@@ -10,22 +10,29 @@ import UIKit
 import CoreData
 
 class ManagerTableViewController: UITableViewController {
-  var onCellSelect: ((NSManagedObject) -> Void)?
+  var onCellSelect: (([NSManagedObject]) -> Void)?
   
   private var titleName = "Employees"
-  private var cellId = "EmployeeCell"
+  private var cellId = "SelectableEmployeeCell"
+  
+  private var chosenManagers: [NSManagedObject] = []
   
   lazy var fetchController = DataBaseManager.shared.employeesFetchController()
   
   override func loadView() {
     super.loadView()
+    fetchController.delegate = self
     tableView.rowHeight = HomeViewController.defaultRowHeight
+    tableView.allowsMultipleSelection = true
+    tableView.allowsMultipleSelectionDuringEditing = true
+    
     self.navigationItem.title = titleName
+    self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    tableView.register(EmployeeCell.self, forCellReuseIdentifier: cellId)
+    tableView.register(SelectableEmployeeCell.self, forCellReuseIdentifier: cellId)
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,7 +56,13 @@ class ManagerTableViewController: UITableViewController {
       return
     }
     
-    onCellSelect?(chosenCell.employee)
+    chosenCell.setSelected(true, animated: true)
+    chosenManagers.append(chosenCell.employee)
+  }
+  
+  @objc func done() {
+    onCellSelect?(chosenManagers)
+    
     self.navigationController?.popViewController(animated: true)
   }
 }

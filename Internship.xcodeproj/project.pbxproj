@@ -21,6 +21,7 @@
 		EDF6401C221AA0CC001332EC /* GeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF6401B221AA0CC001332EC /* GeneralCell.swift */; };
 		EDF6401F221AA59A001332EC /* RoleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF6401E221AA59A001332EC /* RoleTableViewController.swift */; };
 		EDF64021221AEF94001332EC /* SectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64020221AEF94001332EC /* SectionData.swift */; };
+		EDF64025221BFD67001332EC /* SelectableEmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64024221BFD67001332EC /* SelectableEmployeeCell.swift */; };
 		EDF8430822156358009ABF71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8430722156357009ABF71 /* AppDelegate.swift */; };
 		EDF8430D22156755009ABF71 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8430C22156755009ABF71 /* AlertController.swift */; };
 		EDF8431B22156B24009ABF71 /* AddEntityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8431A22156B24009ABF71 /* AddEntityView.swift */; };
@@ -67,6 +68,7 @@
 		EDF6401B221AA0CC001332EC /* GeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralCell.swift; sourceTree = "<group>"; };
 		EDF6401E221AA59A001332EC /* RoleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleTableViewController.swift; sourceTree = "<group>"; };
 		EDF64020221AEF94001332EC /* SectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionData.swift; sourceTree = "<group>"; };
+		EDF64024221BFD67001332EC /* SelectableEmployeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableEmployeeCell.swift; sourceTree = "<group>"; };
 		EDF8430722156357009ABF71 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../../../../Users/sys-246/Projects/Internship/Internship/Application/Main/AppDelegate.swift"; sourceTree = DEVELOPER_DIR; };
 		EDF8430C22156755009ABF71 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		EDF8431A22156B24009ABF71 /* AddEntityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntityView.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				DBA6F3E622118FD4003ABF10 /* EmployeeCell.swift */,
 				EDF8432622158F98009ABF71 /* ReusableHeader.swift */,
 				EDF6401B221AA0CC001332EC /* GeneralCell.swift */,
+				EDF64024221BFD67001332EC /* SelectableEmployeeCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				DBA6F3E522118B12003ABF10 /* HomeViewController.swift in Sources */,
 				DB3BFA5C2211A7060074EE25 /* DepartmentBook.xcdatamodeld in Sources */,
 				EDF8430D22156755009ABF71 /* AlertController.swift in Sources */,
+				EDF64025221BFD67001332EC /* SelectableEmployeeCell.swift in Sources */,
 				EDF6401F221AA59A001332EC /* RoleTableViewController.swift in Sources */,
 				EDF843342215AE97009ABF71 /* AddMoreImagePickerExtension.swift in Sources */,
 				DB0F28F0221302E900784EE5 /* AddMoreViewController.swift in Sources */,

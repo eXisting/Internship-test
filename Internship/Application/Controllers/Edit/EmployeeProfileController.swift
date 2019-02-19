@@ -15,7 +15,6 @@ class EmployeeProfileController: UIViewController {
   private let titleName = "Profile"
   
   lazy var imagePicker = UIImagePickerController()
-  var indexPath: IndexPath?
   
   lazy var fetchController = DataBaseManager.shared.employeesFetchController()
   
@@ -46,7 +45,7 @@ class EmployeeProfileController: UIViewController {
   
   @objc func save() {
     var dict = mainView.getFieldsDataAsDict()
-    dict["objectId"] = fetchController.object(at: indexPath!).objectID
+    dict["objectId"] = profile?.objectID
     
     DataBaseManager.shared.update(with: dict)
     
@@ -68,8 +67,8 @@ class EmployeeProfileController: UIViewController {
     self.navigationController?.pushViewController(controller, animated: true)
   }
   
-  private func onSelectDepartment(_ department: NSManagedObject) {
-    mainView.departmentObject = (department as! Department)
+  private func onSelectDepartment(_ departments: [NSManagedObject]) {
+    mainView.departments = (departments as! [Department])
   }
   
   private func onSelectRole(_ role: NSManagedObject) {
