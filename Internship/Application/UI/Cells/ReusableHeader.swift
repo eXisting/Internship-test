@@ -31,7 +31,6 @@ class ReusableHeader: UITableViewHeaderFooterView {
   }
   
   @objc func onSelectHeader(recognizer: UITapGestureRecognizer) {
-    print("Clicked \(data.section)")
     let cell = recognizer.view as! ReusableHeader
     delegate.toogleExpand(for: cell, section: cell.data.section)
   }

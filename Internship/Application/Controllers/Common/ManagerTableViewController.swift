@@ -21,7 +21,7 @@ class ManagerTableViewController: UITableViewController {
   
   override func loadView() {
     super.loadView()
-    fetchController.delegate = self
+    
     tableView.rowHeight = HomeViewController.defaultRowHeight
     tableView.allowsMultipleSelection = true
     tableView.allowsMultipleSelectionDuringEditing = true
@@ -57,7 +57,9 @@ class ManagerTableViewController: UITableViewController {
     }
     
     chosenCell.setSelected(true, animated: true)
-    chosenManagers.append(chosenCell.employee)
+    if !chosenManagers.contains(chosenCell.employee) {
+      chosenManagers.append(chosenCell.employee)      
+    }
   }
   
   @objc func done() {

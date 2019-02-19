@@ -33,6 +33,8 @@ class HomeViewController: UIViewController {
     
     tableView?.set(delegate: self, dataSource: self)
     fetchController.delegate = self
+    DataBaseManager.shared.employeesFetchController().delegate = self
+    
     self.navigationItem.title = titleName
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAddMoreButtonClick))
   }

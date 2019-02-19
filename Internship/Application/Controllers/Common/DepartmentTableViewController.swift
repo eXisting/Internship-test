@@ -56,7 +56,9 @@ class DepartmentTableViewController: UITableViewController {
     }
     
     chosenCell.setSelected(true, animated: true)
-    chosenDepartments.append(chosenCell.content)
+    if !chosenDepartments.contains(chosenCell.content) {
+      chosenDepartments.append(chosenCell.content)
+    }
   }
   
   @objc func done() {

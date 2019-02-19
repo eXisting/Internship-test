@@ -30,8 +30,6 @@ class DataBaseManager: NSObject {
   private var rolesResultsController: NSFetchedResultsController<Role>?
   private var departmentsResultsController: NSFetchedResultsController<Department>?
   
-  var frcDelegate: NSFetchedResultsControllerDelegate?
-  
   // MARK: Initialization
 
   private override init() {
@@ -96,8 +94,6 @@ class DataBaseManager: NSObject {
       sectionNameKeyPath: nil,
       cacheName: nil)
     
-    employeesResultsController?.delegate = frcDelegate
-    
     do {
       let _ = try employeesResultsController?.performFetch()
     } catch {
@@ -126,8 +122,6 @@ class DataBaseManager: NSObject {
       sectionNameKeyPath: nil,
       cacheName: nil)
     
-    rolesResultsController?.delegate = frcDelegate
-    
     do {
       let _ = try rolesResultsController!.performFetch()
     } catch {
@@ -155,8 +149,6 @@ class DataBaseManager: NSObject {
       managedObjectContext: mainManagedObjectContext!,
       sectionNameKeyPath: nil,
       cacheName: nil)
-    
-    departmentsResultsController?.delegate = frcDelegate
     
     do {
       let _ = try departmentsResultsController!.performFetch()
