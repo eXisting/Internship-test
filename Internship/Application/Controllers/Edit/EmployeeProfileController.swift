@@ -14,7 +14,7 @@ class EmployeeProfileController: UIViewController {
   
   private let titleName = "Profile"
   
-  lazy var imagePicker = UIImagePickerController()
+  lazy var imagePicker = ImagePicker()
   
   lazy var fetchController = DataBaseManager.shared.managerFetchController()
   
@@ -26,22 +26,29 @@ class EmployeeProfileController: UIViewController {
   
   override func loadView() {
     super.loadView()
-    self.tabBarItem.title = titleName
     
     mainView = EmployeeProfile(frame: CGRect(origin: CGPoint(x: 0, y: self.view.frame.height * 0.1), size: self.view.frame.size))
-    self.view.addSubview(mainView)
+    self.view = mainView
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
+    self.tabBarItem.title = titleName
     addTargets()
   }
   
   private func addTargets() {
     let singleTap = UITapGestureRecognizer(target: self, action: #selector(pickImage))
+    mainView.profileImage?.isUserInteractionEnabled = true
     mainView.profileImage?.addGestureRecognizer(singleTap)
     
     mainView.role?.addTarget(self, action: #selector(selectRole), for: .touchDown)
     mainView.department?.addTarget(self, action: #selector(selectDepartment), for: .touchDown)
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(save))
   }
+  
+  // MARK: @objc methods
   
   @objc func save() {
     var dict = mainView.getFieldsDataAsDict()
@@ -68,6 +75,19 @@ class EmployeeProfileController: UIViewController {
     self.navigationController?.pushViewController(controller, animated: true)
   }
   
+  @objc func pickImage() {
+    let galleryAction = UIAlertAction(title: "Gallery", style: .default, handler: {
+      [weak self] _ in
+      self?.imagePicker.openGallary()
+    })
+    
+    AlertController.showChoose(for: self, title: "Choose image", galleryAction)
+    
+    imagePicker.setupPicker(delegate: self)
+  }
+  
+  // MARK: Presented views callbacks
+  
   private func onSelectDepartment(_ departments: [NSManagedObject]) {
     mainView.departments = (departments as! [Department])
   }
@@ -77,22 +97,5 @@ class EmployeeProfileController: UIViewController {
     
     mainView.role?.text = role.name
     mainView.roleId = role.objectID
-  }
-  
-  @objc func pickImage() {
-    print("Picked")
-    let cameraAction =  UIAlertAction(title: "Camera", style: .default, handler: { _ in
-      self.openCamera()
-    })
-    
-    let galleryAction = UIAlertAction(title: "Gallery", style: .default, handler: { _ in
-      self.openGallary()
-    })
-    
-    AlertController.showChoose(for: self, title: "Choose image", cameraAction, galleryAction)
-    
-    imagePicker.delegate = self
-    imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
-    imagePicker.allowsEditing = false
   }
 }

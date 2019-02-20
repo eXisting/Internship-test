@@ -31,8 +31,7 @@ class AlertController {
   
   private class func createChooseDialog(
     _ title: String,
-    _ firstAction: UIAlertAction,
-    _ secondAction: UIAlertAction,
+    _ action: UIAlertAction,
     _ cancelAction: UIAlertAction?) -> UIAlertController {
     
     let alert = UIAlertController(
@@ -40,8 +39,7 @@ class AlertController {
       message: nil,
       preferredStyle: UIAlertController.Style.actionSheet)
     
-    alert.addAction(firstAction)
-    alert.addAction(secondAction)
+    alert.addAction(action)
     alert.addAction(cancelAction ?? UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
     
     return alert
@@ -63,12 +61,11 @@ class AlertController {
   static func showChoose(
     for viewController: UIViewController,
     title: String,
-    _ firstAction: UIAlertAction,
-    _ secondAction: UIAlertAction,
+    _ action: UIAlertAction,
     _ cancelAction: UIAlertAction? = nil) {
     
     viewController.present(
-      createChooseDialog(title, firstAction, secondAction, cancelAction),
+      createChooseDialog(title, action, cancelAction),
       animated: true,
       completion: nil)
   }

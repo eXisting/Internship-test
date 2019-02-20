@@ -34,7 +34,6 @@ class HomeViewController: UIViewController {
     super.viewDidLoad()
     
     source.tableView.register(cell: (source.cellId, EmployeeCell.self), header: (source.headerId, ReusableHeader.self))
-    
     reloadData()
   }
   

@@ -13,17 +13,25 @@ class AddMoreViewController: UIViewController {
   private(set) var mainView: AddEntityView!
   
   private let titleName = "Add more"
-  lazy var imagePicker = UIImagePickerController()
+  lazy var imagePicker = ImagePicker()
   
   var callback: (() -> Void)!
   
   override func loadView() {
     super.loadView()
-    self.title = titleName
     
     mainView = AddEntityView(frame: self.view.frame)
     self.view = mainView
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
+    self.mainView.departmentManager!.delegate = self
+    self.mainView.employeeProfileView?.department!.delegate = self
+    self.mainView.employeeProfileView?.role?.delegate = self
+    
+    self.title = titleName
     addTargets()
   }
   
@@ -89,20 +97,16 @@ class AddMoreViewController: UIViewController {
   }
 
   @objc func chooseImage() {
-    let cameraAction =  UIAlertAction(title: "Camera", style: .default, handler: { _ in
-      self.openCamera()
-    })
-    
-    let galleryAction = UIAlertAction(title: "Gallery", style: .default, handler: { _ in
-      self.openGallary()
+    let galleryAction = UIAlertAction(title: "Gallery", style: .default, handler: { [weak self] _ in
+      self?.imagePicker.openGallary()
     })
 
-    AlertController.showChoose(for: self, title: "Choose image", cameraAction, galleryAction)
+    AlertController.showChoose(for: self, title: "Choose image", galleryAction)
     
-    imagePicker.delegate = self
-    imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
-    imagePicker.allowsEditing = false
+    imagePicker.setupPicker(delegate: self)
   }
+  
+  // MARK: Presented views callbacks
   
   private func onSelectDepartment(_ departments: [NSManagedObject]) {
     self.mainView.employeeProfileView?.departments = (departments as! [Department])
