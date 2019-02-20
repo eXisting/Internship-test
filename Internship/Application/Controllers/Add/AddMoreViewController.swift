@@ -39,6 +39,7 @@ class AddMoreViewController: UIViewController {
   // MARK: - Objc methods
   
   @objc func save() {
+// Uncomment if need to start from scratch
 //    DataBaseManager.shared.createRole("Manager")
 //    DataBaseManager.shared.createRole("Programmer")
 //    DataBaseManager.shared.createRole("Analytics")

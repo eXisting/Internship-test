@@ -98,10 +98,10 @@ extension HomeTableViewDelegates: UITableViewDelegate {
     }
     
     let controller = EmployeeProfileController()
-    controller.view.backgroundColor = rootController.view.backgroundColor
+    controller.view.backgroundColor = master.view.backgroundColor
     controller.profile = chosenCell.employee
     
-    rootController.navigationController?.pushViewController(controller, animated: true)
+    master.navigationController?.pushViewController(controller, animated: true)
   }
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
