@@ -204,8 +204,8 @@
 		EDF6401D221AA2AD001332EC /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				EDF84322221580D2009ABF71 /* ManagerTableViewController.swift */,
 				EDF64019221AA094001332EC /* DepartmentTableViewController.swift */,
+				EDF84322221580D2009ABF71 /* ManagerTableViewController.swift */,
 				EDF6401E221AA59A001332EC /* RoleTableViewController.swift */,
 			);
 			path = Common;
@@ -225,8 +225,8 @@
 			isa = PBXGroup;
 			children = (
 				DBA6F3E622118FD4003ABF10 /* EmployeeCell.swift */,
-				EDF8432622158F98009ABF71 /* ReusableHeader.swift */,
 				EDF6401B221AA0CC001332EC /* GeneralCell.swift */,
+				EDF8432622158F98009ABF71 /* ReusableHeader.swift */,
 				EDF64024221BFD67001332EC /* SelectableEmployeeCell.swift */,
 			);
 			path = Cells;

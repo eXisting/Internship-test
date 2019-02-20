@@ -12,6 +12,10 @@ protocol ExandableHeaderViewDelegate {
   func toogleExpand(for header: ReusableHeader, section: Int)
 }
 
+protocol DeletableHeaderDelegate {
+  func deleteSection(section: Int)
+}
+
 class ReusableHeader: UITableViewHeaderFooterView {  
   var data: SectionData! {
     didSet {
@@ -19,7 +23,10 @@ class ReusableHeader: UITableViewHeaderFooterView {
     }
   }
   
-  var delegate: ExandableHeaderViewDelegate!
+  var deleteButton: UIButton!
+  
+  var collapseDelegate: ExandableHeaderViewDelegate!
+  var deleteDelegate: DeletableHeaderDelegate!
   
   override init(reuseIdentifier: String?) {
     super.init(reuseIdentifier: reuseIdentifier)
@@ -30,8 +37,25 @@ class ReusableHeader: UITableViewHeaderFooterView {
     fatalError("init(coder:) has not been implemented")
   }
   
+  func setupDelButton(_ parentHeight: CGFloat, _ parentWidth: CGFloat) {
+    let buttonFrame = CGRect(x: parentWidth, y: parentHeight * 0.4, width: 50, height: parentHeight / 4)
+    let deleteButton = UIButton(frame: buttonFrame)
+    
+    deleteButton.setTitle("Del", for: .normal)
+    deleteButton.backgroundColor = .red
+    deleteButton.tag = data.section
+    
+    deleteButton.addTarget(self, action: #selector(onDeleteSection), for: .touchUpInside)
+    
+    addSubview(deleteButton)
+  }
+  
   @objc func onSelectHeader(recognizer: UITapGestureRecognizer) {
     let cell = recognizer.view as! ReusableHeader
-    delegate.toogleExpand(for: cell, section: cell.data.section)
+    collapseDelegate.toogleExpand(for: cell, section: cell.data.section)
+  }
+  
+  @objc func onDeleteSection(_ sender: UIButton) {
+    deleteDelegate.deleteSection(section: sender.tag)
   }
 }

@@ -31,6 +31,26 @@ class HomeTableViewDelegates: NSObject {
   }
 }
 
+extension HomeTableViewDelegates: ExandableHeaderViewDelegate {
+  func toogleExpand(for header: ReusableHeader, section: Int) {
+    data[section].isCollapsed = !data[section].isCollapsed
+    
+    header.data.isCollapsed = data[section].isCollapsed
+    
+    tableView.reloadSections(NSIndexSet(index: section) as IndexSet, with: .fade)
+  }
+}
+
+extension HomeTableViewDelegates: DeletableHeaderDelegate {
+  func deleteSection(section: Int) {
+    DataBaseManager.shared.delete(departmentId: data[section].department.objectID)
+    
+    data.remove(at: section)
+    
+    tableView.deleteSections(NSIndexSet(index: section) as IndexSet, with: .fade)
+  }
+}
+
 extension HomeTableViewDelegates: UITableViewDataSource {
   func numberOfSections(in tableView: UITableView) -> Int {
     return data.count
@@ -64,7 +84,10 @@ extension HomeTableViewDelegates: UITableViewDelegate {
     let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerId) as! ReusableHeader
     data[section].section = section
     header.data = data[section]
-    header.delegate = self
+    header.collapseDelegate = self
+    header.deleteDelegate = self
+    
+    header.setupDelButton(HomeViewController.defaultSectionHeight, tableView.frame.width * 0.85)
     
     return header
   }
@@ -98,6 +121,7 @@ extension HomeTableViewDelegates: UITableViewDelegate {
 extension HomeTableViewDelegates: NSFetchedResultsControllerDelegate {
   func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     tableView.beginUpdates()
+    print("tableView.beginUpdates()")
   }
   
   func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
@@ -128,15 +152,6 @@ extension HomeTableViewDelegates: NSFetchedResultsControllerDelegate {
   
   func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     tableView.endUpdates()
-  }
-}
-
-extension HomeTableViewDelegates: ExandableHeaderViewDelegate {
-  func toogleExpand(for header: ReusableHeader, section: Int) {
-    data[section].isCollapsed = !data[section].isCollapsed
-    
-    header.data.isCollapsed = data[section].isCollapsed
-    
-    tableView.reloadSections(NSIndexSet(index: section) as IndexSet, with: .fade)
+    print("tableView.endUpdates()")
   }
 }

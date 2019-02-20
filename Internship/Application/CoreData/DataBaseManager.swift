@@ -194,13 +194,32 @@ class DataBaseManager: NSObject {
   
   func delete(employeeId: NSManagedObjectID, fromDepartment departmentId: NSManagedObjectID) {
     let department = storeManagedObjectContext?.object(with: departmentId) as! Department
-    let emploeyee = storeManagedObjectContext?.object(with: employeeId) as! Employee
+    let employee = storeManagedObjectContext?.object(with: employeeId) as! Employee
     
-    department.removeFromEmployee(emploeyee)
-    emploeyee.removeFromDepartment(department)
+    department.removeFromEmployee(employee)
+    employee.removeFromDepartment(department)
     
-    if emploeyee.department?.count == 0 {
-      storeManagedObjectContext!.delete(emploeyee)
+    if employee.department?.count == 0 {
+      storeManagedObjectContext!.delete(employee)
+    }
+    
+    save(context: storeManagedObjectContext)
+  }
+  
+  func delete(departmentId: NSManagedObjectID) {
+    let department = storeManagedObjectContext?.object(with: departmentId) as! Department
+    
+    if let departmentEmployees = department.employee {
+      for employee in departmentEmployees {
+        let storedEmployee = employee as! Employee
+        
+        department.removeFromEmployee(storedEmployee)
+        storedEmployee.removeFromDepartment(department)
+        
+        if storedEmployee.department?.count == 0 {
+          storeManagedObjectContext!.delete(storedEmployee)
+        }
+      }
     }
     
     save(context: storeManagedObjectContext)
