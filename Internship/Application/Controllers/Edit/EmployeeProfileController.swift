@@ -16,7 +16,7 @@ class EmployeeProfileController: UIViewController {
   
   lazy var imagePicker = UIImagePickerController()
   
-  lazy var fetchController = DataBaseManager.shared.employeesFetchController()
+  lazy var fetchController = DataBaseManager.shared.managerFetchController()
   
   weak var profile: Employee? {
     didSet {

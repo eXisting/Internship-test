@@ -78,7 +78,7 @@ class DataBaseManager: NSObject {
   
   // MARK: Fetch result controllers
   
-  func employeesFetchController() ->  NSFetchedResultsController<Employee> {
+  func managerFetchController() ->  NSFetchedResultsController<Employee> {
     if let controller = employeesResultsController {
       return controller
     }

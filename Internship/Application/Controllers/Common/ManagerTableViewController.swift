@@ -17,7 +17,7 @@ class ManagerTableViewController: UITableViewController {
   
   private var chosenManagers: [NSManagedObject] = []
   
-  lazy var fetchController = DataBaseManager.shared.employeesFetchController()
+  lazy var fetchController = DataBaseManager.shared.managerFetchController()
   
   override func loadView() {
     super.loadView()
