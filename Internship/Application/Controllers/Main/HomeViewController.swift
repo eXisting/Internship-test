@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
     super.loadView()
     
     let tableView = HomeTableView(frame: self.view.frame, style: .plain)
-    source = HomeTableViewDelegates(rootController: self, tableView: tableView)
+    source = HomeTableViewDelegates(master: self, tableView: tableView)
     
     self.view = tableView
     

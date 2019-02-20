@@ -18,15 +18,15 @@ class HomeTableViewDelegates: NSObject {
   var tableView: HomeTableView!
   var data: [SectionData] = []
   
-  var rootController: HomeViewController!
+  var master: HomeViewController!
   
-  init(rootController: HomeViewController, tableView: HomeTableView) {
+  init(master: HomeViewController, tableView: HomeTableView) {
     super.init()
     
-    self.rootController = rootController
+    self.master = master
     self.tableView = tableView
-    
     self.tableView.set(delegate: self, dataSource: self)
+    
     self.fetchController.delegate = self
   }
 }
