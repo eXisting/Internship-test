@@ -16,6 +16,8 @@ class DataBaseManager: NSObject {
   let employeeEntity = "Employee"
   let departmentEntity = "Department"
   let roleEntity = "Role"
+  
+  let managerRoleName = "Manager"
 
   // MARK: Fields
   
@@ -85,6 +87,7 @@ class DataBaseManager: NSObject {
     fetchRequest.entity = NSEntityDescription.entity(forEntityName: employeeEntity, in: mainManagedObjectContext!)
     
     fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+    fetchRequest.predicate = NSPredicate(format: "role.name contains[c] %@", managerRoleName)
     fetchRequest.returnsObjectsAsFaults = false
     fetchRequest.fetchBatchSize = 20
     
@@ -221,6 +224,8 @@ class DataBaseManager: NSObject {
         }
       }
     }
+    
+    storeManagedObjectContext!.delete(department)
     
     save(context: storeManagedObjectContext)
   }
