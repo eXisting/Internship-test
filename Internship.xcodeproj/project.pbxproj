@@ -16,6 +16,7 @@
 		DB3BFA692211C4930074EE25 /* EmployeeProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BFA682211C4930074EE25 /* EmployeeProfileController.swift */; };
 		DBA6F3E522118B12003ABF10 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F3E422118B12003ABF10 /* HomeViewController.swift */; };
 		DBA6F3E722118FD4003ABF10 /* EmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F3E622118FD4003ABF10 /* EmployeeCell.swift */; };
+		EDAD690F221D6AC900BF11D9 /* SelectableGeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAD690E221D6AC900BF11D9 /* SelectableGeneralCell.swift */; };
 		EDF64018221A9B19001332EC /* EmployeeProfileImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64017221A9B19001332EC /* EmployeeProfileImagePicker.swift */; };
 		EDF6401A221AA094001332EC /* DepartmentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64019221AA094001332EC /* DepartmentTableViewController.swift */; };
 		EDF6401C221AA0CC001332EC /* GeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF6401B221AA0CC001332EC /* GeneralCell.swift */; };
@@ -64,6 +65,7 @@
 		DB3BFA682211C4930074EE25 /* EmployeeProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfileController.swift; sourceTree = "<group>"; };
 		DBA6F3E422118B12003ABF10 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DBA6F3E622118FD4003ABF10 /* EmployeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeCell.swift; sourceTree = "<group>"; };
+		EDAD690E221D6AC900BF11D9 /* SelectableGeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableGeneralCell.swift; sourceTree = "<group>"; };
 		EDF64017221A9B19001332EC /* EmployeeProfileImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfileImagePicker.swift; sourceTree = "<group>"; };
 		EDF64019221AA094001332EC /* DepartmentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentTableViewController.swift; sourceTree = "<group>"; };
 		EDF6401B221AA0CC001332EC /* GeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralCell.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				EDF6401B221AA0CC001332EC /* GeneralCell.swift */,
 				EDF8432622158F98009ABF71 /* ReusableHeader.swift */,
 				EDF64024221BFD67001332EC /* SelectableEmployeeCell.swift */,
+				EDAD690E221D6AC900BF11D9 /* SelectableGeneralCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				DB3BFA672211BFB00074EE25 /* EmployeeProfile.swift in Sources */,
 				DB3BFA692211C4930074EE25 /* EmployeeProfileController.swift in Sources */,
 				EDF64027221C1442001332EC /* HomeTableViewDelegates.swift in Sources */,
+				EDAD690F221D6AC900BF11D9 /* SelectableGeneralCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

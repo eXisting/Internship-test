@@ -38,10 +38,10 @@ class ReusableHeader: UITableViewHeaderFooterView {
   }
   
   func setupDelButton(_ parentHeight: CGFloat, _ parentWidth: CGFloat) {
-    let buttonFrame = CGRect(x: parentWidth, y: parentHeight * 0.4, width: 50, height: parentHeight / 4)
+    let buttonFrame = CGRect(x: parentWidth, y: parentHeight * 0.4, width: 30, height: parentHeight / 4)
     let deleteButton = UIButton(frame: buttonFrame)
     
-    deleteButton.setTitle("Del", for: .normal)
+    deleteButton.setTitle("X", for: .normal)
     deleteButton.backgroundColor = .red
     deleteButton.tag = data.section
     

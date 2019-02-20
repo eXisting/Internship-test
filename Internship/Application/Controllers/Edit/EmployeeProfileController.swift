@@ -51,7 +51,7 @@ class EmployeeProfileController: UIViewController {
     
     AlertController.showConfirm(for: self, "Success", "Saved successfuly!", .alert) {
       [weak self] _ in
-      self!.navigationController?.popViewController(animated: true)
+      self?.navigationController?.popViewController(animated: true)
     }
   }
   
@@ -64,6 +64,7 @@ class EmployeeProfileController: UIViewController {
   @objc func selectRole() {
     let controller = RoleTableViewController()
     controller.onCellSelect = onSelectRole
+    
     self.navigationController?.pushViewController(controller, animated: true)
   }
   

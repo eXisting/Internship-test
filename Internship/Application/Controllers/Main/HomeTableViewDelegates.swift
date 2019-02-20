@@ -87,7 +87,7 @@ extension HomeTableViewDelegates: UITableViewDelegate {
     header.collapseDelegate = self
     header.deleteDelegate = self
     
-    header.setupDelButton(HomeViewController.defaultSectionHeight, tableView.frame.width * 0.85)
+    header.setupDelButton(HomeViewController.defaultSectionHeight, tableView.frame.width * 0.9)
     
     return header
   }

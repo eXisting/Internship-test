@@ -31,7 +31,7 @@ class DepartmentTableViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    tableView.register(GeneralCell.self, forCellReuseIdentifier: cellId)
+    tableView.register(SelectableGeneralCell.self, forCellReuseIdentifier: cellId)
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,7 +41,7 @@ class DepartmentTableViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! GeneralCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! SelectableGeneralCell
     
     let department = fetchController.object(at: indexPath)
     cell.name?.text = department.name
@@ -51,7 +51,7 @@ class DepartmentTableViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    guard let chosenCell = tableView.cellForRow(at: indexPath) as? GeneralCell else {
+    guard let chosenCell = tableView.cellForRow(at: indexPath) as? SelectableGeneralCell else {
       return
     }
     

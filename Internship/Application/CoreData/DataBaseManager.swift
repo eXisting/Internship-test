@@ -153,12 +153,12 @@ class DataBaseManager: NSObject {
       sectionNameKeyPath: nil,
       cacheName: nil)
     
-    do {
-      let _ = try departmentsResultsController!.performFetch()
-    } catch {
-      print("Unexpected error: \(error.localizedDescription)")
-      abort()
-    }
+//    do {
+//      let _ = try departmentsResultsController!.performFetch()
+//    } catch {
+//      print("Unexpected error: \(error.localizedDescription)")
+//      abort()
+//    }
     
     return departmentsResultsController!
   }

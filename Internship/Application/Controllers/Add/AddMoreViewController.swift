@@ -15,6 +15,8 @@ class AddMoreViewController: UIViewController {
   private let titleName = "Add more"
   lazy var imagePicker = UIImagePickerController()
   
+  var callback: (() -> Void)!
+  
   override func loadView() {
     super.loadView()
     self.title = titleName
@@ -52,14 +54,16 @@ class AddMoreViewController: UIViewController {
 //    DataBaseManager.shared.createDepartment(from: ["name": "Unity"])
     
     let data = mainView.getFieldsDataAsDict()
-
-    if mainView.segmentControll?.selectedSegmentIndex == SelectStates.deparment.rawValue {
-      DataBaseManager.shared.createDepartment(from: data)
-    } else {
-      DataBaseManager.shared.createEmployee(from: data)
+    if data.count != 0 {
+      if mainView.segmentControll?.selectedSegmentIndex == SelectStates.deparment.rawValue {
+        DataBaseManager.shared.createDepartment(from: data)
+      } else {
+        DataBaseManager.shared.createEmployee(from: data)
+      }
+      
+      callback()
+      self.navigationController?.popViewController(animated: true)
     }
-
-    self.navigationController?.popViewController(animated: true)
   }
   
   @objc func selectManager() {
