@@ -65,8 +65,10 @@ class EmployeeProfile: UIView {
   
   func getFieldsDataAsDict() -> [String: Any] {
     var ids: [Any] = []
-    for element in departments! {
-      ids.append(element.objectID)
+    if let depIds = departments {
+      for element in depIds {
+        ids.append(element.objectID)
+      }
     }
     
     return [

@@ -15,8 +15,6 @@ class AddMoreViewController: UIViewController {
   private let titleName = "Add more"
   lazy var imagePicker = ImagePicker()
   
-  var callback: (() -> Void)!
-  
   override func loadView() {
     super.loadView()
     
@@ -69,7 +67,6 @@ class AddMoreViewController: UIViewController {
         DataBaseManager.shared.createEmployee(from: data)
       }
       
-      callback()
       self.navigationController?.popViewController(animated: true)
     }
   }

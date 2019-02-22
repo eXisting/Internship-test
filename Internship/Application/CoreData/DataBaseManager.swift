@@ -137,6 +137,13 @@ class DataBaseManager: NSObject {
   
   func departmentsFetchController() -> NSFetchedResultsController<Department> {
     if let controller = departmentsResultsController {
+      do {
+        let _ = try departmentsResultsController!.performFetch()
+      } catch {
+        print("Unexpected error: \(error.localizedDescription)")
+        abort()
+      }
+
       return controller
     }
     
@@ -153,12 +160,12 @@ class DataBaseManager: NSObject {
       sectionNameKeyPath: nil,
       cacheName: nil)
     
-//    do {
-//      let _ = try departmentsResultsController!.performFetch()
-//    } catch {
-//      print("Unexpected error: \(error.localizedDescription)")
-//      abort()
-//    }
+    do {
+      let _ = try departmentsResultsController!.performFetch()
+    } catch {
+      print("Unexpected error: \(error.localizedDescription)")
+      abort()
+    }
     
     return departmentsResultsController!
   }
@@ -200,9 +207,9 @@ class DataBaseManager: NSObject {
     let employee = storeManagedObjectContext?.object(with: employeeId) as! Employee
     
     department.removeFromEmployee(employee)
-    employee.removeFromDepartment(department)
+//    employee.removeFromDepartment(department)
     
-    if employee.department?.count == 0 {
+    if department.name == "PM" {
       storeManagedObjectContext!.delete(employee)
     }
     
@@ -215,10 +222,10 @@ class DataBaseManager: NSObject {
     if let departmentEmployees = department.employee {
       for employee in departmentEmployees {
         let storedEmployee = employee as! Employee
-        
+
         department.removeFromEmployee(storedEmployee)
         storedEmployee.removeFromDepartment(department)
-        
+
         if storedEmployee.department?.count == 0 {
           storeManagedObjectContext!.delete(storedEmployee)
         }

@@ -51,8 +51,10 @@ class AddEntityView: UIView {
   
   private func getDepartmentFieldsAsDict() -> [String: Any] {
     var ids: [Any] = []
-    for element in managers! {
-      ids.append(element.objectID)
+    if let depIds = managers {
+      for element in depIds {
+        ids.append(element.objectID)
+      }
     }
     
     return [

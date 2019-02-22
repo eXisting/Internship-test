@@ -34,32 +34,16 @@ class HomeViewController: UIViewController {
     super.viewDidLoad()
     
     source.tableView.register(cell: (source.cellId, EmployeeCell.self), header: (source.headerId, ReusableHeader.self))
-    reloadData()
-  }
-  
-  func reloadData() {
-    do {
-      let _ = try source.fetchController.performFetch()
-    } catch {
-      print("Unexpected error: \(error.localizedDescription)")
-      abort()
-    }
-    
-    source.data.removeAll()
-    
     if let departments = source.fetchController.fetchedObjects {
       for department in departments {
         source.data.append(.init(department))
       }
     }
-    
-    source.tableView.reloadData()
   }
   
   @objc func onAddMoreButtonClick() {
     let controller = AddMoreViewController()
     controller.view.backgroundColor = .white
-    controller.callback = reloadData
     self.navigationController?.pushViewController(controller, animated: true)
   }
 }
