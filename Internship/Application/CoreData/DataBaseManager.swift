@@ -28,19 +28,19 @@ class DataBaseManager: NSObject {
   private var mainManagedObjectContext: NSManagedObjectContext?
   private var storeManagedObjectContext: NSManagedObjectContext?
   
+  private var departmentsResultsController: NSFetchedResultsController<Department>?
   private var employeesResultsController: NSFetchedResultsController<Employee>?
   private var rolesResultsController: NSFetchedResultsController<Role>?
-  private var departmentsResultsController: NSFetchedResultsController<Department>?
   
   // MARK: Initialization
 
   private override init() {
     super.init()
-    setupContext()
     setupPersistentStore()
+    setupContext()
   }
   
-  private func setupContext() {
+  private func setupPersistentStore() {
     var storeUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last!
     storeUrl.appendPathComponent("DepartmentBook.sqlite")
     
@@ -64,7 +64,7 @@ class DataBaseManager: NSObject {
     }
   }
   
-  private func setupPersistentStore() {
+  private func setupContext() {
     mainManagedObjectContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
     mainManagedObjectContext!.undoManager = nil
     mainManagedObjectContext!.mergePolicy = NSOverwriteMergePolicy
@@ -74,65 +74,50 @@ class DataBaseManager: NSObject {
     storeManagedObjectContext!.undoManager = nil
     storeManagedObjectContext!.mergePolicy = NSOverwriteMergePolicy
     storeManagedObjectContext!.persistentStoreCoordinator = self.persistentStoreCoordinator
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(backgroundContextDidChanges), name: .NSManagedObjectContextDidSave, object: storeManagedObjectContext)
+    NotificationCenter.default.addObserver(self, selector: #selector(mainContextDidChanges), name: .NSManagedObjectContextDidSave, object: mainManagedObjectContext)
+  }
+  
+  @objc func backgroundContextDidChanges(notification: Notification) {
+    self.mainManagedObjectContext?.perform{ [unowned self] in
+      self.mainManagedObjectContext?.mergeChanges(fromContextDidSave: notification as Notification)
+    }
+  }
+  
+  @objc func mainContextDidChanges(notification: Notification) {
+    self.storeManagedObjectContext?.perform{ [unowned self] in
+      self.storeManagedObjectContext?.mergeChanges(fromContextDidSave: notification as Notification)
+    }
+  }
+  
+  deinit {
+    NotificationCenter.default.removeObserver(self)
   }
   
   // MARK: Fetch result controllers
   
-  func managerFetchController() ->  NSFetchedResultsController<Employee> {
-    if let controller = employeesResultsController {
-      return controller
-    }
-    
+  func getManagers() ->  [Employee] {
     let fetchRequest = NSFetchRequest<Employee>()
-    fetchRequest.entity = NSEntityDescription.entity(forEntityName: employeeEntity, in: mainManagedObjectContext!)
     
+    fetchRequest.entity = NSEntityDescription.entity(forEntityName: employeeEntity, in: mainManagedObjectContext!)
     fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
     fetchRequest.predicate = NSPredicate(format: "role.name contains[c] %@", managerRoleName)
     fetchRequest.returnsObjectsAsFaults = false
     fetchRequest.fetchBatchSize = 20
     
-    employeesResultsController = NSFetchedResultsController(
-      fetchRequest: fetchRequest,
-      managedObjectContext: mainManagedObjectContext!,
-      sectionNameKeyPath: nil,
-      cacheName: nil)
-    
-    do {
-      let _ = try employeesResultsController?.performFetch()
-    } catch {
-      print("Unexpected error: \(error.localizedDescription)")
-      abort()
-    }
-    
-    return employeesResultsController!
+    return self.performFetch(on: mainManagedObjectContext, fetch: fetchRequest as! NSFetchRequest<NSManagedObject>) as! [Employee]
   }
   
-  func rolesFetchController() -> NSFetchedResultsController<Role> {
-    if let controller = rolesResultsController {
-      return controller
-    }
-    
+  func getRoles() -> [Role] {
     let fetchRequest = NSFetchRequest<Role>()
-    fetchRequest.entity = NSEntityDescription.entity(forEntityName: roleEntity, in: mainManagedObjectContext!)
     
+    fetchRequest.entity = NSEntityDescription.entity(forEntityName: roleEntity, in: mainManagedObjectContext!)    
     fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
     fetchRequest.returnsObjectsAsFaults = false
     fetchRequest.fetchBatchSize = 20
     
-    rolesResultsController = NSFetchedResultsController(
-      fetchRequest: fetchRequest,
-      managedObjectContext: mainManagedObjectContext!,
-      sectionNameKeyPath: nil,
-      cacheName: nil)
-    
-    do {
-      let _ = try rolesResultsController!.performFetch()
-    } catch {
-      print("Unexpected error: \(error.localizedDescription)")
-      abort()
-    }
-    
-    return rolesResultsController!
+    return self.performFetch(on: mainManagedObjectContext, fetch: fetchRequest as! NSFetchRequest<NSManagedObject>) as! [Role]
   }
   
   func departmentsFetchController() -> NSFetchedResultsController<Department> {
@@ -284,6 +269,20 @@ class DataBaseManager: NSObject {
   }
   
   // MARK: Helpers
+  
+  private func performFetch(on context: NSManagedObjectContext?, fetch: NSFetchRequest<NSManagedObject>) -> [NSManagedObject] {
+    do {
+      guard let result = try context?.fetch(fetch) else {
+        return []
+      }
+      return result
+    } catch {
+      print("Unexpected error: \(error.localizedDescription)")
+      abort()
+    }
+    
+    return []
+  }
   
   private func save(context: NSManagedObjectContext?) {
     saveDatabase(with: context)

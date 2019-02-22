@@ -67,5 +67,101 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Internship/Application/CoreData/DataBaseManager.swift"
+            timestampString = "572526982.569167"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "backgroundContextDidChanges(notification:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Internship.DataBaseManager.backgroundContextDidChanges(notification: Foundation.Notification) -&gt; ()"
+                  moduleName = "Internship"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sys-246/Projects/Internship/Internship/Application/CoreData/DataBaseManager.swift"
+                  timestampString = "572525925.8691289"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Internship.DataBaseManager.backgroundContextDidChanges(notification: Foundation.Notification) -&gt; ()"
+                  moduleName = "Internship"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sys-246/Projects/Internship/Internship/Application/CoreData/DataBaseManager.swift"
+                  timestampString = "572525925.871047"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "29">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Internship/Application/CoreData/DataBaseManager.swift"
+            timestampString = "572526982.569285"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "mainContextDidChanges(notification:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Internship.DataBaseManager.mainContextDidChanges(notification: Foundation.Notification) -&gt; ()"
+                  moduleName = "Internship"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sys-246/Projects/Internship/Internship/Application/CoreData/DataBaseManager.swift"
+                  timestampString = "572525925.875303"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Internship.DataBaseManager.mainContextDidChanges(notification: Foundation.Notification) -&gt; ()"
+                  moduleName = "Internship"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sys-246/Projects/Internship/Internship/Application/CoreData/DataBaseManager.swift"
+                  timestampString = "572525925.876996"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "29">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

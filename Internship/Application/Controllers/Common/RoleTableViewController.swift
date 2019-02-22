@@ -15,7 +15,7 @@ class RoleTableViewController: UITableViewController {
   private var titleName = "Roles"
   private var cellId = "Role"
   
-  lazy var fetchController = DataBaseManager.shared.rolesFetchController()
+  //lazy var fetchController = DataBaseManager.shared.rolesFetchController()
   
   override func loadView() {
     super.loadView()
@@ -28,15 +28,15 @@ class RoleTableViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    let fetched = fetchController.fetchedObjects
+    let fetched = DataBaseManager.shared.getRoles().count//fetchController.fetchedObjects
     
-    return fetched?.count ?? 0
+    return fetched//fetched?.count ?? 0
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! GeneralCell
     
-    let role = fetchController.object(at: indexPath)
+    let role = DataBaseManager.shared.getRoles()[indexPath.row]//fetchController.object(at: indexPath)
     cell.name?.text = role.name
     cell.content = role
     

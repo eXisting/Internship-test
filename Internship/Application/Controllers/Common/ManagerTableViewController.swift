@@ -17,7 +17,7 @@ class ManagerTableViewController: UITableViewController {
   
   private var chosenManagers: [NSManagedObject] = []
   
-  lazy var fetchController = DataBaseManager.shared.managerFetchController()
+  //lazy var fetchController = DataBaseManager.shared.managerFetchController()
   
   override func loadView() {
     super.loadView()
@@ -36,15 +36,15 @@ class ManagerTableViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    let fetched = fetchController.fetchedObjects
+    let fetched = DataBaseManager.shared.getManagers().count//fetchController.fetchedObjects
     
-    return fetched?.count ?? 1
+    return fetched//fetched?.count ?? 1
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! EmployeeCell
     
-    let employee = fetchController.object(at: indexPath)
+    let employee = DataBaseManager.shared.getManagers()[indexPath.row] //fetchController.object(at: indexPath)
     cell.employee = employee
     cell.populateTextFields()
     
