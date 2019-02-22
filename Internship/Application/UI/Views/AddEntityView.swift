@@ -44,21 +44,24 @@ class AddEntityView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  func getFieldsDataAsDict() -> [String: Any] {
+  func getFieldsDataAsDict() -> [String: Any]? {
     return segmentControll?.selectedSegmentIndex == SelectStates.employee.rawValue ?
       employeeProfileView!.getFieldsDataAsDict() : getDepartmentFieldsAsDict()
   }
   
-  private func getDepartmentFieldsAsDict() -> [String: Any] {
+  private func getDepartmentFieldsAsDict() -> [String: Any]? {
+    guard let depIds = managers,
+      let depName = departmentName?.text else {
+      return nil
+    }
+    
     var ids: [Any] = []
-    if let depIds = managers {
-      for element in depIds {
-        ids.append(element.objectID)
-      }
+    for element in depIds {
+      ids.append(element.objectID)
     }
     
     return [
-      "name": departmentName!.text as Any,
+      "name": depName as Any,
       "employeesIds": ids
     ]
   }

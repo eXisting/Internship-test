@@ -59,16 +59,18 @@ class AddMoreViewController: UIViewController {
 //    DataBaseManager.shared.createDepartment(from: ["name": "iOS"])
 //    DataBaseManager.shared.createDepartment(from: ["name": "Unity"])
     
-    let data = mainView.getFieldsDataAsDict()
-    if data.count != 0 {
-      if mainView.segmentControll?.selectedSegmentIndex == SelectStates.deparment.rawValue {
-        DataBaseManager.shared.createDepartment(from: data)
-      } else {
-        DataBaseManager.shared.createEmployee(from: data)
-      }
-      
-      self.navigationController?.popViewController(animated: true)
+    guard let data = mainView.getFieldsDataAsDict() else {
+      AlertController.showConfirm(for: self, "Error", "Wrong data has been passed!", .alert, {_ in })
+      return
     }
+    
+    if mainView.segmentControll?.selectedSegmentIndex == SelectStates.deparment.rawValue {
+      DataBaseManager.shared.createDepartment(from: data)
+    } else {
+      DataBaseManager.shared.createEmployee(from: data)
+    }
+    
+    self.navigationController?.popViewController(animated: true)
   }
   
   @objc func selectManager() {

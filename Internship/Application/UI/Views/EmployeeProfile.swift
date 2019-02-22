@@ -63,21 +63,28 @@ class EmployeeProfile: UIView {
     roleId = employee?.role?.objectID
   }
   
-  func getFieldsDataAsDict() -> [String: Any] {
+  func getFieldsDataAsDict() -> [String: Any]? {    
+    guard let userName = name?.text,
+      let phoneValue = phone?.text,
+      let emailValue = email?.text,
+      let roleValue = roleId,
+      let depIds = departments,
+      let photoValue = profileImage?.image?.pngData() else {
+      return nil
+    }
+    
     var ids: [Any] = []
-    if let depIds = departments {
-      for element in depIds {
-        ids.append(element.objectID)
-      }
+    for element in depIds {
+      ids.append(element.objectID)
     }
     
     return [
-      "name": name?.text as Any,
-      "phone": phone?.text as Any,
-      "email": email?.text as Any,
-      "roleId": roleId as Any,
+      "name": userName as Any,
+      "phone": phoneValue as Any,
+      "email": emailValue as Any,
+      "roleId": roleValue as Any,
       "departmentsIds": ids,
-      "photo": profileImage?.image?.pngData() as Any
+      "photo": photoValue as Any
     ]
   }
   

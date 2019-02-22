@@ -51,10 +51,13 @@ class EmployeeProfileController: UIViewController {
   // MARK: @objc methods
   
   @objc func save() {
-    var dict = mainView.getFieldsDataAsDict()
-    dict["objectId"] = profile?.objectID
+    guard var data = mainView.getFieldsDataAsDict() else {
+      AlertController.showConfirm(for: self, "Error", "Wrong data has been passed!", .alert, {_ in })
+      return
+    }
     
-    DataBaseManager.shared.update(with: dict)
+    data["objectId"] = profile?.objectID
+    DataBaseManager.shared.update(with: data)
     
     AlertController.showConfirm(for: self, "Success", "Saved successfuly!", .alert) {
       [weak self] _ in

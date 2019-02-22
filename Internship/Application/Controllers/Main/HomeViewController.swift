@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
     super.loadView()
     
     tableViewController = HomeDataSource(master: self)
-    
+    DataBaseManager.shared.departmentsFetchController().delegate = self
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAddMoreButtonClick))
   }
   
