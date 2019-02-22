@@ -15,9 +15,7 @@ class EmployeeProfileController: UIViewController {
   private let titleName = "Profile"
   
   lazy var imagePicker = ImagePicker()
-  
- // lazy var fetchController = DataBaseManager.shared.managerFetchController()
-  
+    
   weak var profile: Employee? {
     didSet {
       mainView.setupFields(from: profile)

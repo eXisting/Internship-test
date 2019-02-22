@@ -15,22 +15,17 @@ class RoleTableViewController: UITableViewController {
   private var titleName = "Roles"
   private var cellId = "Role"
   
-  //lazy var fetchController = DataBaseManager.shared.rolesFetchController()
-  
-  override func loadView() {
-    super.loadView()
-    self.navigationItem.title = titleName
-  }
-  
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    self.navigationItem.title = titleName
     tableView.register(GeneralCell.self, forCellReuseIdentifier: cellId)
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    let fetched = DataBaseManager.shared.getRoles().count//fetchController.fetchedObjects
+    let fetched = DataBaseManager.shared.getRoles().count
     
-    return fetched//fetched?.count ?? 0
+    return fetched
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

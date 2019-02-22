@@ -19,15 +19,17 @@ class DepartmentTableViewController: UITableViewController {
   
   override func loadView() {
     super.loadView()
-    tableView.allowsMultipleSelection = true
-    tableView.allowsMultipleSelectionDuringEditing = true
-    
-    self.navigationItem.title = titleName
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    self.navigationItem.title = titleName
+
+    tableView.allowsMultipleSelection = true
+    tableView.allowsMultipleSelectionDuringEditing = true
+    
     tableView.register(SelectableGeneralCell.self, forCellReuseIdentifier: cellId)
   }
   

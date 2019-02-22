@@ -22,16 +22,18 @@ class ManagerTableViewController: UITableViewController {
   override func loadView() {
     super.loadView()
     
-    tableView.rowHeight = GeneralCell.defaultRowHeight
-    tableView.allowsMultipleSelection = true
-    tableView.allowsMultipleSelectionDuringEditing = true
-    
-    self.navigationItem.title = titleName
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    self.navigationItem.title = titleName
+
+    tableView.rowHeight = GeneralCell.defaultRowHeight
+    tableView.allowsMultipleSelection = true
+    tableView.allowsMultipleSelectionDuringEditing = true
+    
     tableView.register(SelectableEmployeeCell.self, forCellReuseIdentifier: cellId)
   }
   
