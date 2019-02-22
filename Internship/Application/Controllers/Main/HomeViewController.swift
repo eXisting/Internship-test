@@ -13,13 +13,13 @@ class HomeViewController: UIViewController {
   
   private var titleName = "Home"
   
-  private var tableViewController: HomeDataSource!
+  var tableViewController: HomeDataSource!
   
   override func loadView() {
     super.loadView()
     
     tableViewController = HomeDataSource(master: self)
-    DataBaseManager.shared.departmentsFetchController().delegate = self
+    DataBaseManager.shared.resultController.delegate = self
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAddMoreButtonClick))
   }
   
@@ -31,7 +31,7 @@ class HomeViewController: UIViewController {
     tableView.set(delegate: tableViewController, dataSource: tableViewController)
     tableView.register(cell: (cellId, EmployeeCell.self), header: (headerId, ReusableHeader.self))
     
-    if let departments = DataBaseManager.shared.departmentsFetchController().fetchedObjects {
+    if let departments = DataBaseManager.shared.resultController.fetchedObjects {
       for department in departments {
         tableViewController.data.append(.init(department))
       }

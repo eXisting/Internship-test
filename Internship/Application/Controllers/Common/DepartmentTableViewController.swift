@@ -17,11 +17,8 @@ class DepartmentTableViewController: UITableViewController {
   
   private var chosenDepartments: [NSManagedObject] = []
   
-  lazy var fetchController = DataBaseManager.shared.departmentsFetchController()
-  
   override func loadView() {
     super.loadView()
-    fetchController.delegate = self
     tableView.allowsMultipleSelection = true
     tableView.allowsMultipleSelectionDuringEditing = true
     
@@ -35,15 +32,15 @@ class DepartmentTableViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    let fetched = fetchController.fetchedObjects
-    
+    let fetched = DataBaseManager.shared.resultController.fetchedObjects
+
     return fetched?.count ?? 0
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! SelectableGeneralCell
     
-    let department = fetchController.object(at: indexPath)
+    let department =  DataBaseManager.shared.resultController.object(at: indexPath)
     cell.name?.text = department.name
     cell.content = department
     

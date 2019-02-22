@@ -50,13 +50,7 @@ class EmployeeProfile: UIView {
     phone?.text = employee?.phone
     email?.text = employee?.email
     
-    for element in (employee?.department)! {
-      guard let element = element as? Department else {
-        continue
-      }
-      
-      department?.text?.append(" \(element.name ?? "");")
-    }
+    departments = (employee?.department?.allObjects as! [Department])
     
     profileImage?.image = UIImage(data: employee?.photo ?? Data())
     

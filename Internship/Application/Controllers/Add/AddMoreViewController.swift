@@ -63,13 +63,13 @@ class AddMoreViewController: UIViewController {
       AlertController.showConfirm(for: self, "Error", "Wrong data has been passed!", .alert, {_ in })
       return
     }
-    
+
     if mainView.segmentControll?.selectedSegmentIndex == SelectStates.deparment.rawValue {
       DataBaseManager.shared.createDepartment(from: data)
     } else {
       DataBaseManager.shared.createEmployee(from: data)
     }
-    
+
     self.navigationController?.popViewController(animated: true)
   }
   
