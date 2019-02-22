@@ -22,7 +22,7 @@ class ManagerTableViewController: UITableViewController {
   override func loadView() {
     super.loadView()
     
-    tableView.rowHeight = HomeViewController.defaultRowHeight
+    tableView.rowHeight = GeneralCell.defaultRowHeight
     tableView.allowsMultipleSelection = true
     tableView.allowsMultipleSelectionDuringEditing = true
     

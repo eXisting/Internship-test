@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 
 class GeneralCell: UITableViewCell {
+  static let defaultRowHeight = UIScreen.main.bounds.height * 0.08
+  
   var name: UILabel?
   
   var content: NSManagedObject!

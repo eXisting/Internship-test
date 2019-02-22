@@ -11,32 +11,29 @@ import CoreData
 
 class HomeViewController: UIViewController {
   
-  static let defaultRowHeight = UIScreen.main.bounds.height * 0.08
-  static let defaultSectionHeight = UIScreen.main.bounds.height * 0.1
-
   private var titleName = "Home"
   
-  private var source: HomeTableViewDelegates!
+  private var tableViewController: HomeDataSource!
   
   override func loadView() {
     super.loadView()
     
-    let tableView = HomeTableView(frame: self.view.frame, style: .plain)
-    source = HomeTableViewDelegates(master: self, tableView: tableView)
+    tableViewController = HomeDataSource(master: self)
     
-    self.view = tableView
-    
-    self.navigationItem.title = titleName
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAddMoreButtonClick))
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+  
+    self.navigationItem.title = titleName
+  
+    tableView.set(delegate: tableViewController, dataSource: tableViewController)
+    tableView.register(cell: (cellId, EmployeeCell.self), header: (headerId, ReusableHeader.self))
     
-    source.tableView.register(cell: (source.cellId, EmployeeCell.self), header: (source.headerId, ReusableHeader.self))
-    if let departments = source.fetchController.fetchedObjects {
+    if let departments = DataBaseManager.shared.departmentsFetchController().fetchedObjects {
       for department in departments {
-        source.data.append(.init(department))
+        tableViewController.data.append(.init(department))
       }
     }
   }

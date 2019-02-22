@@ -12,7 +12,7 @@ class HomeTableView: UITableView {
   override init(frame: CGRect, style: UITableView.Style) {
     super.init(frame: frame, style: style)
     
-    rowHeight = HomeViewController.defaultRowHeight
+    rowHeight = GeneralCell.defaultRowHeight
   }
   
   required init?(coder aDecoder: NSCoder) {

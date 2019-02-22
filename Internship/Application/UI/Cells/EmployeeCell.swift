@@ -35,7 +35,7 @@ class EmployeeCell: UITableViewCell {
   }
   
   private func laidOutImage() {
-    let halfHeight = HomeViewController.defaultRowHeight / 2
+    let halfHeight = GeneralCell.defaultRowHeight / 2
     
     let photoSize = CGSize(width: self.frame.width / 4, height: halfHeight)
     let photoOrign = CGPoint(x: self.frame.width * 0.05, y: halfHeight / 2)
@@ -48,7 +48,7 @@ class EmployeeCell: UITableViewCell {
   }
   
   private func laidOutLabels() {
-    let halfHeight = HomeViewController.defaultRowHeight / 2
+    let halfHeight = GeneralCell.defaultRowHeight / 2
     
     let nameOrign = CGPoint.init(x: self.frame.width / 3, y: 0)
     let roleOrign = CGPoint.init(x: self.frame.width / 3, y: halfHeight)

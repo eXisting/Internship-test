@@ -16,7 +16,9 @@ protocol DeletableHeaderDelegate {
   func deleteSection(section: Int)
 }
 
-class ReusableHeader: UITableViewHeaderFooterView {  
+class ReusableHeader: UITableViewHeaderFooterView {
+  static let defaultSectionHeight = UIScreen.main.bounds.height * 0.1
+  
   var data: SectionData! {
     didSet {
       textLabel?.text = data.department.name
