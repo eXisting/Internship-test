@@ -15,7 +15,7 @@ class DepartmentTableViewController: UITableViewController {
   private var titleName = "Departments"
   private var cellId = "DepartmentCell"
   
-  private var chosenDepartments: [NSManagedObject] = []
+  private var chosenDepartments: [Int: NSManagedObject] = [:]
   
   override func loadView() {
     super.loadView()
@@ -41,6 +41,7 @@ class DepartmentTableViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! SelectableGeneralCell
+    cell.setSelected(true, animated: true)
     
     let department =  DataBaseManager.shared.resultController.object(at: indexPath)
     cell.name?.text = department.name
@@ -54,14 +55,15 @@ class DepartmentTableViewController: UITableViewController {
       return
     }
     
-    chosenCell.setSelected(true, animated: true)
-    if !chosenDepartments.contains(chosenCell.content) {
-      chosenDepartments.append(chosenCell.content)
-    }
+    chosenDepartments[indexPath.row] = chosenCell.content
+  }
+  
+  override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    chosenDepartments.removeValue(forKey: indexPath.row)
   }
   
   @objc func done() {
-    onCellSelect?(chosenDepartments)
+    onCellSelect?(chosenDepartments.map{ $0.1 })
     
     self.navigationController?.popViewController(animated: true)
   }
