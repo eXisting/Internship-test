@@ -15,7 +15,8 @@ class ManagerTableViewController: UITableViewController {
   private var titleName = "Employees"
   private var cellId = "SelectableEmployeeCell"
   
-  private var chosenManagers: [NSManagedObject] = []
+  // row index : managed object
+  private var chosenManagers: [Int: NSManagedObject] = [:]
   
   //lazy var fetchController = DataBaseManager.shared.managerFetchController()
   
@@ -44,7 +45,8 @@ class ManagerTableViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! EmployeeCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! SelectableEmployeeCell
+    cell.setSelected(true, animated: true)
     
     let employee = DataBaseManager.shared.getManagers()[indexPath.row] //fetchController.object(at: indexPath)
     cell.employee = employee
@@ -54,18 +56,19 @@ class ManagerTableViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    guard let chosenCell = tableView.cellForRow(at: indexPath) as? EmployeeCell else {
+    guard let chosenCell = tableView.cellForRow(at: indexPath) as? SelectableEmployeeCell else {
       return
     }
     
-    chosenCell.setSelected(true, animated: true)
-    if !chosenManagers.contains(chosenCell.employee) {
-      chosenManagers.append(chosenCell.employee)      
-    }
+    chosenManagers[indexPath.row] = chosenCell.employee
+  }
+  
+  override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {    
+    chosenManagers.removeValue(forKey: indexPath.row)
   }
   
   @objc func done() {
-    onCellSelect?(chosenManagers)
+    onCellSelect?(chosenManagers.map { $0.1 })
     
     self.navigationController?.popViewController(animated: true)
   }
