@@ -152,7 +152,7 @@ class DataBaseManager: NSObject {
       department.addToEmployee(employee)
     }
     
-    employee.department = newDepartments as NSSet
+    employee.department?.addingObjects(from: newDepartments)
     
     let role = storeManagedObjectContext?.object(with: roleId) as! Role
     
