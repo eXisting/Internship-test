@@ -68,6 +68,11 @@ class ManagerTableViewController: UITableViewController {
   }
   
   @objc func done() {
+    if chosenManagers.count == 0 {
+      AlertController.showConfirm(for: self, "Error", "Choose managers!", .alert, {_ in })
+      return
+    }
+    
     onCellSelect?(chosenManagers.map { $0.1 })
     
     self.navigationController?.popViewController(animated: true)

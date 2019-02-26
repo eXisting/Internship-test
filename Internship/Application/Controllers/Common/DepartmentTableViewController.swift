@@ -17,6 +17,8 @@ class DepartmentTableViewController: UITableViewController {
   
   private var chosenDepartments: [Int: NSManagedObject] = [:]
   
+  var employeeRoleType: RoleType!
+  
   override func loadView() {
     super.loadView()
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
@@ -63,6 +65,11 @@ class DepartmentTableViewController: UITableViewController {
   }
   
   @objc func done() {
+    if chosenDepartments.count == 0 || employeeRoleType == .regular && chosenDepartments.count > 1 {
+      AlertController.showConfirm(for: self, "Error", "Invalid count of choosen departments!", .alert, {_ in })
+      return
+    }
+    
     onCellSelect?(chosenDepartments.map{ $0.1 })
     
     self.navigationController?.popViewController(animated: true)

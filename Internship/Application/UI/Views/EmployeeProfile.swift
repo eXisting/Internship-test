@@ -9,6 +9,11 @@
 import UIKit
 import CoreData
 
+enum RoleType {
+  case manager
+  case regular
+}
+
 class EmployeeProfile: UIView {
   var profileImage: UIImageView?
   

@@ -140,26 +140,24 @@ class DataBaseManager: NSObject {
     
     setFields(of: employee, with: dict)
     
-    if let assignedDepartments = employee.department {
-      for employeeDepartment in assignedDepartments {
-        let department = storeManagedObjectContext?.object(with: (employeeDepartment as! Department).objectID) as! Department
-        department.removeFromEmployee(employee)
-        employee.removeFromDepartment(department)
-      }
+    guard let departmentIds = dict["departmentsIds"] as? [NSManagedObjectID],
+      let roleId = dict["roleId"] as? NSManagedObjectID else {
+        print("Cannot parse dict in update core data")
+        return
     }
     
-    if let departmentIds = dict["departmentsIds"] as? [NSManagedObjectID] {
-      for id in departmentIds {
-        let department = storeManagedObjectContext!.object(with: id) as! Department
-        employee.addToDepartment(department)
-        department.addToEmployee(employee)
-      }
+    var newDepartments: Set<Department> = []
+    for id in departmentIds {
+      let department = storeManagedObjectContext?.object(with: id) as! Department
+      newDepartments.insert(department)
+      department.addToEmployee(employee)
     }
     
-    let roleId = dict["roleId"] as! NSManagedObjectID
+    employee.department = newDepartments as NSSet
+    
     let role = storeManagedObjectContext?.object(with: roleId) as! Role
     
-    employee.role?.removeFromEmployee(employee)
+    employee.role?.addToEmployee(employee)
     role.addToEmployee(employee)
     
     save(context: storeManagedObjectContext)

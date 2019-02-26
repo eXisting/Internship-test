@@ -54,7 +54,7 @@ class EmployeeProfileController: UIViewController {
       return
     }
     
-    data["objectId"] = profile?.objectID
+    data["objectId"] = profile?.objectID    
     DataBaseManager.shared.update(with: data)
     
     AlertController.showConfirm(for: self, "Success", "Saved successfuly!", .alert) {
