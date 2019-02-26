@@ -29,8 +29,7 @@ class DataBaseManager: NSObject {
   private var storeManagedObjectContext: NSManagedObjectContext?
   
   lazy var resultController: NSFetchedResultsController<Department> = {
-    let fetchRequest = NSFetchRequest<Department>()
-    fetchRequest.entity = NSEntityDescription.entity(forEntityName: departmentEntity, in: mainManagedObjectContext!)
+    let fetchRequest: NSFetchRequest<Department> = Department.fetchRequest()
     
     fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
     fetchRequest.returnsObjectsAsFaults = false

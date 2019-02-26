@@ -65,8 +65,10 @@ class DepartmentTableViewController: UITableViewController {
   }
   
   @objc func done() {
-    if chosenDepartments.count == 0 || employeeRoleType == .regular && chosenDepartments.count > 1 {
-      AlertController.showConfirm(for: self, "Error", "Invalid count of choosen departments!", .alert, {_ in })
+    if chosenDepartments.count == 0 ||
+      employeeRoleType == .regular && chosenDepartments.count > 1 ||
+      employeeRoleType == .regular && (chosenDepartments.first?.value as! Department).name == RoleType.manager.rawValue {
+      AlertController.showConfirm(for: self, "Error", "Invalid departments have been chosen!", .alert, {_ in })
       return
     }
     

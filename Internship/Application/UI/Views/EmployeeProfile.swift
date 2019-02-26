@@ -9,8 +9,8 @@
 import UIKit
 import CoreData
 
-enum RoleType {
-  case manager
+enum RoleType: String {
+  case manager = "PM"
   case regular
 }
 
@@ -35,7 +35,14 @@ class EmployeeProfile: UIView {
     }
   }
   
+  var canPickDepartment: Bool! {
+    didSet {
+      department!.isUserInteractionEnabled = canPickDepartment
+    }
+  }
+  
   var roleId: NSManagedObjectID?
+  var roleType: RoleType!
   
   var infoStack: UIStackView?
 
@@ -60,6 +67,14 @@ class EmployeeProfile: UIView {
     profileImage?.image = UIImage(data: employee?.photo ?? Data())
     
     roleId = employee?.role?.objectID
+    
+    canPickDepartment = roleId != nil
+    roleType = role?.text != RoleType.manager.rawValue ? .regular : .manager
+  }
+  
+  func clearDepartments() {
+    departments = []
+    department?.text = ""
   }
   
   func getFieldsDataAsDict() -> [String: Any]? {    

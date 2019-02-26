@@ -25,9 +25,10 @@ class AddMoreViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.mainView.departmentManager!.delegate = self
-    self.mainView.employeeProfileView?.department!.delegate = self
-    self.mainView.employeeProfileView?.role?.delegate = self
+    mainView.departmentManager!.delegate = self
+    mainView.employeeProfileView?.department!.delegate = self
+    mainView.employeeProfileView?.role?.delegate = self
+    mainView.employeeProfileView?.canPickDepartment = false
     
     self.title = titleName
     addTargets()
@@ -37,9 +38,10 @@ class AddMoreViewController: UIViewController {
     mainView.departmentManager?.addTarget(self, action: #selector(selectManager), for: .touchDown)
     mainView.employeeProfileView?.department?.addTarget(self, action: #selector(selectDepartment), for: .touchDown)
     mainView.employeeProfileView?.role?.addTarget(self, action: #selector(selectRole), for: .touchDown)
-
+    
     let singleTap = UITapGestureRecognizer(target: self, action: #selector(chooseImage))
-    mainView.employeeProfileView?.addGestureRecognizer(singleTap)
+    mainView.employeeProfileView?.profileImage?.isUserInteractionEnabled = true
+    mainView.employeeProfileView?.profileImage?.addGestureRecognizer(singleTap)
     
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(save))
   }
@@ -48,7 +50,7 @@ class AddMoreViewController: UIViewController {
   
   @objc func save() {
 // Uncomment if need to start from scratch
-//    DataBaseManager.shared.createRole("Manager")
+//    DataBaseManager.shared.createRole("PM")
 //    DataBaseManager.shared.createRole("Programmer")
 //    DataBaseManager.shared.createRole("Analytics")
 //    DataBaseManager.shared.createRole("ML")
@@ -82,6 +84,7 @@ class AddMoreViewController: UIViewController {
   @objc func selectDepartment() {
     let controller = DepartmentTableViewController()
     controller.onCellSelect = onSelectDepartment
+    controller.employeeRoleType = mainView.employeeProfileView?.roleType
     self.navigationController?.pushViewController(controller, animated: true)
   }
   
@@ -116,6 +119,13 @@ class AddMoreViewController: UIViewController {
     
     mainView.employeeProfileView?.role?.text = role.name
     mainView.employeeProfileView?.roleId = role.objectID
+    
+    if mainView.employeeProfileView?.roleType != .manager {
+      mainView.employeeProfileView?.clearDepartments()
+    }
+    
+    mainView.employeeProfileView?.roleType = role.name == RoleType.manager.rawValue ? .manager : .regular
+    mainView.employeeProfileView?.canPickDepartment = true
   }
   
   private func onSelectManager(_ managers: [NSManagedObject]) {

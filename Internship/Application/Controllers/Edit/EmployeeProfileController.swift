@@ -66,6 +66,7 @@ class EmployeeProfileController: UIViewController {
   @objc func selectDepartment() {
     let controller = DepartmentTableViewController()
     controller.onCellSelect = onSelectDepartment
+    controller.employeeRoleType = mainView.roleType
     self.navigationController?.pushViewController(controller, animated: true)
   }
   
@@ -98,5 +99,11 @@ class EmployeeProfileController: UIViewController {
     
     mainView.role?.text = role.name
     mainView.roleId = role.objectID
+    
+    if mainView.roleType != .manager {
+      mainView.clearDepartments()
+    }
+    
+    mainView.canPickDepartment = true
   }
 }
