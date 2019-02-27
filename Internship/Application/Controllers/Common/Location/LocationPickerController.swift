@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import CoreData
 
 class LocationPickerController: UIViewController {
-  var onSelect: ((AnyObject) -> Void)?
+  var onSelect: (([String: Any]) -> Void)?
   
   private var titleName = "Location"
   
@@ -39,7 +40,12 @@ class LocationPickerController: UIViewController {
   }
   
   @objc func save() {
-    onSelect?(titleName as AnyObject)
+    guard let data = pickerView.getLocationData() else {
+      AlertController.showConfirm(for: self, "Error", "Choose location to add to your data!!", .alert, {_ in })
+      return
+    }
+    
+    onSelect?(data)
     
     self.navigationController?.popViewController(animated: true)
   }

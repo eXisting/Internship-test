@@ -86,7 +86,7 @@ class EmployeeProfileController: UIViewController {
   @objc func selectLocation() {
     let controller = LocationPickerController()
     controller.onSelect = onSelectLocation
-    
+    controller.pickerView.location = profile?.location
     self.navigationController?.pushViewController(controller, animated: true)
   }
   
@@ -120,7 +120,7 @@ class EmployeeProfileController: UIViewController {
     mainView.canPickDepartment = true
   }
   
-  private func onSelectLocation(_ object: AnyObject) {
+  private func onSelectLocation(_ dict: [String : Any]) {
     
   }
 }

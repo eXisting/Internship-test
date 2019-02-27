@@ -14,6 +14,19 @@ class LocationPicker: MKMapView {
   var longitude: Double?
   var latitude: Double?
   
+  weak var location: Location? {
+    didSet {
+      name = location?.name
+      longitude = location?.longitude
+      latitude = location?.latitude
+      
+      if location != nil {
+        setInitialPosition(with: CLLocation(latitude: latitude!, longitude: longitude!))
+        setExistingAnnotation()        
+      }
+    }
+  }
+  
   func setupView() {
     mapType = .standard
     isZoomEnabled = true
@@ -30,7 +43,22 @@ class LocationPicker: MKMapView {
     let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
     setRegion(region, animated: true)
   }
-
+  
+  func getLocationData() -> [String: Any]? {
+    guard let title = name, let long = longitude, let lat = latitude else {
+      return nil
+    }
+    
+    return ["name": title, "longitude": long, "latitude": lat]
+  }
+  
+  private func setExistingAnnotation() {
+    let annotation = MKPointAnnotation()
+    annotation.coordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+    annotation.title = name
+    addAnnotation(annotation)
+  }
+  
   private func addTargets() {
     let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(addAnnotationAction))
     recognizer.minimumPressDuration = 2.0
@@ -47,7 +75,8 @@ class LocationPicker: MKMapView {
       let annotation = MKPointAnnotation()
       annotation.coordinate = newCoordinates
       
-      CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: newCoordinates.latitude, longitude: newCoordinates.longitude), completionHandler: {(placemarks, error) -> Void in
+      CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: newCoordinates.latitude, longitude: newCoordinates.longitude), completionHandler: {
+        [weak self] (placemarks, error) -> Void in
         if error != nil {
           print("Reverse geocoder failed with error" + error!.localizedDescription)
           return
@@ -66,11 +95,11 @@ class LocationPicker: MKMapView {
           annotation.title = placemark.subLocality
         }
         
-        self.addAnnotation(annotation)
+        self?.addAnnotation(annotation)
         
-        self.name = annotation.title
-        self.longitude = newCoordinates.longitude
-        self.latitude = newCoordinates.latitude
+        self?.name = annotation.title
+        self?.longitude = newCoordinates.longitude
+        self?.latitude = newCoordinates.latitude
       })
     }
   }
