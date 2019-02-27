@@ -20,10 +20,8 @@ class LocationPicker: MKMapView {
       longitude = location?.longitude
       latitude = location?.latitude
       
-      if location != nil {
-        setInitialPosition(with: CLLocation(latitude: latitude!, longitude: longitude!))
-        setExistingAnnotation()        
-      }
+      setInitialPosition(with: CLLocation(latitude: latitude!, longitude: longitude!))
+      setExistingAnnotation()
     }
   }
   

@@ -121,6 +121,6 @@ class EmployeeProfileController: UIViewController {
   }
   
   private func onSelectLocation(_ dict: [String : Any]) {
-    
+    mainView.locationData = dict
   }
 }

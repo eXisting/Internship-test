@@ -16,12 +16,10 @@ class LocationPickerController: UIViewController {
   
   private var locationManager: LocationManager!
   
-  var pickerView: LocationPicker!
+  var pickerView = LocationPicker()
   
   override func loadView() {
     super.loadView()
-    
-    pickerView = LocationPicker()
     
     view = pickerView
   }

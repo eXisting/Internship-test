@@ -152,6 +152,8 @@ class DataBaseManager: NSObject {
     
     employee.department?.addingObjects(from: newDepartments)
     
+    buildLocation(attachedTo: employee, from: dict)
+    
     let role = storeManagedObjectContext?.object(with: roleId) as! Role
     
     employee.role?.addToEmployee(employee)
@@ -209,6 +211,8 @@ class DataBaseManager: NSObject {
         employee.addToDepartment(department)
       }
     }
+    
+    buildLocation(attachedTo: employee, from: dict)
     
     let roleId = dict["roleId"] as! NSManagedObjectID
     let role = storeManagedObjectContext?.object(with: roleId) as! Role
@@ -286,5 +290,16 @@ class DataBaseManager: NSObject {
     object.setValue(dict["phone"], forKey: "phone")
     object.setValue(dict["email"], forKey: "email")
     object.setValue(dict["photo"], forKey: "photo")
+  }
+  
+  private func buildLocation(attachedTo employee: Employee, from dict: [String: Any]) {
+    if employee.location == nil {
+      employee.location = Location(context: storeManagedObjectContext!)
+    }
+    
+    let dataLocation = dict["location"] as! [String: Any]
+    employee.location!.name = (dataLocation["name"] as! String)
+    employee.location!.longitude = (dataLocation["longitude"] as! Double)
+    employee.location!.latitude = (dataLocation["latitude"] as! Double)
   }
 }

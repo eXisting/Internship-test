@@ -36,6 +36,12 @@ class EmployeeProfile: UIView {
     }
   }
   
+  var locationData: [String: Any]? {
+    didSet {
+      location?.text = (locationData!["name"] as! String)
+    }
+  }
+  
   var canPickDepartment: Bool! {
     didSet {
       department!.isUserInteractionEnabled = canPickDepartment
@@ -85,7 +91,8 @@ class EmployeeProfile: UIView {
       let emailValue = email?.text,
       let roleValue = roleId,
       let depIds = departments,
-      let photoValue = profileImage?.image?.pngData() else {
+      let photoValue = profileImage?.image?.pngData(),
+      let employeeLocationData = locationData else {
       return nil
     }
     
@@ -100,6 +107,7 @@ class EmployeeProfile: UIView {
       "email": emailValue as Any,
       "roleId": roleValue as Any,
       "departmentsIds": ids,
+      "location": employeeLocationData,
       "photo": photoValue as Any
     ]
   }

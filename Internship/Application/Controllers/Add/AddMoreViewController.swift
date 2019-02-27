@@ -140,7 +140,7 @@ class AddMoreViewController: UIViewController {
     mainView.managers = (managers as! [Employee])
   }
   
-  private func onSelectLocation(_ location: [String: Any]) {
-    print(location)
+  private func onSelectLocation(_ data: [String: Any]) {
+    mainView.employeeProfileView?.locationData = data
   }
 }
