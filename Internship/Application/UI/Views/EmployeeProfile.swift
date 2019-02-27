@@ -23,6 +23,8 @@ class EmployeeProfile: UIView {
   var email: UITextField?
   var department: UITextField?
   
+  var tableView: UITableView?
+  
   var departments: [Department]? {
     didSet {
       var names = ""
@@ -44,12 +46,9 @@ class EmployeeProfile: UIView {
   var roleId: NSManagedObjectID?
   var roleType: RoleType!
   
-  var infoStack: UIStackView?
-
   override init(frame: CGRect) {
     super.init(frame: frame)
-    
-    laidOutViews()
+    instantiateViews()
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -102,30 +101,73 @@ class EmployeeProfile: UIView {
     ]
   }
   
-  private func laidOutViews() {
-    laidOutImage()
-    laidOutInfoStack()
-    laidOutTextFields()
+  func laidOutViews() {
+    setupImage()
+    laidOutTableView()
   }
   
-  private func laidOutInfoStack() {
-    let stackSize = CGSize(width: self.frame.width * 0.65, height: self.frame.height * 0.4)
-    let orign = CGPoint(x: self.frame.width / 2 - stackSize.width / 2, y: self.frame.height * 0.4)
-    
-    infoStack = UIStackView(frame: CGRect(origin: orign, size: stackSize))
-    infoStack?.alignment = .fill
-    infoStack?.distribution = .fillEqually
-    infoStack?.axis = .vertical
-    addSubview(infoStack!)
-  }
-  
-  private func laidOutTextFields() {
+  private func instantiateViews() {
+    tableView = UITableView()
     name = UITextField()
     role = UITextField()
     phone = UITextField()
     email = UITextField()
     department = UITextField()
+    profileImage = UIImageView()
+    
+    addSubview(profileImage!)
+    addSubview(tableView!)
+  }
+  
+  private func laidOutTableView() {
+    tableView!.addConstraint(
+      NSLayoutConstraint(
+        item: tableView!,
+        attribute: .bottom,
+        relatedBy: .equal,
+        toItem: self,
+        attribute: .bottom,
+        multiplier: 1,
+        constant: 0)
+    )
+    
+    tableView!.addConstraint(
+      NSLayoutConstraint(
+        item: tableView!,
+        attribute: .left,
+        relatedBy: .equal,
+        toItem: self,
+        attribute: .left,
+        multiplier: 0.9,
+        constant: 0)
+    )
+    
+    tableView!.addConstraint(
+      NSLayoutConstraint(
+        item: tableView!,
+        attribute: .right,
+        relatedBy: .equal,
+        toItem: self,
+        attribute: .right,
+        multiplier: 0.9,
+        constant: 0)
+    )
+    
+    tableView!.addConstraint(
+      NSLayoutConstraint(
+        item: tableView!,
+        attribute: .top,
+        relatedBy: .equal,
+        toItem: self,
+        attribute: .top,
+        multiplier: 0.4,
+        constant: 0)
+    )
 
+    setupTextFields()
+  }
+  
+  private func setupTextFields() {
     name!.textColor = .black
     name!.font = UIFont.boldSystemFont(ofSize: 17)
     name!.clearButtonMode = .whileEditing
@@ -156,21 +198,20 @@ class EmployeeProfile: UIView {
     department!.textAlignment = .left
     department!.placeholder = "Department"
 
-    infoStack!.addArrangedSubview(name!)
-    infoStack!.addArrangedSubview(role!)
-    infoStack!.addArrangedSubview(phone!)
-    infoStack!.addArrangedSubview(email!)
-    infoStack!.addArrangedSubview(department!)
+    //tableView?.insertSubview(name!, at: 0)
+//    tableView!.addArrangedSubview(name!)
+//    tableView!.addArrangedSubview(role!)
+//    tableView!.addArrangedSubview(phone!)
+//    tableView!.addArrangedSubview(email!)
+//    tableView!.addArrangedSubview(department!)
   }
   
-  private func laidOutImage() {
-    let size = self.frame.width * 0.4
-    let imageSize = CGSize(width: size, height: size)
-    let orign = CGPoint(x: self.frame.width / 2 - size / 2, y: size / 2)
-    
-    profileImage = UIImageView(frame: CGRect(origin: orign, size: imageSize))
-    profileImage?.backgroundColor = .lightGray
-    
-    addSubview(profileImage!)
+  private func setupImage() {
+//    let size = self.frame.width * 0.4
+//    let imageSize = CGSize(width: size, height: size)
+//    let orign = CGPoint(x: self.frame.width / 2 - size / 2, y: size / 2)
+//    
+//    profileImage?.frame = CGRect(origin: orign, size: imageSize)
+//    profileImage?.backgroundColor = .lightGray
   }
 }

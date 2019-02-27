@@ -34,6 +34,7 @@ class EmployeeProfileController: UIViewController {
     
     self.tabBarItem.title = titleName
     addTargets()
+    mainView.laidOutViews()
   }
   
   private func addTargets() {

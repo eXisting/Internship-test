@@ -10,15 +10,16 @@ import UIKit
 
 extension AddMoreViewController: UITextFieldDelegate {
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-    return textField != self.mainView.departmentManager &&
-      textField != self.mainView.employeeProfileView?.department &&
-      textField != self.mainView.employeeProfileView?.role
+return true
+//    return textField != self.mainView.departmentManager &&
+//      textField != self.mainView.employeeProfileView?.department &&
+//      textField != self.mainView.employeeProfileView?.role
   }
 }
 
 extension AddMoreViewController: ImagePickerDelegate {
   func populateImageView(with image: UIImage?) {
-    mainView.employeeProfileView?.profileImage?.image = image
+    //mainView.employeeProfileView?.profileImage?.image = image
   }
   
   func presentPicker() {

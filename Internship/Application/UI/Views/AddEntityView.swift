@@ -16,7 +16,7 @@ enum SelectStates: Int {
 class AddEntityView: UIView {
   private(set) var segmentControll: UISegmentedControl?
   
-  private(set) var employeeProfileView: EmployeeProfile?
+  //private(set) var employeeProfileView: EmployeeProfile?
   private var departmentStackView: UIStackView?
   
   private(set) var departmentName: UITextField?
@@ -36,8 +36,7 @@ class AddEntityView: UIView {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
-    
-    laidOutViews()
+    instantiateViews()
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -45,8 +44,9 @@ class AddEntityView: UIView {
   }
   
   func getFieldsDataAsDict() -> [String: Any]? {
-    return segmentControll?.selectedSegmentIndex == SelectStates.employee.rawValue ?
-      employeeProfileView!.getFieldsDataAsDict() : getDepartmentFieldsAsDict()
+    return ["": "" as Any]
+//    return segmentControll?.selectedSegmentIndex == SelectStates.employee.rawValue ?
+//      employeeProfileView!.getFieldsDataAsDict() : getDepartmentFieldsAsDict()
   }
   
   private func getDepartmentFieldsAsDict() -> [String: Any]? {
@@ -68,39 +68,66 @@ class AddEntityView: UIView {
   
   @objc func toggleVisibleStack() {
     departmentStackView?.isHidden = !departmentStackView!.isHidden
-    employeeProfileView?.isHidden = !employeeProfileView!.isHidden
+//    employeeProfileView?.isHidden = !employeeProfileView!.isHidden
   }
   
-  private func laidOutViews() {
+  func laidOutViews() {
     laidOutSegment()
-    laidOutStacks()
-    laidOutTextFields()
+
+    setupStack()
+    setUpStackFields()
+    
+//    employeeProfileView?.laidOutViews()
   }
   
-  private func laidOutStacks() {
-    let employeeStackSize = CGSize(width: self.frame.width, height: self.frame.height * 0.7)
-    let departmentStackSize = CGSize(width: self.frame.width * 0.65, height: self.frame.height * 0.15)
-
-    let originY = segmentControll!.frame.height + segmentControll!.frame.origin.y
-    let orignEmployeeStack = CGPoint(x: 0, y: originY)
-    let originDepartmentStack = CGPoint(x: self.frame.width * 0.1, y: originY)
-
-    employeeProfileView = EmployeeProfile(frame: CGRect(origin: orignEmployeeStack, size: employeeStackSize))
-    departmentStackView = UIStackView(frame: CGRect(origin: originDepartmentStack, size: departmentStackSize))
+  private func instantiateViews() {
+//    employeeProfileView = EmployeeProfile(frame: self.frame)
+    departmentStackView = UIStackView(frame: self.frame)
+    segmentControll = UISegmentedControl(frame: self.frame)
+    departmentName = UITextField()
+    departmentManager = UITextField()
+    
+//    addSubview(employeeProfileView!)
+    addSubview(departmentStackView!)
+    departmentStackView!.addArrangedSubview(departmentName!)
+    departmentStackView!.addArrangedSubview(departmentManager!)
+  }
+  
+  private func setupStack() {
+    NSLayoutConstraint(
+      item: departmentStackView!,
+      attribute: .height,
+      relatedBy: .equal,
+      toItem: self,
+      attribute: .height,
+      multiplier: 0.15,
+      constant: 0).isActive = true
+    
+    NSLayoutConstraint(
+      item: departmentStackView!,
+      attribute: .top,
+      relatedBy: .equal,
+      toItem: segmentControll,
+      attribute: .bottom,
+      multiplier: 1,
+      constant: 10).isActive = true
+    
+    NSLayoutConstraint(
+      item: departmentStackView!,
+      attribute: .centerX,
+      relatedBy: .equal,
+      toItem: self,
+      attribute: .centerX,
+      multiplier: 1,
+      constant: 0).isActive = true
     
     departmentStackView?.alignment = .fill
     departmentStackView?.distribution = .fillEqually
     departmentStackView?.axis = .vertical
     departmentStackView?.isHidden = true
-    
-    addSubview(employeeProfileView!)
-    addSubview(departmentStackView!)
   }
   
-  private func laidOutTextFields() {
-    departmentName = UITextField()
-    departmentManager = UITextField()
-
+  private func setUpStackFields() {
     departmentName!.textColor = .black
     departmentName!.font = UIFont.boldSystemFont(ofSize: 17)
     departmentName!.clearButtonMode = .whileEditing
@@ -112,16 +139,48 @@ class AddEntityView: UIView {
     departmentManager!.clearButtonMode = .whileEditing
     departmentManager!.textAlignment = .left
     departmentManager!.placeholder = "Select manager"
-
-    departmentStackView!.addArrangedSubview(departmentName!)
-    departmentStackView!.addArrangedSubview(departmentManager!)
   }
   
   private func laidOutSegment() {
-    let segmentSize = CGSize(width: self.frame.width * 0.35, height: self.frame.height * 0.05)
-    let orign = CGPoint(x: self.frame.width * 0.05, y: self.frame.height * 0.1)
+    segmentControll?.translatesAutoresizingMaskIntoConstraints = false
+    addSubview(segmentControll!)
     
-    segmentControll = UISegmentedControl(frame: CGRect(origin: orign, size: segmentSize))
+    NSLayoutConstraint(
+      item: segmentControll!,
+      attribute: .height,
+      relatedBy: .equal,
+      toItem: self,
+      attribute: .height,
+      multiplier: 0.05,
+      constant: 0).isActive = true
+    
+    NSLayoutConstraint(
+      item: segmentControll!,
+      attribute: .width,
+      relatedBy: .equal,
+      toItem: self,
+      attribute: .width,
+      multiplier: 0.4,
+      constant: 0).isActive = true
+    
+    NSLayoutConstraint(
+      item: segmentControll!,
+      attribute: .top,
+      relatedBy: .equal,
+      toItem: self,
+      attribute: .top,
+      multiplier: 0.4,
+      constant: 0).isActive = true
+    
+    NSLayoutConstraint(
+      item: segmentControll!,
+      attribute: .centerX,
+      relatedBy: .equal,
+      toItem: self,
+      attribute: .centerX,
+      multiplier: 1,
+      constant: 0).isActive = true
+
     segmentControll!.insertSegment(withTitle: "Employee", at: segmentControll!.numberOfSegments, animated: false)
     segmentControll!.insertSegment(withTitle: "Department", at: segmentControll!.numberOfSegments, animated: false)
     segmentControll?.contentHorizontalAlignment = .center
@@ -130,7 +189,5 @@ class AddEntityView: UIView {
     segmentControll?.apportionsSegmentWidthsByContent = true
     
     segmentControll?.addTarget(self, action: #selector(toggleVisibleStack), for: .valueChanged)
-    
-    addSubview(segmentControll!)
   }
 }
