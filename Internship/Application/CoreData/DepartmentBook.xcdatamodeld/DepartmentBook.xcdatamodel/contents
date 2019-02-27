@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18D42" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18D109" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Department" representedClassName="Department" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="employee" toMany="YES" deletionRule="Nullify" destinationEntity="Employee" inverseName="department" inverseEntity="Employee" syncable="YES"/>
@@ -10,7 +10,14 @@
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photo" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <relationship name="department" toMany="YES" deletionRule="Nullify" destinationEntity="Department" inverseName="employee" inverseEntity="Department" syncable="YES"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="employee" inverseEntity="Location" syncable="YES"/>
         <relationship name="role" maxCount="1" deletionRule="Nullify" destinationEntity="Role" inverseName="employee" inverseEntity="Role" syncable="YES"/>
+    </entity>
+    <entity name="Location" representedClassName="Location" syncable="YES" codeGenerationType="class">
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="location" inverseEntity="Employee" syncable="YES"/>
     </entity>
     <entity name="Role" representedClassName="Role" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -18,7 +25,8 @@
     </entity>
     <elements>
         <element name="Department" positionX="-548.578125" positionY="-272.4921875" width="128" height="73"/>
-        <element name="Employee" positionX="-584.2265625" positionY="-98.38671875" width="128" height="133"/>
+        <element name="Employee" positionX="-584.2265625" positionY="-98.38671875" width="128" height="148"/>
         <element name="Role" positionX="-279.05859375" positionY="-167.71875" width="128" height="73"/>
+        <element name="Location" positionX="-773.55078125" positionY="-87.84765625" width="128" height="103"/>
     </elements>
 </model>

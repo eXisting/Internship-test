@@ -32,6 +32,11 @@ class EmployeeProfileController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    mainView.department!.delegate = self
+    mainView.role?.delegate = self
+    mainView.location?.delegate = self
+    mainView.canPickDepartment = false
+    
     self.tabBarItem.title = titleName
     addTargets()
   }
@@ -43,6 +48,7 @@ class EmployeeProfileController: UIViewController {
     
     mainView.role?.addTarget(self, action: #selector(selectRole), for: .touchDown)
     mainView.department?.addTarget(self, action: #selector(selectDepartment), for: .touchDown)
+    mainView.location?.addTarget(self, action: #selector(selectLocation), for: .touchDown)
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(save))
   }
   
@@ -77,6 +83,13 @@ class EmployeeProfileController: UIViewController {
     self.navigationController?.pushViewController(controller, animated: true)
   }
   
+  @objc func selectLocation() {
+    let controller = LocationPickerController()
+    controller.onSelect = onSelectLocation
+    
+    self.navigationController?.pushViewController(controller, animated: true)
+  }
+  
   @objc func pickImage() {
     let galleryAction = UIAlertAction(title: "Gallery", style: .default, handler: {
       [weak self] _ in
@@ -105,5 +118,9 @@ class EmployeeProfileController: UIViewController {
     }
     
     mainView.canPickDepartment = true
+  }
+  
+  private func onSelectLocation(_ object: AnyObject) {
+    
   }
 }

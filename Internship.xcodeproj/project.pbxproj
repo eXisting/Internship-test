@@ -21,6 +21,8 @@
 		EDAD6914221D865700BF11D9 /* IImagePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAD6913221D865700BF11D9 /* IImagePickerDelegate.swift */; };
 		EDAD6959221FF91300BF11D9 /* TableViewContaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAD6958221FF91300BF11D9 /* TableViewContaining.swift */; };
 		EDAD695B221FF9A900BF11D9 /* FetchControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAD695A221FF9A900BF11D9 /* FetchControllerDelegate.swift */; };
+		EDCFB41F2226881600A6B56F /* LocationPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB41E2226881600A6B56F /* LocationPickerController.swift */; };
+		EDCFB4212226890E00A6B56F /* LocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB4202226890E00A6B56F /* LocationPicker.swift */; };
 		EDF64018221A9B19001332EC /* EmployeeProfileDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64017221A9B19001332EC /* EmployeeProfileDelegates.swift */; };
 		EDF6401A221AA094001332EC /* DepartmentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64019221AA094001332EC /* DepartmentTableViewController.swift */; };
 		EDF6401C221AA0CC001332EC /* GeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF6401B221AA0CC001332EC /* GeneralCell.swift */; };
@@ -73,6 +75,8 @@
 		EDAD6913221D865700BF11D9 /* IImagePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IImagePickerDelegate.swift; sourceTree = "<group>"; };
 		EDAD6958221FF91300BF11D9 /* TableViewContaining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewContaining.swift; sourceTree = "<group>"; };
 		EDAD695A221FF9A900BF11D9 /* FetchControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchControllerDelegate.swift; sourceTree = "<group>"; };
+		EDCFB41E2226881600A6B56F /* LocationPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerController.swift; sourceTree = "<group>"; };
+		EDCFB4202226890E00A6B56F /* LocationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPicker.swift; sourceTree = "<group>"; };
 		EDF64017221A9B19001332EC /* EmployeeProfileDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfileDelegates.swift; sourceTree = "<group>"; };
 		EDF64019221AA094001332EC /* DepartmentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentTableViewController.swift; sourceTree = "<group>"; };
 		EDF6401B221AA0CC001332EC /* GeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralCell.swift; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 				EDF64019221AA094001332EC /* DepartmentTableViewController.swift */,
 				EDF84322221580D2009ABF71 /* ManagerTableViewController.swift */,
 				EDF6401E221AA59A001332EC /* RoleTableViewController.swift */,
+				EDCFB41E2226881600A6B56F /* LocationPickerController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 				DB3BFA662211BFB00074EE25 /* EmployeeProfile.swift */,
 				EDF8431A22156B24009ABF71 /* AddEntityView.swift */,
 				EDF8432B22159B04009ABF71 /* HomeTableView.swift */,
+				EDCFB4202226890E00A6B56F /* LocationPicker.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -435,6 +441,7 @@
 				EDF8430D22156755009ABF71 /* AlertController.swift in Sources */,
 				EDF64025221BFD67001332EC /* SelectableEmployeeCell.swift in Sources */,
 				EDF6401F221AA59A001332EC /* RoleTableViewController.swift in Sources */,
+				EDCFB41F2226881600A6B56F /* LocationPickerController.swift in Sources */,
 				DB0F28F0221302E900784EE5 /* AddMoreViewController.swift in Sources */,
 				EDF64018221A9B19001332EC /* EmployeeProfileDelegates.swift in Sources */,
 				EDF8431B22156B24009ABF71 /* AddEntityView.swift in Sources */,
@@ -443,6 +450,7 @@
 				DB3BFA692211C4930074EE25 /* EmployeeProfileController.swift in Sources */,
 				EDAD6912221D85B600BF11D9 /* ImagePicker.swift in Sources */,
 				EDF64027221C1442001332EC /* DataSourceDelegates.swift in Sources */,
+				EDCFB4212226890E00A6B56F /* LocationPicker.swift in Sources */,
 				EDAD690F221D6AC900BF11D9 /* SelectableGeneralCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

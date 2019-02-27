@@ -8,6 +8,14 @@
 
 import UIKit
 
+extension EmployeeProfileController: UITextFieldDelegate {
+  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    return textField != self.mainView.department &&
+      textField != self.mainView.role &&
+      textField != self.mainView.location
+  }
+}
+
 extension EmployeeProfileController: ImagePickerDelegate {
   func populateImageView(with image: UIImage?) {
     mainView.profileImage?.image = image

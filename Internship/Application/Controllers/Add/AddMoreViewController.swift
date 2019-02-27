@@ -12,7 +12,7 @@ import CoreData
 class AddMoreViewController: UIViewController {
   private(set) var mainView: AddEntityView!
   
-  private let titleName = "Add more"
+  private let titleName = "Add"
   lazy var imagePicker = ImagePicker()
   
   override func loadView() {
@@ -38,7 +38,8 @@ class AddMoreViewController: UIViewController {
     mainView.departmentManager?.addTarget(self, action: #selector(selectManager), for: .touchDown)
     mainView.employeeProfileView?.department?.addTarget(self, action: #selector(selectDepartment), for: .touchDown)
     mainView.employeeProfileView?.role?.addTarget(self, action: #selector(selectRole), for: .touchDown)
-    
+    mainView.employeeProfileView?.location?.addTarget(self, action: #selector(selectLocation), for: .touchDown)
+
     let singleTap = UITapGestureRecognizer(target: self, action: #selector(chooseImage))
     mainView.employeeProfileView?.profileImage?.isUserInteractionEnabled = true
     mainView.employeeProfileView?.profileImage?.addGestureRecognizer(singleTap)
@@ -108,6 +109,13 @@ class AddMoreViewController: UIViewController {
     imagePicker.setupPicker(delegate: self)
   }
   
+  @objc func selectLocation() {
+    let controller = LocationPickerController()
+    controller.onSelect = onSelectLocation
+    
+    self.navigationController?.pushViewController(controller, animated: true)
+  }
+  
   // MARK: Presented views callbacks
   
   private func onSelectDepartment(_ departments: [NSManagedObject]) {
@@ -130,5 +138,9 @@ class AddMoreViewController: UIViewController {
   
   private func onSelectManager(_ managers: [NSManagedObject]) {
     mainView.managers = (managers as! [Employee])
+  }
+  
+  private func onSelectLocation(_ object: AnyObject) {
+    
   }
 }

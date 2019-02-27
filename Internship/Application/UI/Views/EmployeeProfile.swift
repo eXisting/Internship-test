@@ -22,6 +22,7 @@ class EmployeeProfile: UIView {
   var phone: UITextField?
   var email: UITextField?
   var department: UITextField?
+  var location: UITextField?
   
   var departments: [Department]? {
     didSet {
@@ -61,7 +62,8 @@ class EmployeeProfile: UIView {
     role?.text = employee?.role?.name
     phone?.text = employee?.phone
     email?.text = employee?.email
-    
+    location?.text = employee?.location?.name
+
     departments = (employee?.department?.allObjects as! [Department])
     
     profileImage?.image = UIImage(data: employee?.photo ?? Data())
@@ -125,6 +127,7 @@ class EmployeeProfile: UIView {
     phone = UITextField()
     email = UITextField()
     department = UITextField()
+    location = UITextField()
 
     name!.textColor = .black
     name!.font = UIFont.boldSystemFont(ofSize: 17)
@@ -156,11 +159,18 @@ class EmployeeProfile: UIView {
     department!.textAlignment = .left
     department!.placeholder = "Department"
 
+    location!.textColor = .black
+    location!.font = UIFont.boldSystemFont(ofSize: 17)
+    location!.clearButtonMode = .whileEditing
+    location!.textAlignment = .left
+    location!.placeholder = "Location"
+
     infoStack!.addArrangedSubview(name!)
     infoStack!.addArrangedSubview(role!)
     infoStack!.addArrangedSubview(phone!)
     infoStack!.addArrangedSubview(email!)
     infoStack!.addArrangedSubview(department!)
+    infoStack!.addArrangedSubview(location!)
   }
   
   private func laidOutImage() {
