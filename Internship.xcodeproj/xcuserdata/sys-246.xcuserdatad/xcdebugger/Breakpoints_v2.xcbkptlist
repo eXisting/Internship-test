@@ -73,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Internship/Application/CoreData/DataBaseManager.swift"
-            timestampString = "572965192.638374"
+            filePath = "Internship/Application/Controllers/Main/Location/EmployeesLocationsViewControllerDelegates.swift"
+            timestampString = "572969070.992326"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
-            landmarkName = "createEmployee(from:)"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "locationManager(_:didUpdateLocations:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

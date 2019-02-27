@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andrey Popazov. All rights reserved.
 //
 
-import UIKit
+import MapKit
 import CoreLocation
 
 class LocationManager {
@@ -38,5 +38,10 @@ class LocationManager {
   
   func requsetDeviceLocation() {
     locationManager.requestLocation()
+  }
+  
+  static func getRegion(by location: CLLocation) -> MKCoordinateRegion {
+    let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+    return MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
   }
 }

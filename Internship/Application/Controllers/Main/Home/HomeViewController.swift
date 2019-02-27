@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
     tableViewController = HomeDataSource(master: self)
     DataBaseManager.shared.resultController.delegate = self
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAddMoreButtonClick))
+    self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(onViewEmployeesLocation))
   }
   
   override func viewDidLoad() {
@@ -40,7 +41,11 @@ class HomeViewController: UIViewController {
   
   @objc func onAddMoreButtonClick() {
     let controller = AddMoreViewController()
-    controller.view.backgroundColor = .white
+    self.navigationController?.pushViewController(controller, animated: true)
+  }
+  
+  @objc func onViewEmployeesLocation() {
+    let controller = EmployeesLocationsViewController()
     self.navigationController?.pushViewController(controller, animated: true)
   }
 }

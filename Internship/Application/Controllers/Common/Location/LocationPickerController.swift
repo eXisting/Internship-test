@@ -16,7 +16,7 @@ class LocationPickerController: UIViewController {
   
   private var locationManager: LocationManager!
   
-  var pickerView = LocationPicker()
+  let pickerView = LocationPicker()
   
   override func loadView() {
     super.loadView()
@@ -30,7 +30,6 @@ class LocationPickerController: UIViewController {
     
     locationManager = LocationManager(with: self)
     locationManager.enableLocationServices()
-    locationManager.requsetDeviceLocation()
 
     pickerView.setupView()
             

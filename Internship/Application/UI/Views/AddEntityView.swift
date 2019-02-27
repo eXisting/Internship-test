@@ -72,6 +72,8 @@ class AddEntityView: UIView {
   }
   
   private func laidOutViews() {
+    backgroundColor = .white
+    
     laidOutSegment()
     laidOutStacks()
     laidOutTextFields()

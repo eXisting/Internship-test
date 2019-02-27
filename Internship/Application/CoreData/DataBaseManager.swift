@@ -130,6 +130,17 @@ class DataBaseManager: NSObject {
     return self.performFetch(on: mainManagedObjectContext, fetch: fetchRequest as! NSFetchRequest<NSManagedObject>) as! [Role]
   }
   
+  func getEmployees() -> [Employee] {
+    let fetchRequest = NSFetchRequest<Employee>()
+    
+    fetchRequest.entity = NSEntityDescription.entity(forEntityName: employeeEntity, in: mainManagedObjectContext!)
+    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+    fetchRequest.returnsObjectsAsFaults = false
+    fetchRequest.fetchBatchSize = 20
+    
+    return self.performFetch(on: mainManagedObjectContext, fetch: fetchRequest as! NSFetchRequest<NSManagedObject>) as! [Employee]
+  }
+  
   // MARK: Actions
   
   func update(with dict: [String: Any]) {

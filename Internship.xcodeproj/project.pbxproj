@@ -25,6 +25,9 @@
 		EDCFB4212226890E00A6B56F /* LocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB4202226890E00A6B56F /* LocationPicker.swift */; };
 		EDCFB42422268C8C00A6B56F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB42322268C8C00A6B56F /* LocationManager.swift */; };
 		EDCFB42722268DEC00A6B56F /* LocationPickerDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB42622268DEC00A6B56F /* LocationPickerDelegates.swift */; };
+		EDCFB4352226C96500A6B56F /* EmployeesLocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB4342226C96500A6B56F /* EmployeesLocationsViewController.swift */; };
+		EDCFB4392226CAA400A6B56F /* LocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB4382226CAA400A6B56F /* LocationsView.swift */; };
+		EDCFB43C2226CD0C00A6B56F /* EmployeesLocationsViewControllerDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB43B2226CD0C00A6B56F /* EmployeesLocationsViewControllerDelegates.swift */; };
 		EDF64018221A9B19001332EC /* EmployeeProfileDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64017221A9B19001332EC /* EmployeeProfileDelegates.swift */; };
 		EDF6401A221AA094001332EC /* DepartmentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64019221AA094001332EC /* DepartmentTableViewController.swift */; };
 		EDF6401C221AA0CC001332EC /* GeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF6401B221AA0CC001332EC /* GeneralCell.swift */; };
@@ -81,6 +84,9 @@
 		EDCFB4202226890E00A6B56F /* LocationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPicker.swift; sourceTree = "<group>"; };
 		EDCFB42322268C8C00A6B56F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		EDCFB42622268DEC00A6B56F /* LocationPickerDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerDelegates.swift; sourceTree = "<group>"; };
+		EDCFB4342226C96500A6B56F /* EmployeesLocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesLocationsViewController.swift; sourceTree = "<group>"; };
+		EDCFB4382226CAA400A6B56F /* LocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsView.swift; sourceTree = "<group>"; };
+		EDCFB43B2226CD0C00A6B56F /* EmployeesLocationsViewControllerDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesLocationsViewControllerDelegates.swift; sourceTree = "<group>"; };
 		EDF64017221A9B19001332EC /* EmployeeProfileDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfileDelegates.swift; sourceTree = "<group>"; };
 		EDF64019221AA094001332EC /* DepartmentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentTableViewController.swift; sourceTree = "<group>"; };
 		EDF6401B221AA0CC001332EC /* GeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralCell.swift; sourceTree = "<group>"; };
@@ -93,7 +99,7 @@
 		EDF8431A22156B24009ABF71 /* AddEntityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntityView.swift; sourceTree = "<group>"; };
 		EDF8431F22157C9E009ABF71 /* AddMoreDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoreDelegates.swift; sourceTree = "<group>"; };
 		EDF84322221580D2009ABF71 /* ManagerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerTableViewController.swift; sourceTree = "<group>"; };
-		EDF8432622158F98009ABF71 /* ReusableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReusableHeader.swift; path = Internship/Application/UI/Cells/ReusableHeader.swift; sourceTree = SOURCE_ROOT; };
+		EDF8432622158F98009ABF71 /* ReusableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReusableHeader.swift; path = Internship/Application/UI/Cells/General/ReusableHeader.swift; sourceTree = SOURCE_ROOT; };
 		EDF8432B22159B04009ABF71 /* HomeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -240,7 +246,6 @@
 		EDCFB42222268A2600A6B56F /* CoreLocation */ = {
 			isa = PBXGroup;
 			children = (
-				EDCFB42822269C1800A6B56F /* Model */,
 				EDCFB42322268C8C00A6B56F /* LocationManager.swift */,
 			);
 			path = CoreLocation;
@@ -255,11 +260,50 @@
 			path = Location;
 			sourceTree = "<group>";
 		};
-		EDCFB42822269C1800A6B56F /* Model */ = {
+		EDCFB4322226C8CB00A6B56F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				EDAD6957221FF8F200BF11D9 /* Delegates */,
+				DBA6F3E422118B12003ABF10 /* HomeViewController.swift */,
 			);
-			path = Model;
+			path = Home;
+			sourceTree = "<group>";
+		};
+		EDCFB4332226C8DB00A6B56F /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				EDCFB4342226C96500A6B56F /* EmployeesLocationsViewController.swift */,
+				EDCFB43B2226CD0C00A6B56F /* EmployeesLocationsViewControllerDelegates.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		EDCFB4362226C98E00A6B56F /* General */ = {
+			isa = PBXGroup;
+			children = (
+				EDF8432622158F98009ABF71 /* ReusableHeader.swift */,
+				DBA6F3E622118FD4003ABF10 /* EmployeeCell.swift */,
+				EDF6401B221AA0CC001332EC /* GeneralCell.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		EDCFB4372226C9A000A6B56F /* Selectable */ = {
+			isa = PBXGroup;
+			children = (
+				EDF64024221BFD67001332EC /* SelectableEmployeeCell.swift */,
+				EDAD690E221D6AC900BF11D9 /* SelectableGeneralCell.swift */,
+			);
+			path = Selectable;
+			sourceTree = "<group>";
+		};
+		EDCFB43A2226CAE500A6B56F /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				EDCFB4202226890E00A6B56F /* LocationPicker.swift */,
+				EDCFB4382226CAA400A6B56F /* LocationsView.swift */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 		EDF6401D221AA2AD001332EC /* Common */ = {
@@ -276,10 +320,10 @@
 		EDF64022221AFCE3001332EC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EDCFB43A2226CAE500A6B56F /* Location */,
 				DB3BFA662211BFB00074EE25 /* EmployeeProfile.swift */,
 				EDF8431A22156B24009ABF71 /* AddEntityView.swift */,
 				EDF8432B22159B04009ABF71 /* HomeTableView.swift */,
-				EDCFB4202226890E00A6B56F /* LocationPicker.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -287,11 +331,9 @@
 		EDF64023221AFCF6001332EC /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				DBA6F3E622118FD4003ABF10 /* EmployeeCell.swift */,
-				EDF6401B221AA0CC001332EC /* GeneralCell.swift */,
-				EDF8432622158F98009ABF71 /* ReusableHeader.swift */,
-				EDF64024221BFD67001332EC /* SelectableEmployeeCell.swift */,
-				EDAD690E221D6AC900BF11D9 /* SelectableGeneralCell.swift */,
+				EDF64020221AEF94001332EC /* SectionData.swift */,
+				EDCFB4362226C98E00A6B56F /* General */,
+				EDCFB4372226C9A000A6B56F /* Selectable */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -317,9 +359,8 @@
 		EDF8432822159760009ABF71 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				EDAD6957221FF8F200BF11D9 /* Delegates */,
-				DBA6F3E422118B12003ABF10 /* HomeViewController.swift */,
-				EDF64020221AEF94001332EC /* SectionData.swift */,
+				EDCFB4332226C8DB00A6B56F /* Location */,
+				EDCFB4322226C8CB00A6B56F /* Home */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -468,6 +509,7 @@
 				EDF8432722158F98009ABF71 /* ReusableHeader.swift in Sources */,
 				EDF8432022157C9E009ABF71 /* AddMoreDelegates.swift in Sources */,
 				DBA6F3E522118B12003ABF10 /* HomeViewController.swift in Sources */,
+				EDCFB43C2226CD0C00A6B56F /* EmployeesLocationsViewControllerDelegates.swift in Sources */,
 				DB3BFA5C2211A7060074EE25 /* DepartmentBook.xcdatamodeld in Sources */,
 				EDF8430D22156755009ABF71 /* AlertController.swift in Sources */,
 				EDF64025221BFD67001332EC /* SelectableEmployeeCell.swift in Sources */,
@@ -475,11 +517,13 @@
 				EDCFB41F2226881600A6B56F /* LocationPickerController.swift in Sources */,
 				DB0F28F0221302E900784EE5 /* AddMoreViewController.swift in Sources */,
 				EDF64018221A9B19001332EC /* EmployeeProfileDelegates.swift in Sources */,
+				EDCFB4392226CAA400A6B56F /* LocationsView.swift in Sources */,
 				EDF8431B22156B24009ABF71 /* AddEntityView.swift in Sources */,
 				DB3BFA672211BFB00074EE25 /* EmployeeProfile.swift in Sources */,
 				EDCFB42722268DEC00A6B56F /* LocationPickerDelegates.swift in Sources */,
 				EDAD6959221FF91300BF11D9 /* TableViewContaining.swift in Sources */,
 				DB3BFA692211C4930074EE25 /* EmployeeProfileController.swift in Sources */,
+				EDCFB4352226C96500A6B56F /* EmployeesLocationsViewController.swift in Sources */,
 				EDAD6912221D85B600BF11D9 /* ImagePicker.swift in Sources */,
 				EDF64027221C1442001332EC /* DataSourceDelegates.swift in Sources */,
 				EDCFB4212226890E00A6B56F /* LocationPicker.swift in Sources */,

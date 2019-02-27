@@ -6,7 +6,6 @@
 //  Copyright © 2019 Andrey Popazov. All rights reserved.
 //
 
-import UIKit
 import MapKit
 
 class LocationPicker: MKMapView {
@@ -37,9 +36,7 @@ class LocationPicker: MKMapView {
   }
   
   func setInitialPosition(with location: CLLocation) {
-    let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-    let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
-    setRegion(region, animated: true)
+    setRegion(LocationManager.getRegion(by: location), animated: true)
   }
   
   func getLocationData() -> [String: Any]? {
