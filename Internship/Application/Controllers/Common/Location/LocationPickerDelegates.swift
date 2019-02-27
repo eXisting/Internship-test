@@ -9,13 +9,7 @@
 import CoreLocation
 import MapKit
 
-extension LocationPickerController: CLLocationManagerDelegate {
-  func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-    if status != .authorizedWhenInUse && status != .authorizedWhenInUse {
-      self.navigationController?.popViewController(animated: true)
-    }
-  }
-  
+extension LocationPickerController: CLLocationManagerDelegate {  
   func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
     print(error.localizedDescription)
   }
@@ -24,11 +18,5 @@ extension LocationPickerController: CLLocationManagerDelegate {
     if let location = locations.last {
       self.pickerView.setInitialPosition(with: location)
     }
-  }
-}
-
-extension LocationPickerController: MKMapViewDelegate {
-  func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
-    print(views.count)
   }
 }

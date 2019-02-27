@@ -30,10 +30,10 @@ class LocationPickerController: UIViewController {
     
     locationManager = LocationManager(with: self)
     locationManager.enableLocationServices()
+    locationManager.requsetDeviceLocation()
 
     pickerView.setupView()
-    locationManager.requsetDeviceLocation()
-        
+            
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(save))
   }
   
