@@ -23,6 +23,8 @@
 		EDAD695B221FF9A900BF11D9 /* FetchControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAD695A221FF9A900BF11D9 /* FetchControllerDelegate.swift */; };
 		EDCFB41F2226881600A6B56F /* LocationPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB41E2226881600A6B56F /* LocationPickerController.swift */; };
 		EDCFB4212226890E00A6B56F /* LocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB4202226890E00A6B56F /* LocationPicker.swift */; };
+		EDCFB42422268C8C00A6B56F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB42322268C8C00A6B56F /* LocationManager.swift */; };
+		EDCFB42722268DEC00A6B56F /* LocationPickerDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB42622268DEC00A6B56F /* LocationPickerDelegates.swift */; };
 		EDF64018221A9B19001332EC /* EmployeeProfileDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64017221A9B19001332EC /* EmployeeProfileDelegates.swift */; };
 		EDF6401A221AA094001332EC /* DepartmentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64019221AA094001332EC /* DepartmentTableViewController.swift */; };
 		EDF6401C221AA0CC001332EC /* GeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF6401B221AA0CC001332EC /* GeneralCell.swift */; };
@@ -77,6 +79,8 @@
 		EDAD695A221FF9A900BF11D9 /* FetchControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchControllerDelegate.swift; sourceTree = "<group>"; };
 		EDCFB41E2226881600A6B56F /* LocationPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerController.swift; sourceTree = "<group>"; };
 		EDCFB4202226890E00A6B56F /* LocationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPicker.swift; sourceTree = "<group>"; };
+		EDCFB42322268C8C00A6B56F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		EDCFB42622268DEC00A6B56F /* LocationPickerDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerDelegates.swift; sourceTree = "<group>"; };
 		EDF64017221A9B19001332EC /* EmployeeProfileDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfileDelegates.swift; sourceTree = "<group>"; };
 		EDF64019221AA094001332EC /* DepartmentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentTableViewController.swift; sourceTree = "<group>"; };
 		EDF6401B221AA0CC001332EC /* GeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralCell.swift; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 		DBA6F3EA221191A5003ABF10 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				EDCFB42222268A2600A6B56F /* CoreLocation */,
 				EDF84309221566F1009ABF71 /* Common */,
 				DBA6F3E8221190EB003ABF10 /* Controllers */,
 				DB3BFA502211949F0074EE25 /* CoreData */,
@@ -232,13 +237,30 @@
 			path = Delegates;
 			sourceTree = "<group>";
 		};
+		EDCFB42222268A2600A6B56F /* CoreLocation */ = {
+			isa = PBXGroup;
+			children = (
+				EDCFB42322268C8C00A6B56F /* LocationManager.swift */,
+			);
+			path = CoreLocation;
+			sourceTree = "<group>";
+		};
+		EDCFB42522268DD200A6B56F /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				EDCFB41E2226881600A6B56F /* LocationPickerController.swift */,
+				EDCFB42622268DEC00A6B56F /* LocationPickerDelegates.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 		EDF6401D221AA2AD001332EC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EDCFB42522268DD200A6B56F /* Location */,
 				EDF64019221AA094001332EC /* DepartmentTableViewController.swift */,
 				EDF84322221580D2009ABF71 /* ManagerTableViewController.swift */,
 				EDF6401E221AA59A001332EC /* RoleTableViewController.swift */,
-				EDCFB41E2226881600A6B56F /* LocationPickerController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -430,6 +452,7 @@
 				EDAD695B221FF9A900BF11D9 /* FetchControllerDelegate.swift in Sources */,
 				EDAD6914221D865700BF11D9 /* IImagePickerDelegate.swift in Sources */,
 				EDF84323221580D2009ABF71 /* ManagerTableViewController.swift in Sources */,
+				EDCFB42422268C8C00A6B56F /* LocationManager.swift in Sources */,
 				EDF6401C221AA0CC001332EC /* GeneralCell.swift in Sources */,
 				EDF6401A221AA094001332EC /* DepartmentTableViewController.swift in Sources */,
 				EDF8430822156358009ABF71 /* AppDelegate.swift in Sources */,
@@ -446,6 +469,7 @@
 				EDF64018221A9B19001332EC /* EmployeeProfileDelegates.swift in Sources */,
 				EDF8431B22156B24009ABF71 /* AddEntityView.swift in Sources */,
 				DB3BFA672211BFB00074EE25 /* EmployeeProfile.swift in Sources */,
+				EDCFB42722268DEC00A6B56F /* LocationPickerDelegates.swift in Sources */,
 				EDAD6959221FF91300BF11D9 /* TableViewContaining.swift in Sources */,
 				DB3BFA692211C4930074EE25 /* EmployeeProfileController.swift in Sources */,
 				EDAD6912221D85B600BF11D9 /* ImagePicker.swift in Sources */,

@@ -40,10 +40,12 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSCameraUsageDescription</key>
-    <string>${PRODUCT_NAME} Camera Usage</string>
-    <key>NSPhotoLibraryAddUsageDescription</key>
-    <string>${PRODUCT_NAME} library Usage</string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>${PRODUCT_NAME} trying to access photos</string>
+	<string>${PRODUCT_NAME} Camera Usage</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>${PRODUCT_NAME} library Usage</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>$(PRODUCT_NAME) Grant access when in use</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>${PRODUCT_NAME} trying to access photos</string>
 </dict>
 </plist>
