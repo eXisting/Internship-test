@@ -240,6 +240,7 @@
 		EDCFB42222268A2600A6B56F /* CoreLocation */ = {
 			isa = PBXGroup;
 			children = (
+				EDCFB42822269C1800A6B56F /* Model */,
 				EDCFB42322268C8C00A6B56F /* LocationManager.swift */,
 			);
 			path = CoreLocation;
@@ -252,6 +253,13 @@
 				EDCFB42622268DEC00A6B56F /* LocationPickerDelegates.swift */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		EDCFB42822269C1800A6B56F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		EDF6401D221AA2AD001332EC /* Common */ = {

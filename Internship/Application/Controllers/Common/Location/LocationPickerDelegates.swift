@@ -7,6 +7,7 @@
 //
 
 import CoreLocation
+import MapKit
 
 extension LocationPickerController: CLLocationManagerDelegate {
   func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -23,5 +24,11 @@ extension LocationPickerController: CLLocationManagerDelegate {
     if let location = locations.last {
       self.pickerView.setInitialPosition(with: location)
     }
+  }
+}
+
+extension LocationPickerController: MKMapViewDelegate {
+  func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+    print(views.count)
   }
 }

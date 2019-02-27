@@ -10,6 +10,10 @@ import UIKit
 import MapKit
 
 class LocationPicker: MKMapView {
+  var name: String?
+  var longitude: Double?
+  var latitude: Double?
+  
   func setupView() {
     mapType = .standard
     isZoomEnabled = true
@@ -17,11 +21,57 @@ class LocationPicker: MKMapView {
     showsUserLocation = false
     
     backgroundColor = .white
+    
+    addTargets()
   }
   
   func setInitialPosition(with location: CLLocation) {
     let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
     let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
     setRegion(region, animated: true)
+  }
+
+  private func addTargets() {
+    let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(addAnnotationAction))
+    recognizer.minimumPressDuration = 2.0
+    
+    self.addGestureRecognizer(recognizer)
+  }
+  
+  @objc func addAnnotationAction(gestureRecognizer: UILongPressGestureRecognizer) {
+    if gestureRecognizer.state == UIGestureRecognizer.State.began {
+      removeAnnotations(self.annotations)
+      
+      let touchPoint = gestureRecognizer.location(in: self)
+      let newCoordinates = self.convert(touchPoint, toCoordinateFrom: self)
+      let annotation = MKPointAnnotation()
+      annotation.coordinate = newCoordinates
+      
+      CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: newCoordinates.latitude, longitude: newCoordinates.longitude), completionHandler: {(placemarks, error) -> Void in
+        if error != nil {
+          print("Reverse geocoder failed with error" + error!.localizedDescription)
+          return
+        }
+        
+        guard let placemark = placemarks?.first else {
+          print("No placemarks!")
+          return
+        }
+        
+        if let thoroughfare = placemark.thoroughfare,
+          let subThoroughfare = placemark.subThoroughfare {
+          annotation.title = thoroughfare + ", " + subThoroughfare
+          annotation.subtitle = placemark.subLocality
+        } else {
+          annotation.title = placemark.subLocality
+        }
+        
+        self.addAnnotation(annotation)
+        
+        self.name = annotation.title
+        self.longitude = newCoordinates.longitude
+        self.latitude = newCoordinates.latitude
+      })
+    }
   }
 }
