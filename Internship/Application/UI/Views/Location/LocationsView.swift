@@ -24,23 +24,10 @@ class LocationsView: MKMapView {
     backgroundColor = .white
   }
   
-  func setInitialPosition(with location: CLLocation) {
-    setRegion(LocationManager.getRegion(by: location), animated: true)
-  }
-  
-  func placeUserPin(_ location: CLLocation) {
-    let userAnnotation = MKPointAnnotation()
-    userAnnotation.coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-    userAnnotation.title = "You"
-    addAnnotation(userAnnotation)
-  }
-  
   private func placeExistingAnnotations() {
     if let passedEmployees = employees {
       for employee in passedEmployees {
         let annotation = EmployeeAnnotation(employee: employee)
-//        annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-//        annotation.title = location.name
         addAnnotation(annotation)
       }
     }

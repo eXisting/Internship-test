@@ -12,11 +12,20 @@ extension EmployeesLocationsViewController: CLLocationManagerDelegate {
   func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
     print(error.localizedDescription)
   }
+}
+
+extension EmployeesLocationsViewController: MKMapViewDelegate {
+  func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+    let visibleRegion = MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: 10000, longitudinalMeters: 10000)
+    self.mapView.setRegion(self.mapView.regionThatFits(visibleRegion), animated: true)
+  }
   
-  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    if let location = locations.last {
-      self.mapView.setInitialPosition(with: location)
-      self.mapView.placeUserPin(location)
-    }
+  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    if annotation is MKUserLocation { return nil }
+    
+    let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: self.annotationViewIdentifier) as? EmployeeAnnotationView
+    annotationView?.annotation = annotation
+    
+    return annotationView
   }
 }

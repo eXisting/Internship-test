@@ -31,6 +31,7 @@
 		EDCFB43F2226D1B900A6B56F /* EmployeeAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB43E2226D1B900A6B56F /* EmployeeAnnotation.swift */; };
 		EDCFB4412226D24D00A6B56F /* EmployeeAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB4402226D24D00A6B56F /* EmployeeAnnotationView.swift */; };
 		EDCFB4432226D3BF00A6B56F /* AnnotationDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB4422226D3BF00A6B56F /* AnnotationDataView.swift */; };
+		EDCFB4462226DE7D00A6B56F /* ImageResize.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB4452226DE7D00A6B56F /* ImageResize.swift */; };
 		EDF64018221A9B19001332EC /* EmployeeProfileDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64017221A9B19001332EC /* EmployeeProfileDelegates.swift */; };
 		EDF6401A221AA094001332EC /* DepartmentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64019221AA094001332EC /* DepartmentTableViewController.swift */; };
 		EDF6401C221AA0CC001332EC /* GeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF6401B221AA0CC001332EC /* GeneralCell.swift */; };
@@ -93,6 +94,7 @@
 		EDCFB43E2226D1B900A6B56F /* EmployeeAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeAnnotation.swift; sourceTree = "<group>"; };
 		EDCFB4402226D24D00A6B56F /* EmployeeAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeAnnotationView.swift; sourceTree = "<group>"; };
 		EDCFB4422226D3BF00A6B56F /* AnnotationDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationDataView.swift; sourceTree = "<group>"; };
+		EDCFB4452226DE7D00A6B56F /* ImageResize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResize.swift; sourceTree = "<group>"; };
 		EDF64017221A9B19001332EC /* EmployeeProfileDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfileDelegates.swift; sourceTree = "<group>"; };
 		EDF64019221AA094001332EC /* DepartmentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentTableViewController.swift; sourceTree = "<group>"; };
 		EDF6401B221AA0CC001332EC /* GeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralCell.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 		DBA6F3EA221191A5003ABF10 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				EDCFB4442226DE6C00A6B56F /* Tools */,
 				EDCFB42222268A2600A6B56F /* CoreLocation */,
 				EDF84309221566F1009ABF71 /* Common */,
 				DBA6F3E8221190EB003ABF10 /* Controllers */,
@@ -321,6 +324,14 @@
 				EDCFB4402226D24D00A6B56F /* EmployeeAnnotationView.swift */,
 			);
 			path = Annotations;
+			sourceTree = "<group>";
+		};
+		EDCFB4442226DE6C00A6B56F /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				EDCFB4452226DE7D00A6B56F /* ImageResize.swift */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		EDF6401D221AA2AD001332EC /* Common */ = {
@@ -522,6 +533,7 @@
 				EDF6401C221AA0CC001332EC /* GeneralCell.swift in Sources */,
 				EDF6401A221AA094001332EC /* DepartmentTableViewController.swift in Sources */,
 				EDF8430822156358009ABF71 /* AppDelegate.swift in Sources */,
+				EDCFB4462226DE7D00A6B56F /* ImageResize.swift in Sources */,
 				EDF64021221AEF94001332EC /* SectionData.swift in Sources */,
 				EDF8432722158F98009ABF71 /* ReusableHeader.swift in Sources */,
 				EDF8432022157C9E009ABF71 /* AddMoreDelegates.swift in Sources */,

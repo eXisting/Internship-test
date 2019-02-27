@@ -11,6 +11,7 @@ import MapKit
 class EmployeeAnnotationView: MKAnnotationView {
   // data
   weak var customCalloutView: AnnotationDataView?
+  
   override var annotation: MKAnnotation? {
     willSet { customCalloutView?.removeFromSuperview() }
   }
@@ -22,13 +23,12 @@ class EmployeeAnnotationView: MKAnnotationView {
   override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
     super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
     self.canShowCallout = false
-    //self.image = kPersonMapPinImage
+    
+    image = UIImage(named: "flag")?.imageResize(sizeChange: CGSize(width: 64, height: 64))
   }
   
   required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    self.canShowCallout = false // 1
-//    self.image = kPersonMapPinImage
+    fatalError("init(coder:) has not been implemented")
   }
   
   // MARK: - callout showing and hiding
@@ -45,7 +45,7 @@ class EmployeeAnnotationView: MKAnnotationView {
         
         // set custom callout view
         self.addSubview(newCustomCalloutView)
-        self.customCalloutView = newCustomCalloutView as! AnnotationDataView
+        self.customCalloutView = (newCustomCalloutView as! AnnotationDataView)
         
         // animate presentation
         if animated {
@@ -69,7 +69,9 @@ class EmployeeAnnotationView: MKAnnotationView {
   }
   
   func loadPersonDetailMapView() -> UIView? {
-    let view = UIView(frame: CGRect(x: 0, y: 0, width: 240, height: 280))
+    let view = AnnotationDataView(frame: CGRect(x: 0, y: 0, width: 240, height: 280))
+    
+    //TODO: INIT
     return view
   }
   
