@@ -28,6 +28,9 @@
 		EDCFB4352226C96500A6B56F /* EmployeesLocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB4342226C96500A6B56F /* EmployeesLocationsViewController.swift */; };
 		EDCFB4392226CAA400A6B56F /* LocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB4382226CAA400A6B56F /* LocationsView.swift */; };
 		EDCFB43C2226CD0C00A6B56F /* EmployeesLocationsViewControllerDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB43B2226CD0C00A6B56F /* EmployeesLocationsViewControllerDelegates.swift */; };
+		EDCFB43F2226D1B900A6B56F /* EmployeeAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB43E2226D1B900A6B56F /* EmployeeAnnotation.swift */; };
+		EDCFB4412226D24D00A6B56F /* EmployeeAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB4402226D24D00A6B56F /* EmployeeAnnotationView.swift */; };
+		EDCFB4432226D3BF00A6B56F /* AnnotationDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB4422226D3BF00A6B56F /* AnnotationDataView.swift */; };
 		EDF64018221A9B19001332EC /* EmployeeProfileDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64017221A9B19001332EC /* EmployeeProfileDelegates.swift */; };
 		EDF6401A221AA094001332EC /* DepartmentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64019221AA094001332EC /* DepartmentTableViewController.swift */; };
 		EDF6401C221AA0CC001332EC /* GeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF6401B221AA0CC001332EC /* GeneralCell.swift */; };
@@ -87,6 +90,9 @@
 		EDCFB4342226C96500A6B56F /* EmployeesLocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesLocationsViewController.swift; sourceTree = "<group>"; };
 		EDCFB4382226CAA400A6B56F /* LocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsView.swift; sourceTree = "<group>"; };
 		EDCFB43B2226CD0C00A6B56F /* EmployeesLocationsViewControllerDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesLocationsViewControllerDelegates.swift; sourceTree = "<group>"; };
+		EDCFB43E2226D1B900A6B56F /* EmployeeAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeAnnotation.swift; sourceTree = "<group>"; };
+		EDCFB4402226D24D00A6B56F /* EmployeeAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeAnnotationView.swift; sourceTree = "<group>"; };
+		EDCFB4422226D3BF00A6B56F /* AnnotationDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationDataView.swift; sourceTree = "<group>"; };
 		EDF64017221A9B19001332EC /* EmployeeProfileDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfileDelegates.swift; sourceTree = "<group>"; };
 		EDF64019221AA094001332EC /* DepartmentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentTableViewController.swift; sourceTree = "<group>"; };
 		EDF6401B221AA0CC001332EC /* GeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralCell.swift; sourceTree = "<group>"; };
@@ -300,10 +306,21 @@
 		EDCFB43A2226CAE500A6B56F /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				EDCFB43D2226D18700A6B56F /* Annotations */,
 				EDCFB4202226890E00A6B56F /* LocationPicker.swift */,
 				EDCFB4382226CAA400A6B56F /* LocationsView.swift */,
+				EDCFB4422226D3BF00A6B56F /* AnnotationDataView.swift */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		EDCFB43D2226D18700A6B56F /* Annotations */ = {
+			isa = PBXGroup;
+			children = (
+				EDCFB43E2226D1B900A6B56F /* EmployeeAnnotation.swift */,
+				EDCFB4402226D24D00A6B56F /* EmployeeAnnotationView.swift */,
+			);
+			path = Annotations;
 			sourceTree = "<group>";
 		};
 		EDF6401D221AA2AD001332EC /* Common */ = {
@@ -510,8 +527,10 @@
 				EDF8432022157C9E009ABF71 /* AddMoreDelegates.swift in Sources */,
 				DBA6F3E522118B12003ABF10 /* HomeViewController.swift in Sources */,
 				EDCFB43C2226CD0C00A6B56F /* EmployeesLocationsViewControllerDelegates.swift in Sources */,
+				EDCFB4432226D3BF00A6B56F /* AnnotationDataView.swift in Sources */,
 				DB3BFA5C2211A7060074EE25 /* DepartmentBook.xcdatamodeld in Sources */,
 				EDF8430D22156755009ABF71 /* AlertController.swift in Sources */,
+				EDCFB4412226D24D00A6B56F /* EmployeeAnnotationView.swift in Sources */,
 				EDF64025221BFD67001332EC /* SelectableEmployeeCell.swift in Sources */,
 				EDF6401F221AA59A001332EC /* RoleTableViewController.swift in Sources */,
 				EDCFB41F2226881600A6B56F /* LocationPickerController.swift in Sources */,
@@ -520,6 +539,7 @@
 				EDCFB4392226CAA400A6B56F /* LocationsView.swift in Sources */,
 				EDF8431B22156B24009ABF71 /* AddEntityView.swift in Sources */,
 				DB3BFA672211BFB00074EE25 /* EmployeeProfile.swift in Sources */,
+				EDCFB43F2226D1B900A6B56F /* EmployeeAnnotation.swift in Sources */,
 				EDCFB42722268DEC00A6B56F /* LocationPickerDelegates.swift in Sources */,
 				EDAD6959221FF91300BF11D9 /* TableViewContaining.swift in Sources */,
 				DB3BFA692211C4930074EE25 /* EmployeeProfileController.swift in Sources */,

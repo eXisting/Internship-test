@@ -9,7 +9,7 @@
 import MapKit
 
 class LocationsView: MKMapView {
-  var locations: [Location]? {
+  var employees: [Employee]? {
     didSet {
       placeExistingAnnotations()
     }
@@ -36,11 +36,11 @@ class LocationsView: MKMapView {
   }
   
   private func placeExistingAnnotations() {
-    if let employeesLocations = locations {
-      for location in employeesLocations {
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-        annotation.title = location.name
+    if let passedEmployees = employees {
+      for employee in passedEmployees {
+        let annotation = EmployeeAnnotation(employee: employee)
+//        annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+//        annotation.title = location.name
         addAnnotation(annotation)
       }
     }

@@ -26,7 +26,7 @@ class EmployeesLocationsViewController: UIViewController {
     locationManager = LocationManager(with: self)
     locationManager.enableLocationServices()
     
-    mapView.locations = DataBaseManager.shared.getEmployees().map({employee in return employee.location!})
+    mapView.employees = DataBaseManager.shared.getEmployees()
     locationManager.requsetDeviceLocation()
     
     title = titleName
