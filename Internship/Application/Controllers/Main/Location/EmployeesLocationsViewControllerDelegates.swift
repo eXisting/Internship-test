@@ -25,7 +25,16 @@ extension EmployeesLocationsViewController: MKMapViewDelegate {
     
     let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: self.annotationViewIdentifier) as? EmployeeAnnotationView
     annotationView?.annotation = annotation
+    annotationView?.delegate = pathSearchController
     
     return annotationView
+  }
+  
+  func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+    let renderer = MKPolylineRenderer(overlay: overlay)
+    renderer.strokeColor = UIColor.black
+    renderer.lineWidth = 4.0
+    
+    return renderer
   }
 }

@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import MapKit
 
 class AnnotationDataView: UIView {
+
+  weak var delegate: SearchingPath?
   weak var employee: Employee? {
     didSet {
       name.text = employee?.name
@@ -44,5 +47,24 @@ class AnnotationDataView: UIView {
     stackView.addArrangedSubview(name)
     stackView.addArrangedSubview(phone)
     stackView.addArrangedSubview(findPath)
+  }
+  
+  override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+    // Check if it hit annotation view components
+    
+    // perform search
+    if let _ = findPath.hitTest(convert(point, to: findPath), with: event) {
+      onSearchClick()
+    }
+        
+    return self
+  }
+  
+  private func onSearchClick() {
+    let coordinates = CLLocationCoordinate2D(latitude: employee!.location!.latitude, longitude: employee!.location!.longitude)
+    let placemark = MKPlacemark(coordinate: coordinates)
+    let destination = MKMapItem(placemark: placemark)
+    
+    delegate?.searchPath(to: destination)
   }
 }

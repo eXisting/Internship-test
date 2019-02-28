@@ -32,6 +32,7 @@
 		EDCFB4412226D24D00A6B56F /* EmployeeAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB4402226D24D00A6B56F /* EmployeeAnnotationView.swift */; };
 		EDCFB4432226D3BF00A6B56F /* AnnotationDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB4422226D3BF00A6B56F /* AnnotationDataView.swift */; };
 		EDCFB4462226DE7D00A6B56F /* ImageResize.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB4452226DE7D00A6B56F /* ImageResize.swift */; };
+		EDCFB4492227E62600A6B56F /* SearchPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFB4482227E62600A6B56F /* SearchPath.swift */; };
 		EDF64018221A9B19001332EC /* EmployeeProfileDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64017221A9B19001332EC /* EmployeeProfileDelegates.swift */; };
 		EDF6401A221AA094001332EC /* DepartmentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64019221AA094001332EC /* DepartmentTableViewController.swift */; };
 		EDF6401C221AA0CC001332EC /* GeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF6401B221AA0CC001332EC /* GeneralCell.swift */; };
@@ -95,6 +96,7 @@
 		EDCFB4402226D24D00A6B56F /* EmployeeAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeAnnotationView.swift; sourceTree = "<group>"; };
 		EDCFB4422226D3BF00A6B56F /* AnnotationDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationDataView.swift; sourceTree = "<group>"; };
 		EDCFB4452226DE7D00A6B56F /* ImageResize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResize.swift; sourceTree = "<group>"; };
+		EDCFB4482227E62600A6B56F /* SearchPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPath.swift; sourceTree = "<group>"; };
 		EDF64017221A9B19001332EC /* EmployeeProfileDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfileDelegates.swift; sourceTree = "<group>"; };
 		EDF64019221AA094001332EC /* DepartmentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentTableViewController.swift; sourceTree = "<group>"; };
 		EDF6401B221AA0CC001332EC /* GeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralCell.swift; sourceTree = "<group>"; };
@@ -196,12 +198,12 @@
 		DBA6F3EA221191A5003ABF10 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				EDCFB4442226DE6C00A6B56F /* Tools */,
-				EDCFB42222268A2600A6B56F /* CoreLocation */,
 				EDF84309221566F1009ABF71 /* Common */,
 				DBA6F3E8221190EB003ABF10 /* Controllers */,
 				DB3BFA502211949F0074EE25 /* CoreData */,
+				EDCFB42222268A2600A6B56F /* CoreLocation */,
 				DBA6F3EB2211920D003ABF10 /* Main */,
+				EDCFB4442226DE6C00A6B56F /* Tools */,
 				DBA6F3E922119105003ABF10 /* UI */,
 			);
 			path = Application;
@@ -281,6 +283,7 @@
 		EDCFB4332226C8DB00A6B56F /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				EDCFB4472227E60E00A6B56F /* Path search */,
 				EDCFB4342226C96500A6B56F /* EmployeesLocationsViewController.swift */,
 				EDCFB43B2226CD0C00A6B56F /* EmployeesLocationsViewControllerDelegates.swift */,
 			);
@@ -332,6 +335,14 @@
 				EDCFB4452226DE7D00A6B56F /* ImageResize.swift */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		EDCFB4472227E60E00A6B56F /* Path search */ = {
+			isa = PBXGroup;
+			children = (
+				EDCFB4482227E62600A6B56F /* SearchPath.swift */,
+			);
+			path = "Path search";
 			sourceTree = "<group>";
 		};
 		EDF6401D221AA2AD001332EC /* Common */ = {
@@ -525,6 +536,7 @@
 			files = (
 				DB3BFA52221194C80074EE25 /* DataBaseManager.swift in Sources */,
 				DBA6F3E722118FD4003ABF10 /* EmployeeCell.swift in Sources */,
+				EDCFB4492227E62600A6B56F /* SearchPath.swift in Sources */,
 				EDF8432C22159B04009ABF71 /* HomeTableView.swift in Sources */,
 				EDAD695B221FF9A900BF11D9 /* FetchControllerDelegate.swift in Sources */,
 				EDAD6914221D865700BF11D9 /* IImagePickerDelegate.swift in Sources */,

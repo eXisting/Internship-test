@@ -11,11 +11,13 @@ import MapKit
 
 class EmployeesLocationsViewController: UIViewController {
   private let titleName = "Employees locations"
+  private var locationManager: LocationManager!
+  
   let annotationViewIdentifier = "Employee info"
   let userIdentifier = "User"
 
   let mapView = LocationsView()
-  private var locationManager: LocationManager!
+  var pathSearchController: PathSearchController!
   
   override func loadView() {
     super.loadView()
@@ -31,6 +33,8 @@ class EmployeesLocationsViewController: UIViewController {
     
     locationManager = LocationManager(with: self)
     locationManager.enableLocationServices()
+    
+    pathSearchController = PathSearchController(self.mapView)
     
     self.mapView.register(EmployeeAnnotationView.self, forAnnotationViewWithReuseIdentifier: annotationViewIdentifier)
     self.mapView.register(MKAnnotationView.self, forAnnotationViewWithReuseIdentifier: userIdentifier)
