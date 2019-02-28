@@ -39,9 +39,11 @@ class EmployeeAnnotationView: MKAnnotationView {
       self.customCalloutView?.removeFromSuperview() // remove old custom callout (if any)
       
       if let newCustomCalloutView = loadPersonDetailMapView() {
-        // fix location from top-left to its right place.
-        newCustomCalloutView.frame.origin.x -= newCustomCalloutView.frame.width / 2.0 - (self.frame.width / 2.0)
-        newCustomCalloutView.frame.origin.y -= newCustomCalloutView.frame.height
+        let xOrigin = self.frame.width / 2.0 - newCustomCalloutView.frame.width / 2.0
+        let yOrigin = -newCustomCalloutView.frame.height
+        
+        newCustomCalloutView.frame.origin.x = xOrigin//newCustomCalloutView.frame.width / 2.0 - (self.frame.width / 2.0)
+        newCustomCalloutView.frame.origin.y = yOrigin//newCustomCalloutView.frame.height
         
         // set custom callout view
         self.addSubview(newCustomCalloutView)
@@ -69,9 +71,8 @@ class EmployeeAnnotationView: MKAnnotationView {
   }
   
   func loadPersonDetailMapView() -> UIView? {
-    let view = AnnotationDataView(frame: CGRect(x: 0, y: 0, width: 240, height: 280))
-    
-    //TODO: INIT
+    let view = AnnotationDataView(frame: CGRect(x: 0, y: 0, width: 140, height: 140))
+    view.laidOutViews()
     return view
   }
   

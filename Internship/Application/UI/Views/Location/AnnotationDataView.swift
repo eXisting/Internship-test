@@ -9,5 +9,16 @@
 import UIKit
 
 class AnnotationDataView: UIView {
+  var nameField = UITextField()
+  var phoneField = UITextField()
   
+  var findPath = UIButton()
+  
+  func laidOutViews() {
+    backgroundColor = .white
+    
+    addSubview(nameField)
+    addSubview(phoneField)
+    addSubview(findPath)
+  }
 }

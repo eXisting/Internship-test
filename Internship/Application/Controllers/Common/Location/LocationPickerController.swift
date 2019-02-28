@@ -30,6 +30,7 @@ class LocationPickerController: UIViewController {
     
     locationManager = LocationManager(with: self)
     locationManager.enableLocationServices()
+    locationManager.requsetDeviceLocation()
 
     pickerView.setupView()
             
