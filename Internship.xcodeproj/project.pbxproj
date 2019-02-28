@@ -312,10 +312,9 @@
 		EDCFB43A2226CAE500A6B56F /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				EDCFB44B2227F3CA00A6B56F /* Callout */,
+				EDCFB44A2227F3BD00A6B56F /* MapViews */,
 				EDCFB43D2226D18700A6B56F /* Annotations */,
-				EDCFB4202226890E00A6B56F /* LocationPicker.swift */,
-				EDCFB4382226CAA400A6B56F /* LocationsView.swift */,
-				EDCFB4422226D3BF00A6B56F /* AnnotationDataView.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -343,6 +342,23 @@
 				EDCFB4482227E62600A6B56F /* SearchPath.swift */,
 			);
 			path = "Path search";
+			sourceTree = "<group>";
+		};
+		EDCFB44A2227F3BD00A6B56F /* MapViews */ = {
+			isa = PBXGroup;
+			children = (
+				EDCFB4202226890E00A6B56F /* LocationPicker.swift */,
+				EDCFB4382226CAA400A6B56F /* LocationsView.swift */,
+			);
+			path = MapViews;
+			sourceTree = "<group>";
+		};
+		EDCFB44B2227F3CA00A6B56F /* Callout */ = {
+			isa = PBXGroup;
+			children = (
+				EDCFB4422226D3BF00A6B56F /* AnnotationDataView.swift */,
+			);
+			path = Callout;
 			sourceTree = "<group>";
 		};
 		EDF6401D221AA2AD001332EC /* Common */ = {

@@ -19,15 +19,16 @@ class AnnotationDataView: UIView {
     }
   }
   
-  var stackView = UIStackView()
+  private var stackView = UIStackView()
   
-  var name = UILabel()
-  var phone = UILabel()
+  private let name = UILabel()
+  private let phone = UILabel()
   
-  var findPath = UIButton()
+  private let findPath = UIButton()
   
   func laidOutViews() {
     backgroundColor = .white
+    
     name.textAlignment = .center
     phone.textAlignment = .center
     findPath.setTitle("Find path", for: .normal)

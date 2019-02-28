@@ -43,11 +43,10 @@ class EmployeeAnnotationView: MKAnnotationView {
       self.customCalloutView?.removeFromSuperview()
       
       if let newCustomCalloutView = initAnnotationView() {
-        newCustomCalloutView.frame.origin.x = self.frame.width / 2.0 - newCustomCalloutView.frame.width / 2.0
-        newCustomCalloutView.frame.origin.y = -newCustomCalloutView.frame.height
-        
         // set custom callout view
         self.addSubview(newCustomCalloutView)
+        laidOutAnnotationDataView(newCustomCalloutView)
+        
         self.customCalloutView = newCustomCalloutView
         self.customCalloutView?.employee = (annotation as! EmployeeAnnotation).employee
         
@@ -89,9 +88,17 @@ class EmployeeAnnotationView: MKAnnotationView {
   }
   
   private func initAnnotationView() -> AnnotationDataView? {
-    let view = AnnotationDataView(frame: CGRect(x: 0, y: 0, width: 140, height: 140))
+    let view = AnnotationDataView()
     view.laidOutViews()
     view.delegate = delegate
     return view
+  }
+  
+  private func laidOutAnnotationDataView(_ view: AnnotationDataView) {
+    view.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint(item: view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 170).isActive = true
+    NSLayoutConstraint(item: view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 150).isActive = true
+    NSLayoutConstraint(item: view, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+    NSLayoutConstraint(item: view, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0).isActive = true
   }
 }
