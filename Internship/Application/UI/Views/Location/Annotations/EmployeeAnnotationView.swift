@@ -38,7 +38,7 @@ class EmployeeAnnotationView: MKAnnotationView {
     if selected {
       self.customCalloutView?.removeFromSuperview() // remove old custom callout (if any)
       
-      if let newCustomCalloutView = loadPersonDetailMapView() {
+      if let newCustomCalloutView = initAnnotationView() {
         let xOrigin = self.frame.width / 2.0 - newCustomCalloutView.frame.width / 2.0
         let yOrigin = -newCustomCalloutView.frame.height
         
@@ -47,7 +47,8 @@ class EmployeeAnnotationView: MKAnnotationView {
         
         // set custom callout view
         self.addSubview(newCustomCalloutView)
-        self.customCalloutView = (newCustomCalloutView as! AnnotationDataView)
+        self.customCalloutView = newCustomCalloutView
+        self.customCalloutView?.employee = (annotation as! EmployeeAnnotation).employee
         
         // animate presentation
         if animated {
@@ -70,7 +71,7 @@ class EmployeeAnnotationView: MKAnnotationView {
     }
   }
   
-  func loadPersonDetailMapView() -> UIView? {
+  private func initAnnotationView() -> AnnotationDataView? {
     let view = AnnotationDataView(frame: CGRect(x: 0, y: 0, width: 140, height: 140))
     view.laidOutViews()
     return view

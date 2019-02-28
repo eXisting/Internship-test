@@ -9,7 +9,9 @@
 import MapKit
 
 class EmployeeAnnotation: NSObject, MKAnnotation {
+  
   var employee: Employee
+  
   var coordinate: CLLocationCoordinate2D {
     return CLLocationCoordinate2D(latitude: employee.location!.latitude, longitude: employee.location!.longitude)
   }
