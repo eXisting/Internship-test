@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
     tableViewController = HomeDataSource(master: self)
     DataBaseManager.shared.resultController.delegate = self
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAddMoreButtonClick))
-    self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(onViewEmployeesLocation))
+    self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(onSecondaryScreenClick))
   }
   
   override func viewDidLoad() {
@@ -44,8 +44,8 @@ class HomeViewController: UIViewController {
     self.navigationController?.pushViewController(controller, animated: true)
   }
   
-  @objc func onViewEmployeesLocation() {
-    let controller = EmployeesLocationsViewController()
+  @objc func onSecondaryScreenClick() {
+    let controller = SecondaryScreenTabBarController()
     self.navigationController?.pushViewController(controller, animated: true)
   }
 }

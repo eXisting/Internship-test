@@ -16,6 +16,8 @@
 		DB3BFA692211C4930074EE25 /* EmployeeProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BFA682211C4930074EE25 /* EmployeeProfileController.swift */; };
 		DBA6F3E522118B12003ABF10 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F3E422118B12003ABF10 /* HomeViewController.swift */; };
 		DBA6F3E722118FD4003ABF10 /* EmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F3E622118FD4003ABF10 /* EmployeeCell.swift */; };
+		ED756058222EA6CF005B1DD5 /* SecondaryScreenTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED756057222EA6CF005B1DD5 /* SecondaryScreenTabBarController.swift */; };
+		ED75605B222EA768005B1DD5 /* AccelerationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75605A222EA768005B1DD5 /* AccelerationViewController.swift */; };
 		EDAD690F221D6AC900BF11D9 /* SelectableGeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAD690E221D6AC900BF11D9 /* SelectableGeneralCell.swift */; };
 		EDAD6912221D85B600BF11D9 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAD6911221D85B600BF11D9 /* ImagePicker.swift */; };
 		EDAD6914221D865700BF11D9 /* IImagePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAD6913221D865700BF11D9 /* IImagePickerDelegate.swift */; };
@@ -80,6 +82,8 @@
 		DB3BFA682211C4930074EE25 /* EmployeeProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfileController.swift; sourceTree = "<group>"; };
 		DBA6F3E422118B12003ABF10 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DBA6F3E622118FD4003ABF10 /* EmployeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeCell.swift; sourceTree = "<group>"; };
+		ED756057222EA6CF005B1DD5 /* SecondaryScreenTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryScreenTabBarController.swift; sourceTree = "<group>"; };
+		ED75605A222EA768005B1DD5 /* AccelerationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerationViewController.swift; sourceTree = "<group>"; };
 		EDAD690E221D6AC900BF11D9 /* SelectableGeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableGeneralCell.swift; sourceTree = "<group>"; };
 		EDAD6911221D85B600BF11D9 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		EDAD6913221D865700BF11D9 /* IImagePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IImagePickerDelegate.swift; sourceTree = "<group>"; };
@@ -224,6 +228,24 @@
 				DB0660EF21F793D9007F6989 /* Assets.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		ED756056222EA67E005B1DD5 /* Secondary screen */ = {
+			isa = PBXGroup;
+			children = (
+				ED756059222EA749005B1DD5 /* Acceleration */,
+				EDCFB4332226C8DB00A6B56F /* Location */,
+				ED756057222EA6CF005B1DD5 /* SecondaryScreenTabBarController.swift */,
+			);
+			path = "Secondary screen";
+			sourceTree = "<group>";
+		};
+		ED756059222EA749005B1DD5 /* Acceleration */ = {
+			isa = PBXGroup;
+			children = (
+				ED75605A222EA768005B1DD5 /* AccelerationViewController.swift */,
+			);
+			path = Acceleration;
 			sourceTree = "<group>";
 		};
 		ED77A4682216DA96004FF4B2 /* Edit */ = {
@@ -414,7 +436,7 @@
 		EDF8432822159760009ABF71 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				EDCFB4332226C8DB00A6B56F /* Location */,
+				ED756056222EA67E005B1DD5 /* Secondary screen */,
 				EDCFB4322226C8CB00A6B56F /* Home */,
 			);
 			path = Main;
@@ -558,6 +580,7 @@
 				EDAD6914221D865700BF11D9 /* IImagePickerDelegate.swift in Sources */,
 				EDF84323221580D2009ABF71 /* ManagerTableViewController.swift in Sources */,
 				EDCFB42422268C8C00A6B56F /* LocationManager.swift in Sources */,
+				ED75605B222EA768005B1DD5 /* AccelerationViewController.swift in Sources */,
 				EDF6401C221AA0CC001332EC /* GeneralCell.swift in Sources */,
 				EDF6401A221AA094001332EC /* DepartmentTableViewController.swift in Sources */,
 				EDF8430822156358009ABF71 /* AppDelegate.swift in Sources */,
@@ -578,6 +601,7 @@
 				EDF64018221A9B19001332EC /* EmployeeProfileDelegates.swift in Sources */,
 				EDCFB4392226CAA400A6B56F /* LocationsView.swift in Sources */,
 				EDF8431B22156B24009ABF71 /* AddEntityView.swift in Sources */,
+				ED756058222EA6CF005B1DD5 /* SecondaryScreenTabBarController.swift in Sources */,
 				DB3BFA672211BFB00074EE25 /* EmployeeProfile.swift in Sources */,
 				EDCFB43F2226D1B900A6B56F /* EmployeeAnnotation.swift in Sources */,
 				EDCFB42722268DEC00A6B56F /* LocationPickerDelegates.swift in Sources */,

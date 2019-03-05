@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 class EmployeesLocationsViewController: UIViewController {
-  private let titleName = "Employees locations"
+  private let titleName = "Locations"
   private var locationManager: LocationManager!
   
   let annotationViewIdentifier = "Employee info"
@@ -42,5 +42,14 @@ class EmployeesLocationsViewController: UIViewController {
     mapView.employees = DataBaseManager.shared.getEmployees()
     
     title = titleName
+  }
+}
+
+extension EmployeesLocationsViewController: SetupableTabBarController {
+  func setup() {
+    tabBarItem.title = titleName
+    
+    tabBarItem.selectedImage = UIImage(named: "location")
+    tabBarItem.image = UIImage(named: "location")
   }
 }
