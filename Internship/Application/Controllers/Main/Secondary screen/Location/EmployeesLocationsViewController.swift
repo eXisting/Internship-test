@@ -36,8 +36,8 @@ class EmployeesLocationsViewController: UIViewController {
     
     pathSearchController = PathSearchController(self.mapView)
     
-    self.mapView.register(EmployeeAnnotationView.self, forAnnotationViewWithReuseIdentifier: annotationViewIdentifier)
-    self.mapView.register(MKAnnotationView.self, forAnnotationViewWithReuseIdentifier: userIdentifier)
+//    self.mapView.register(EmployeeAnnotationView.self, forAnnotationViewWithReuseIdentifier: annotationViewIdentifier)
+//    self.mapView.register(MKAnnotationView.self, forAnnotationViewWithReuseIdentifier: userIdentifier)
     
     mapView.employees = DataBaseManager.shared.getEmployees()
     

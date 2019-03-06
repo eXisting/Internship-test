@@ -25,13 +25,21 @@ class AccelerationView: UIView {
   }
   
   func onAccelerationChange(data: CMAccelerometerData) {
-    xLabel.setValue("X: \(data.acceleration.x * 100)", forKey: "kvcText")
-    yLabel.setValue("Y: \(data.acceleration.y * 100)", forKey: "kvcText")
-    zLabel.setValue("Z: \(data.acceleration.z * 100)", forKey: "kvcText")
+    let x = (data.acceleration.x * 100).truncate(places: 2)
+    let y = (data.acceleration.y * 100).truncate(places: 2)
+    let z = (data.acceleration.z * 100).truncate(places: 2)
+
+    xLabel.setValue("X: \(x)", forKey: "kvcText")
+    yLabel.setValue("Y: \(y)", forKey: "kvcText")
+    zLabel.setValue("Z: \(z)", forKey: "kvcText")
   }
   
   func onGyroscopeChange(data: CMGyroData) {
-    gyroData.setValue("Gyro: \(data.rotationRate.x * 100) \(data.rotationRate.y * 100) \(data.rotationRate.z * 100)", forKey: "kvcText")
+    let x = (data.rotationRate.x * 100).truncate(places: 2)
+    let y = (data.rotationRate.y * 100).truncate(places: 2)
+    let z = (data.rotationRate.z * 100).truncate(places: 2)
+    
+    gyroData.setValue("Gyro: \(x) \(y) \(z)", forKey: "kvcText")
   }
   
   private func laidOutViews() {

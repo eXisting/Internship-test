@@ -23,7 +23,7 @@ class AccelerationViewController: UIViewController {
     super.viewDidLoad()
     
     mainView.setup()
-    model.addObservers(accelerationCallback: mainView.onAccelerationChange, gyroscopeCallback: mainView.onGyroscopeChange)
+    model.startObserving(accelerationCallback: mainView.onAccelerationChange, gyroscopeCallback: mainView.onGyroscopeChange)
   }
 }
 

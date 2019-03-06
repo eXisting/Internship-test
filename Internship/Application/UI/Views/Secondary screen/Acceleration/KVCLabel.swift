@@ -6,4 +6,12 @@
 //  Copyright © 2019 Andrey Popazov. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class KVCLabel: UILabel {
+  @objc dynamic var kvcText = "" {
+    willSet {
+      text = newValue
+    }
+  }
+}

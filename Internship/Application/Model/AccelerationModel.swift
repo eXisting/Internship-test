@@ -9,29 +9,24 @@
 import UIKit
 import CoreMotion
 
-class AccelerationModel: NSObject {
-  @objc dynamic var accelerationData = CMAccelerometerData()
-  @objc dynamic var gyroscopeData = CMGyroData()
-  
-  func addObservers(accelerationCallback: @escaping (CMAccelerometerData) -> Void, gyroscopeCallback: @escaping (CMGyroData) -> Void) {
+class AccelerationModel {
+  func startObserving(accelerationCallback: @escaping (CMAccelerometerData) -> Void, gyroscopeCallback: @escaping (CMGyroData) -> Void) {
     CoreMotionHandler.shared.motionManager.startAccelerometerUpdates(to: OperationQueue.main) {
-      [weak self] (data, error) in
+      (data, error) in
       guard let acceleration = data else {
         return
       }
       
-      self?.accelerationData = acceleration
-      accelerationCallback(self!.accelerationData)
+      accelerationCallback(acceleration)
     }
     
     CoreMotionHandler.shared.motionManager.startGyroUpdates(to: OperationQueue.main) {
-      [weak self] (data, error) in
+      (data, error) in
       guard let gyro = data else {
         return
       }
       
-      self?.gyroscopeData = gyro
-      gyroscopeCallback(self!.gyroscopeData)
+      gyroscopeCallback(gyro)
     }
   }
 }

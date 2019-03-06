@@ -22,6 +22,7 @@
 		ED756062222FCB54005B1DD5 /* CoreMotionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED756061222FCB54005B1DD5 /* CoreMotionHandler.swift */; };
 		ED756065222FCDF0005B1DD5 /* AccelerationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED756064222FCDF0005B1DD5 /* AccelerationModel.swift */; };
 		ED756067222FF42A005B1DD5 /* KVCLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED756066222FF42A005B1DD5 /* KVCLabel.swift */; };
+		ED756069222FFAD1005B1DD5 /* DoubleTruncated.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED756068222FFAD1005B1DD5 /* DoubleTruncated.swift */; };
 		EDAD690F221D6AC900BF11D9 /* SelectableGeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAD690E221D6AC900BF11D9 /* SelectableGeneralCell.swift */; };
 		EDAD6912221D85B600BF11D9 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAD6911221D85B600BF11D9 /* ImagePicker.swift */; };
 		EDAD6914221D865700BF11D9 /* IImagePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAD6913221D865700BF11D9 /* IImagePickerDelegate.swift */; };
@@ -92,6 +93,7 @@
 		ED756061222FCB54005B1DD5 /* CoreMotionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMotionHandler.swift; sourceTree = "<group>"; };
 		ED756064222FCDF0005B1DD5 /* AccelerationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerationModel.swift; sourceTree = "<group>"; };
 		ED756066222FF42A005B1DD5 /* KVCLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KVCLabel.swift; sourceTree = "<group>"; };
+		ED756068222FFAD1005B1DD5 /* DoubleTruncated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTruncated.swift; sourceTree = "<group>"; };
 		EDAD690E221D6AC900BF11D9 /* SelectableGeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableGeneralCell.swift; sourceTree = "<group>"; };
 		EDAD6911221D85B600BF11D9 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		EDAD6913221D865700BF11D9 /* IImagePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IImagePickerDelegate.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				EDCFB4452226DE7D00A6B56F /* ImageResize.swift */,
+				ED756068222FFAD1005B1DD5 /* DoubleTruncated.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				EDF8432C22159B04009ABF71 /* HomeTableView.swift in Sources */,
 				EDAD695B221FF9A900BF11D9 /* FetchControllerDelegate.swift in Sources */,
 				EDAD6914221D865700BF11D9 /* IImagePickerDelegate.swift in Sources */,
+				ED756069222FFAD1005B1DD5 /* DoubleTruncated.swift in Sources */,
 				EDF84323221580D2009ABF71 /* ManagerTableViewController.swift in Sources */,
 				EDCFB42422268C8C00A6B56F /* LocationManager.swift in Sources */,
 				ED75605B222EA768005B1DD5 /* AccelerationViewController.swift in Sources */,
