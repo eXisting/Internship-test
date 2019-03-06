@@ -18,6 +18,10 @@
 		DBA6F3E722118FD4003ABF10 /* EmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F3E622118FD4003ABF10 /* EmployeeCell.swift */; };
 		ED756058222EA6CF005B1DD5 /* SecondaryScreenTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED756057222EA6CF005B1DD5 /* SecondaryScreenTabBarController.swift */; };
 		ED75605B222EA768005B1DD5 /* AccelerationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75605A222EA768005B1DD5 /* AccelerationViewController.swift */; };
+		ED75605F222FC3E6005B1DD5 /* AccelerationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75605E222FC3E6005B1DD5 /* AccelerationView.swift */; };
+		ED756062222FCB54005B1DD5 /* CoreMotionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED756061222FCB54005B1DD5 /* CoreMotionHandler.swift */; };
+		ED756065222FCDF0005B1DD5 /* AccelerationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED756064222FCDF0005B1DD5 /* AccelerationModel.swift */; };
+		ED756067222FF42A005B1DD5 /* KVCLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED756066222FF42A005B1DD5 /* KVCLabel.swift */; };
 		EDAD690F221D6AC900BF11D9 /* SelectableGeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAD690E221D6AC900BF11D9 /* SelectableGeneralCell.swift */; };
 		EDAD6912221D85B600BF11D9 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAD6911221D85B600BF11D9 /* ImagePicker.swift */; };
 		EDAD6914221D865700BF11D9 /* IImagePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAD6913221D865700BF11D9 /* IImagePickerDelegate.swift */; };
@@ -84,6 +88,10 @@
 		DBA6F3E622118FD4003ABF10 /* EmployeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeCell.swift; sourceTree = "<group>"; };
 		ED756057222EA6CF005B1DD5 /* SecondaryScreenTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryScreenTabBarController.swift; sourceTree = "<group>"; };
 		ED75605A222EA768005B1DD5 /* AccelerationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerationViewController.swift; sourceTree = "<group>"; };
+		ED75605E222FC3E6005B1DD5 /* AccelerationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerationView.swift; sourceTree = "<group>"; };
+		ED756061222FCB54005B1DD5 /* CoreMotionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMotionHandler.swift; sourceTree = "<group>"; };
+		ED756064222FCDF0005B1DD5 /* AccelerationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerationModel.swift; sourceTree = "<group>"; };
+		ED756066222FF42A005B1DD5 /* KVCLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KVCLabel.swift; sourceTree = "<group>"; };
 		EDAD690E221D6AC900BF11D9 /* SelectableGeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableGeneralCell.swift; sourceTree = "<group>"; };
 		EDAD6911221D85B600BF11D9 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		EDAD6913221D865700BF11D9 /* IImagePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IImagePickerDelegate.swift; sourceTree = "<group>"; };
@@ -202,6 +210,7 @@
 		DBA6F3EA221191A5003ABF10 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				ED756063222FCDDD005B1DD5 /* Model */,
 				EDF84309221566F1009ABF71 /* Common */,
 				DBA6F3E8221190EB003ABF10 /* Controllers */,
 				DB3BFA502211949F0074EE25 /* CoreData */,
@@ -246,6 +255,40 @@
 				ED75605A222EA768005B1DD5 /* AccelerationViewController.swift */,
 			);
 			path = Acceleration;
+			sourceTree = "<group>";
+		};
+		ED75605C222FC3C4005B1DD5 /* Secondary screen */ = {
+			isa = PBXGroup;
+			children = (
+				ED75605D222FC3D2005B1DD5 /* Acceleration */,
+				EDCFB43A2226CAE500A6B56F /* Location */,
+			);
+			path = "Secondary screen";
+			sourceTree = "<group>";
+		};
+		ED75605D222FC3D2005B1DD5 /* Acceleration */ = {
+			isa = PBXGroup;
+			children = (
+				ED75605E222FC3E6005B1DD5 /* AccelerationView.swift */,
+				ED756066222FF42A005B1DD5 /* KVCLabel.swift */,
+			);
+			path = Acceleration;
+			sourceTree = "<group>";
+		};
+		ED756060222FCA73005B1DD5 /* Acceleration */ = {
+			isa = PBXGroup;
+			children = (
+				ED756061222FCB54005B1DD5 /* CoreMotionHandler.swift */,
+			);
+			path = Acceleration;
+			sourceTree = "<group>";
+		};
+		ED756063222FCDDD005B1DD5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED756064222FCDF0005B1DD5 /* AccelerationModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		ED77A4682216DA96004FF4B2 /* Edit */ = {
@@ -386,6 +429,7 @@
 		EDF6401D221AA2AD001332EC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				ED756060222FCA73005B1DD5 /* Acceleration */,
 				EDCFB42522268DD200A6B56F /* Location */,
 				EDF64019221AA094001332EC /* DepartmentTableViewController.swift */,
 				EDF84322221580D2009ABF71 /* ManagerTableViewController.swift */,
@@ -397,7 +441,7 @@
 		EDF64022221AFCE3001332EC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EDCFB43A2226CAE500A6B56F /* Location */,
+				ED75605C222FC3C4005B1DD5 /* Secondary screen */,
 				DB3BFA662211BFB00074EE25 /* EmployeeProfile.swift */,
 				EDF8431A22156B24009ABF71 /* AddEntityView.swift */,
 				EDF8432B22159B04009ABF71 /* HomeTableView.swift */,
@@ -573,6 +617,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB3BFA52221194C80074EE25 /* DataBaseManager.swift in Sources */,
+				ED756067222FF42A005B1DD5 /* KVCLabel.swift in Sources */,
 				DBA6F3E722118FD4003ABF10 /* EmployeeCell.swift in Sources */,
 				EDCFB4492227E62600A6B56F /* SearchPath.swift in Sources */,
 				EDF8432C22159B04009ABF71 /* HomeTableView.swift in Sources */,
@@ -588,8 +633,10 @@
 				EDF64021221AEF94001332EC /* SectionData.swift in Sources */,
 				EDF8432722158F98009ABF71 /* ReusableHeader.swift in Sources */,
 				EDF8432022157C9E009ABF71 /* AddMoreDelegates.swift in Sources */,
+				ED75605F222FC3E6005B1DD5 /* AccelerationView.swift in Sources */,
 				DBA6F3E522118B12003ABF10 /* HomeViewController.swift in Sources */,
 				EDCFB43C2226CD0C00A6B56F /* EmployeesLocationsViewControllerDelegates.swift in Sources */,
+				ED756065222FCDF0005B1DD5 /* AccelerationModel.swift in Sources */,
 				EDCFB4432226D3BF00A6B56F /* AnnotationDataView.swift in Sources */,
 				DB3BFA5C2211A7060074EE25 /* DepartmentBook.xcdatamodeld in Sources */,
 				EDF8430D22156755009ABF71 /* AlertController.swift in Sources */,
@@ -599,6 +646,7 @@
 				EDCFB41F2226881600A6B56F /* LocationPickerController.swift in Sources */,
 				DB0F28F0221302E900784EE5 /* AddMoreViewController.swift in Sources */,
 				EDF64018221A9B19001332EC /* EmployeeProfileDelegates.swift in Sources */,
+				ED756062222FCB54005B1DD5 /* CoreMotionHandler.swift in Sources */,
 				EDCFB4392226CAA400A6B56F /* LocationsView.swift in Sources */,
 				EDF8431B22156B24009ABF71 /* AddEntityView.swift in Sources */,
 				ED756058222EA6CF005B1DD5 /* SecondaryScreenTabBarController.swift in Sources */,
@@ -779,6 +827,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A3P55P4RYT;
 				INFOPLIST_FILE = "$(SRCROOT)/Internship/Application/Main/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -786,7 +835,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Andrey.Internship;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -797,6 +846,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A3P55P4RYT;
 				INFOPLIST_FILE = "$(SRCROOT)/Internship/Application/Main/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -804,7 +854,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Andrey.Internship;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

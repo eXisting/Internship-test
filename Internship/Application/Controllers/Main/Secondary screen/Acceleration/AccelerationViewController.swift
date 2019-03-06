@@ -10,6 +10,21 @@ import UIKit
 
 class AccelerationViewController: UIViewController {
   private let titleName = "Acceleration"
+  
+  private let mainView = AccelerationView()
+  private let model = AccelerationModel()
+  
+  override func loadView() {
+    super.loadView()
+    view = mainView
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    mainView.setup()
+    model.addObservers(accelerationCallback: mainView.onAccelerationChange, gyroscopeCallback: mainView.onGyroscopeChange)
+  }
 }
 
 extension AccelerationViewController: SetupableTabBarController {
