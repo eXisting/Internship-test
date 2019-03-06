@@ -12,12 +12,16 @@ import CoreMotion
 class AccelerationView: UIView {
   private let labelsStack = UIStackView()
   
-  private let xLabel = KVCLabel()
-  private let yLabel = KVCLabel()
-  private let zLabel = KVCLabel()
-  private let gyroData = KVCLabel()
-
-  private let arrowObject = UIImageView()
+  private let accelerationLabel = KVCLabel()
+  private let gyroLabel = KVCLabel()
+  private let oriantationLabel = KVCLabel()
+  
+  private let arrowObject = KVOArrow()
+  
+  deinit {
+    removeObserver(arrowObject, forKeyPath: "xRotation")
+    removeObserver(arrowObject, forKeyPath: "yRotation")
+  }
   
   func setup() {
     laidOutViews()
@@ -29,9 +33,10 @@ class AccelerationView: UIView {
     let y = (data.acceleration.y * 100).truncate(places: 2)
     let z = (data.acceleration.z * 100).truncate(places: 2)
 
-    xLabel.setValue("X: \(x)", forKey: "kvcText")
-    yLabel.setValue("Y: \(y)", forKey: "kvcText")
-    zLabel.setValue("Z: \(z)", forKey: "kvcText")
+    accelerationLabel.setValue("Accelerometr: X: \(x) Y: \(y) Z: \(z)", forKey: "kvcText")
+    
+    arrowObject.xRotation = data.acceleration.x
+    arrowObject.yRotation = data.acceleration.y
   }
   
   func onGyroscopeChange(data: CMGyroData) {
@@ -39,17 +44,29 @@ class AccelerationView: UIView {
     let y = (data.rotationRate.y * 100).truncate(places: 2)
     let z = (data.rotationRate.z * 100).truncate(places: 2)
     
-    gyroData.setValue("Gyro: \(x) \(y) \(z)", forKey: "kvcText")
+    gyroLabel.setValue("Gyro: X: \(x) Y: \(y) Z: \(z)", forKey: "kvcText")
+    
+    var text = oriantationLabel.text
+    if y > 60 {
+      text = "right"
+    } else if y < -60 {
+      text = "left"
+    } else if x > 60 {
+      text = "up"
+    } else if x < -60 {
+      text = "down"
+    }
+    
+    oriantationLabel.setValue(text, forKey: "kvcText")
   }
   
   private func laidOutViews() {
     addSubview(labelsStack)
     addSubview(arrowObject)
 
-    labelsStack.addArrangedSubview(xLabel)
-    labelsStack.addArrangedSubview(yLabel)
-    labelsStack.addArrangedSubview(zLabel)
-    labelsStack.addArrangedSubview(gyroData)
+    labelsStack.addArrangedSubview(oriantationLabel)
+    labelsStack.addArrangedSubview(accelerationLabel)
+    labelsStack.addArrangedSubview(gyroLabel)
     
     labelsStack.translatesAutoresizingMaskIntoConstraints = false
     arrowObject.translatesAutoresizingMaskIntoConstraints = false
@@ -66,11 +83,10 @@ class AccelerationView: UIView {
   }
   
   private func customizeViews() {
-    xLabel.adjustsFontSizeToFitWidth = true
-    yLabel.adjustsFontSizeToFitWidth = true
-    zLabel.adjustsFontSizeToFitWidth = true
-    gyroData.adjustsFontSizeToFitWidth = true
-
+    oriantationLabel.adjustsFontSizeToFitWidth = true
+    gyroLabel.adjustsFontSizeToFitWidth = true
+    accelerationLabel.adjustsFontSizeToFitWidth = true
+    
     labelsStack.alignment = .fill
     labelsStack.distribution = .fillEqually
     labelsStack.axis = .vertical

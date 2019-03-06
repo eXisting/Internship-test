@@ -23,6 +23,7 @@
 		ED756065222FCDF0005B1DD5 /* AccelerationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED756064222FCDF0005B1DD5 /* AccelerationModel.swift */; };
 		ED756067222FF42A005B1DD5 /* KVCLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED756066222FF42A005B1DD5 /* KVCLabel.swift */; };
 		ED756069222FFAD1005B1DD5 /* DoubleTruncated.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED756068222FFAD1005B1DD5 /* DoubleTruncated.swift */; };
+		ED75606B222FFD02005B1DD5 /* KVOArrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75606A222FFD02005B1DD5 /* KVOArrow.swift */; };
 		EDAD690F221D6AC900BF11D9 /* SelectableGeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAD690E221D6AC900BF11D9 /* SelectableGeneralCell.swift */; };
 		EDAD6912221D85B600BF11D9 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAD6911221D85B600BF11D9 /* ImagePicker.swift */; };
 		EDAD6914221D865700BF11D9 /* IImagePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAD6913221D865700BF11D9 /* IImagePickerDelegate.swift */; };
@@ -94,6 +95,7 @@
 		ED756064222FCDF0005B1DD5 /* AccelerationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerationModel.swift; sourceTree = "<group>"; };
 		ED756066222FF42A005B1DD5 /* KVCLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KVCLabel.swift; sourceTree = "<group>"; };
 		ED756068222FFAD1005B1DD5 /* DoubleTruncated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTruncated.swift; sourceTree = "<group>"; };
+		ED75606A222FFD02005B1DD5 /* KVOArrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KVOArrow.swift; sourceTree = "<group>"; };
 		EDAD690E221D6AC900BF11D9 /* SelectableGeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableGeneralCell.swift; sourceTree = "<group>"; };
 		EDAD6911221D85B600BF11D9 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		EDAD6913221D865700BF11D9 /* IImagePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IImagePickerDelegate.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 			children = (
 				ED75605E222FC3E6005B1DD5 /* AccelerationView.swift */,
 				ED756066222FF42A005B1DD5 /* KVCLabel.swift */,
+				ED75606A222FFD02005B1DD5 /* KVOArrow.swift */,
 			);
 			path = Acceleration;
 			sourceTree = "<group>";
@@ -619,6 +622,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED75606B222FFD02005B1DD5 /* KVOArrow.swift in Sources */,
 				DB3BFA52221194C80074EE25 /* DataBaseManager.swift in Sources */,
 				ED756067222FF42A005B1DD5 /* KVCLabel.swift in Sources */,
 				DBA6F3E722118FD4003ABF10 /* EmployeeCell.swift in Sources */,

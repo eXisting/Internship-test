@@ -11,7 +11,9 @@ import UIKit
 class KVCLabel: UILabel {
   @objc dynamic var kvcText = "" {
     willSet {
-      text = newValue
+      if text != newValue {
+        text = newValue        
+      }
     }
   }
 }
