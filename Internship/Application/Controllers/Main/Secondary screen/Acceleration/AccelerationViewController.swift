@@ -12,7 +12,7 @@ class AccelerationViewController: UIViewController {
   private let titleName = "Acceleration"
   
   private let mainView = AccelerationView()
-  private let model = AccelerationModel()
+  private var model: AccelerationModel!
   
   override func loadView() {
     super.loadView()
@@ -21,9 +21,10 @@ class AccelerationViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     mainView.setup()
-    model.startObserving(accelerationCallback: mainView.onAccelerationChange, gyroscopeCallback: mainView.onGyroscopeChange)
+    
+    model = AccelerationModel(accelerationCallback: mainView.onAccelerationChange, gyroscopeCallback: mainView.onGyroscopeChange)    
+    model.startObserving()
   }
 }
 

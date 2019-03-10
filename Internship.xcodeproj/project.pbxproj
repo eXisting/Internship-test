@@ -16,6 +16,7 @@
 		DB3BFA692211C4930074EE25 /* EmployeeProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BFA682211C4930074EE25 /* EmployeeProfileController.swift */; };
 		DBA6F3E522118B12003ABF10 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F3E422118B12003ABF10 /* HomeViewController.swift */; };
 		DBA6F3E722118FD4003ABF10 /* EmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F3E622118FD4003ABF10 /* EmployeeCell.swift */; };
+		DBEFDFD92231AFB30066583F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEFDFD82231AFB30066583F /* AppDelegate.swift */; };
 		ED756058222EA6CF005B1DD5 /* SecondaryScreenTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED756057222EA6CF005B1DD5 /* SecondaryScreenTabBarController.swift */; };
 		ED75605B222EA768005B1DD5 /* AccelerationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75605A222EA768005B1DD5 /* AccelerationViewController.swift */; };
 		ED75605F222FC3E6005B1DD5 /* AccelerationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75605E222FC3E6005B1DD5 /* AccelerationView.swift */; };
@@ -48,7 +49,6 @@
 		EDF64021221AEF94001332EC /* SectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64020221AEF94001332EC /* SectionData.swift */; };
 		EDF64025221BFD67001332EC /* SelectableEmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64024221BFD67001332EC /* SelectableEmployeeCell.swift */; };
 		EDF64027221C1442001332EC /* DataSourceDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64026221C1442001332EC /* DataSourceDelegates.swift */; };
-		EDF8430822156358009ABF71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8430722156357009ABF71 /* AppDelegate.swift */; };
 		EDF8430D22156755009ABF71 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8430C22156755009ABF71 /* AlertController.swift */; };
 		EDF8431B22156B24009ABF71 /* AddEntityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8431A22156B24009ABF71 /* AddEntityView.swift */; };
 		EDF8432022157C9E009ABF71 /* AddMoreDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8431F22157C9E009ABF71 /* AddMoreDelegates.swift */; };
@@ -88,6 +88,7 @@
 		DB3BFA682211C4930074EE25 /* EmployeeProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfileController.swift; sourceTree = "<group>"; };
 		DBA6F3E422118B12003ABF10 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DBA6F3E622118FD4003ABF10 /* EmployeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeCell.swift; sourceTree = "<group>"; };
+		DBEFDFD82231AFB30066583F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED756057222EA6CF005B1DD5 /* SecondaryScreenTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryScreenTabBarController.swift; sourceTree = "<group>"; };
 		ED75605A222EA768005B1DD5 /* AccelerationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerationViewController.swift; sourceTree = "<group>"; };
 		ED75605E222FC3E6005B1DD5 /* AccelerationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerationView.swift; sourceTree = "<group>"; };
@@ -120,7 +121,6 @@
 		EDF64020221AEF94001332EC /* SectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionData.swift; sourceTree = "<group>"; };
 		EDF64024221BFD67001332EC /* SelectableEmployeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableEmployeeCell.swift; sourceTree = "<group>"; };
 		EDF64026221C1442001332EC /* DataSourceDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceDelegates.swift; sourceTree = "<group>"; };
-		EDF8430722156357009ABF71 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../../../../Users/sys-246/Projects/Internship/Internship/Application/Main/AppDelegate.swift"; sourceTree = DEVELOPER_DIR; };
 		EDF8430C22156755009ABF71 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		EDF8431A22156B24009ABF71 /* AddEntityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntityView.swift; sourceTree = "<group>"; };
 		EDF8431F22157C9E009ABF71 /* AddMoreDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoreDelegates.swift; sourceTree = "<group>"; };
@@ -229,7 +229,7 @@
 		DBA6F3EB2211920D003ABF10 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				EDF8430722156357009ABF71 /* AppDelegate.swift */,
+				DBEFDFD82231AFB30066583F /* AppDelegate.swift */,
 				DB0660F421F793DA007F6989 /* Info.plist */,
 			);
 			path = Main;
@@ -634,9 +634,9 @@
 				EDF84323221580D2009ABF71 /* ManagerTableViewController.swift in Sources */,
 				EDCFB42422268C8C00A6B56F /* LocationManager.swift in Sources */,
 				ED75605B222EA768005B1DD5 /* AccelerationViewController.swift in Sources */,
+				DBEFDFD92231AFB30066583F /* AppDelegate.swift in Sources */,
 				EDF6401C221AA0CC001332EC /* GeneralCell.swift in Sources */,
 				EDF6401A221AA094001332EC /* DepartmentTableViewController.swift in Sources */,
-				EDF8430822156358009ABF71 /* AppDelegate.swift in Sources */,
 				EDCFB4462226DE7D00A6B56F /* ImageResize.swift in Sources */,
 				EDF64021221AEF94001332EC /* SectionData.swift in Sources */,
 				EDF8432722158F98009ABF71 /* ReusableHeader.swift in Sources */,
@@ -835,7 +835,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A3P55P4RYT;
 				INFOPLIST_FILE = "$(SRCROOT)/Internship/Application/Main/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -854,7 +854,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A3P55P4RYT;
 				INFOPLIST_FILE = "$(SRCROOT)/Internship/Application/Main/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

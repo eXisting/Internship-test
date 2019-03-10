@@ -16,12 +16,45 @@ enum Rotation: String {
 class KVOArrow: UIImageView {
   @objc dynamic var xRotation: Double = 0
   @objc dynamic var yRotation: Double = 0
-    
-  private func onXRotation() {
-    transform = transform.rotated(by: CGFloat(xRotation))
+  
+  func assignObservers() {
+    addObserver(self, forKeyPath: "xRotation", options: [.new], context: nil)
+    addObserver(self, forKeyPath: "yRotation", options: [.new], context: nil)
   }
   
-  private func onYRotation() {
+  deinit {
+    deassignObservers()
+  }
+  
+  override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    if keyPath == "xRotation" || keyPath == "yRotation" {
+      rotate()
+    }
+  }
+  
+  func deassignObservers() {
+    removeObserver(self, forKeyPath: "xRotation")
+    removeObserver(self, forKeyPath: "yRotation")
+  }
+  
+  private func rotate() {
+    var transformY = CATransform3DIdentity
+    var transformX = CATransform3DIdentity
+    transformY.m34 = 1.0 / 500.0
+    transformX.m34 = 1.0 / 500.0
     
+    let xAngle = rad2deg(xRotation)
+    let yAngle = rad2deg(yRotation)
+    print("X: \(xAngle)")
+    print("Y: \(yAngle)")
+    transformY = CATransform3DRotate(transformY, yAngle, 0, 1, 0)
+    transformX = CATransform3DRotate(transformY, xAngle, 1, 0, 0)
+    
+    let concat = CATransform3DConcat(transformX, transformY)
+    layer.transform = concat
+  }
+  
+  func rad2deg(_ number: Double) -> CGFloat {
+    return CGFloat(number * 180 / .pi)
   }
 }
