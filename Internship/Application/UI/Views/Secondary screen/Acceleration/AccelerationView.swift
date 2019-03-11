@@ -8,24 +8,22 @@
 
 import UIKit
 import CoreMotion
+import Darwin
 
 class AccelerationView: UIView {
   private let labelsStack = UIStackView()
   
   private let accelerationLabel = KVCLabel()
   private let gyroLabel = KVCLabel()
-  private let oriantationLabel = KVCLabel()
+  @objc dynamic let oriantationLabel = KVCLabel()
   
   private let arrowObject = KVOArrow()
-  
-  deinit {
-    removeObserver(arrowObject, forKeyPath: "xRotation")
-    removeObserver(arrowObject, forKeyPath: "yRotation")
-  }
   
   func setup() {
     laidOutViews()
     customizeViews()
+    
+    arrowObject.startListening()
   }
   
   func onAccelerationChange(data: CMAccelerometerData) {
@@ -45,19 +43,6 @@ class AccelerationView: UIView {
     let z = (data.rotationRate.z * 100).truncate(places: 2)
     
     gyroLabel.setValue("Gyro: X: \(x) Y: \(y) Z: \(z)", forKey: "kvcText")
-    
-    var text = oriantationLabel.text
-    if y > 60 {
-      text = "right"
-    } else if y < -60 {
-      text = "left"
-    } else if x > 60 {
-      text = "up"
-    } else if x < -60 {
-      text = "down"
-    }
-    
-    oriantationLabel.setValue(text, forKey: "kvcText")
   }
   
   private func laidOutViews() {
