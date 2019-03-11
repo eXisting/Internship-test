@@ -15,8 +15,8 @@ class CoreMotionHandler {
   static let shared = CoreMotionHandler()
   
   private init() {
-    motionManager.accelerometerUpdateInterval = 0.1
-    motionManager.gyroUpdateInterval = 0.1
+    motionManager.accelerometerUpdateInterval = 0.05
+    motionManager.gyroUpdateInterval = 0.05
   }
   
   deinit {

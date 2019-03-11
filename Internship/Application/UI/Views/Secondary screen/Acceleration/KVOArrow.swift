@@ -47,8 +47,8 @@ class KVOArrow: UIImageView {
     let yAngle = rad2deg(yRotation)
     print("X: \(xAngle)")
     print("Y: \(yAngle)")
-    transformY = CATransform3DRotate(transformY, yAngle, 0, 1, 0)
-    transformX = CATransform3DRotate(transformY, xAngle, 1, 0, 0)
+    transformY = CATransform3DRotate(transformY, yAngle, 1, 0, 0)
+    transformX = CATransform3DRotate(transformY, xAngle, 0, 0, 1)
     
     let concat = CATransform3DConcat(transformX, transformY)
     layer.transform = concat

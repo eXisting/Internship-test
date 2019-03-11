@@ -25,6 +25,16 @@ class AccelerationViewController: UIViewController {
     
     model = AccelerationModel(accelerationCallback: mainView.onAccelerationChange, gyroscopeCallback: mainView.onGyroscopeChange)    
     model.startObserving()
+    
+    subscribeOnGyroChanges()
+  }
+  
+  private func subscribeOnGyroChanges() {
+    NotificationCenter.default.addObserver(self, selector: #selector(onDidOrientationChanged), name: .OrientationChanged, object: nil)
+  }
+  
+  @objc private func onDidOrientationChanged(_ notification: Notification) {
+    mainView.setValue(notification.object as! String, forKeyPath: "oriantationLabel.kvcText")
   }
 }
 

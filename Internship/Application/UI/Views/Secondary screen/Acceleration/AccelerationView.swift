@@ -10,7 +10,7 @@ import UIKit
 import CoreMotion
 
 class AccelerationView: UIView {
-  let oriantationLabel = KVCLabel()
+  @objc dynamic var oriantationLabel = KVCLabel()
 
   private let labelsStack = UIStackView()
   

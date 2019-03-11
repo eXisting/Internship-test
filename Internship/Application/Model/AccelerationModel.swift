@@ -58,6 +58,8 @@ class AccelerationModel {
       }
       
       if text != orientation {
+        orientation = text
+        NotificationCenter.default.post(name: .OrientationChanged, object: orientation)
       }
       
       onGyroEvent(x, y, z)
